@@ -1,0 +1,24 @@
+--- Node & React Dependencies (Massive, do not commit) ---
+
+node_modules/
+/frontend/node_modules
+
+--- Build Artifacts (We build these fresh every time) ---
+
+/frontend/dist
+/dist
+/portfolio-server
+/portfolio-server.exe
+/main.exe
+
+--- Environment & Keys (Security) ---
+
+.env
+*.pem
+*.key
+*.ps1
+
+--- OS Junk ---
+
+.DS_Store
+Thumbs.db
