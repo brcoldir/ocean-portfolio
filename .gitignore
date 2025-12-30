@@ -17,6 +17,7 @@ node_modules/
 *.pem
 *.key
 *.ps1
+*.code-workspace
 
 --- OS Junk ---
 
