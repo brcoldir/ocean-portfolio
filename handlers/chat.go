@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
+	"mime/multipart"
 	"net/http"
 	"os"
 	"path/filepath"
@@ -22,6 +23,8 @@ type ChatHandler struct {
 var ragAllowlist = []string{"career.md", "adventures.md", "entrepreneurship.md", "personal.md"}
 
 var anthropicClient = &http.Client{Timeout: 30 * time.Second}
+
+var elevenLabsClient = &http.Client{Timeout: 60 * time.Second}
 
 const (
 	maxMessageLen   = 500
@@ -169,4 +172,104 @@ func callClaude(ragContent string, history []db.Message, userMessage string) (st
 		return "", fmt.Errorf("empty response from anthropic")
 	}
 	return cr.Content[0].Text, nil
+}
+
+func (h *ChatHandler) HandleTranscribe(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodPost {
+		http.Error(w, "method not allowed", http.StatusMethodNotAllowed)
+		return
+	}
+
+	apiKey := os.Getenv("ELEVENLABS_API_KEY")
+	if apiKey == "" {
+		http.Error(w, `{"error":"voice not configured"}`, http.StatusServiceUnavailable)
+		return
+	}
+
+	if err := r.ParseMultipartForm(10 << 20); err != nil {
+		http.Error(w, `{"error":"audio too large or invalid"}`, http.StatusBadRequest)
+		return
+	}
+	file, _, err := r.FormFile("audio")
+	if err != nil {
+		http.Error(w, `{"error":"audio file required"}`, http.StatusBadRequest)
+		return
+	}
+	defer file.Close()
+
+	var buf bytes.Buffer
+	mw := multipart.NewWriter(&buf)
+	fw, _ := mw.CreateFormFile("file", "audio.webm")
+	io.Copy(fw, file)
+	mw.WriteField("model_id", "scribe_v1")
+	mw.Close()
+
+	req, _ := http.NewRequest(http.MethodPost, "https://api.elevenlabs.io/v1/speech-to-text", &buf)
+	req.Header.Set("xi-api-key", apiKey)
+	req.Header.Set("Content-Type", mw.FormDataContentType())
+
+	resp, err := elevenLabsClient.Do(req)
+	if err != nil || resp.StatusCode != http.StatusOK {
+		http.Error(w, `{"error":"transcription failed"}`, http.StatusServiceUnavailable)
+		return
+	}
+	defer resp.Body.Close()
+
+	var result struct {
+		Text string `json:"text"`
+	}
+	json.NewDecoder(resp.Body).Decode(&result)
+
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(map[string]string{"transcript": result.Text})
+}
+
+func (h *ChatHandler) HandleSpeak(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodPost {
+		http.Error(w, "method not allowed", http.StatusMethodNotAllowed)
+		return
+	}
+
+	var body struct {
+		Text string `json:"text"`
+	}
+	if err := json.NewDecoder(r.Body).Decode(&body); err != nil || strings.TrimSpace(body.Text) == "" {
+		http.Error(w, `{"error":"text required"}`, http.StatusBadRequest)
+		return
+	}
+	if len(body.Text) > 5000 {
+		body.Text = body.Text[:5000]
+	}
+
+	apiKey := os.Getenv("ELEVENLABS_API_KEY")
+	voiceID := os.Getenv("ELEVENLABS_VOICE_ID")
+	if apiKey == "" || voiceID == "" {
+		http.Error(w, `{"error":"voice not configured"}`, http.StatusServiceUnavailable)
+		return
+	}
+
+	payload, _ := json.Marshal(map[string]interface{}{
+		"text":     body.Text,
+		"model_id": "eleven_turbo_v2_5",
+		"voice_settings": map[string]float64{
+			"stability":        0.5,
+			"similarity_boost": 0.75,
+		},
+	})
+
+	url := fmt.Sprintf("https://api.elevenlabs.io/v1/text-to-speech/%s", voiceID)
+	req, _ := http.NewRequest(http.MethodPost, url, bytes.NewReader(payload))
+	req.Header.Set("xi-api-key", apiKey)
+	req.Header.Set("Content-Type", "application/json")
+	req.Header.Set("Accept", "audio/mpeg")
+
+	resp, err := elevenLabsClient.Do(req)
+	if err != nil || resp.StatusCode != http.StatusOK {
+		http.Error(w, `{"error":"TTS failed"}`, http.StatusServiceUnavailable)
+		return
+	}
+	defer resp.Body.Close()
+
+	w.Header().Set("Content-Type", "audio/mpeg")
+	io.Copy(w, resp.Body)
 }
