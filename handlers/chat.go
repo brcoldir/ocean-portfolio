@@ -9,6 +9,8 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
+	"time"
+	"unicode/utf8"
 
 	"github.com/brandoncoldiron/portfolio/db"
 )
@@ -18,6 +20,8 @@ type ChatHandler struct {
 }
 
 var ragAllowlist = []string{"career.md", "adventures.md", "entrepreneurship.md", "personal.md"}
+
+var anthropicClient = &http.Client{Timeout: 30 * time.Second}
 
 const (
 	maxMessageLen   = 500
@@ -49,7 +53,7 @@ func (h *ChatHandler) HandleChat(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, `{"error":"sessionId and message required"}`, http.StatusBadRequest)
 		return
 	}
-	if len(req.Message) > maxMessageLen {
+	if utf8.RuneCountInString(req.Message) > maxMessageLen {
 		http.Error(w, `{"error":"message too long, max 500 characters"}`, http.StatusBadRequest)
 		return
 	}
@@ -126,8 +130,9 @@ func callClaude(ragContent string, history []db.Message, userMessage string) (st
 	msgs := make([]claudeMessage, 0, len(history)+1)
 	for _, m := range history {
 		content := m.Content
-		if len(content) > maxHistoryChars {
-			content = content[:maxHistoryChars]
+		if utf8.RuneCountInString(content) > maxHistoryChars {
+			runes := []rune(content)
+			content = string(runes[:maxHistoryChars])
 		}
 		msgs = append(msgs, claudeMessage{Role: m.Role, Content: content})
 	}
@@ -145,7 +150,7 @@ func callClaude(ragContent string, history []db.Message, userMessage string) (st
 	req.Header.Set("x-api-key", apiKey)
 	req.Header.Set("anthropic-version", "2023-06-01")
 
-	resp, err := http.DefaultClient.Do(req)
+	resp, err := anthropicClient.Do(req)
 	if err != nil {
 		return "", err
 	}
