@@ -7,103 +7,145 @@ import (
 	"net/http"
 	"net/smtp"
 	"os"
+
+	"github.com/brandoncoldiron/portfolio/db"
+	"github.com/brandoncoldiron/portfolio/handlers"
+	"github.com/brandoncoldiron/portfolio/middleware"
+	"golang.org/x/crypto/bcrypt"
 )
 
-// ContactRequest defines the structure of the JSON body for contact form submissions
+func main() {
+	if err := os.MkdirAll("./data", 0755); err != nil {
+		log.Fatal("create data dir:", err)
+	}
+
+	database, err := db.Open("./data/portfolio.db")
+	if err != nil {
+		log.Fatal("open db:", err)
+	}
+	if err := database.CreateSchema(); err != nil {
+		log.Fatal("create schema:", err)
+	}
+	seedAdminUser(database)
+
+	rl := middleware.NewRateLimiter()
+
+	chatH := &handlers.ChatHandler{DB: database}
+	authH := &handlers.AuthHandler{DB: database, RL: rl}
+	adminH := &handlers.AdminHandler{DB: database}
+
+	mux := http.NewServeMux()
+
+	// Static files (SPA — serve index.html for unknown paths)
+	fs := http.FileServer(http.Dir("./dist"))
+	mux.Handle("/", spaHandler(fs))
+
+	// Chat API (rate limited)
+	mux.Handle("POST /api/chat", rl.Limit(http.HandlerFunc(chatH.HandleChat)))
+	mux.Handle("POST /api/chat/transcribe", rl.Limit(http.HandlerFunc(chatH.HandleTranscribe)))
+	mux.Handle("POST /api/chat/speak", rl.Limit(http.HandlerFunc(chatH.HandleSpeak)))
+
+	// Auth API
+	mux.HandleFunc("POST /api/auth/login", authH.HandleLogin)
+	mux.HandleFunc("POST /api/auth/logout", authH.HandleLogout)
+	mux.HandleFunc("POST /api/auth/reset-request", authH.HandleResetRequest)
+	mux.HandleFunc("POST /api/auth/reset-confirm", authH.HandleResetConfirm)
+
+	// Admin API (JWT protected)
+	mux.Handle("GET /api/admin/conversations", middleware.Protect(http.HandlerFunc(adminH.HandleConversations)))
+	mux.Handle("GET /api/admin/conversations/{id}", middleware.Protect(http.HandlerFunc(adminH.HandleConversation)))
+	mux.Handle("DELETE /api/admin/conversations/{id}", middleware.Protect(http.HandlerFunc(adminH.HandleConversation)))
+	mux.Handle("GET /api/admin/rag", middleware.Protect(http.HandlerFunc(adminH.HandleRAGList)))
+	mux.Handle("GET /api/admin/rag/{name}", middleware.Protect(http.HandlerFunc(adminH.HandleRAGFile)))
+	mux.Handle("PUT /api/admin/rag/{name}", middleware.Protect(http.HandlerFunc(adminH.HandleRAGFile)))
+
+	// Existing endpoints
+	mux.HandleFunc("POST /api/contact", handleContact)
+	mux.HandleFunc("GET /api/health", handleHealth)
+
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+	fmt.Printf("Server starting on :%s\n", port)
+	log.Fatal(http.ListenAndServe(":"+port, mux))
+}
+
+// spaHandler serves static files and falls back to index.html for SPA routing
+func spaHandler(fs http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if r.URL.Path != "/" {
+			_, err := os.Stat("./dist" + r.URL.Path)
+			if os.IsNotExist(err) {
+				http.ServeFile(w, r, "./dist/index.html")
+				return
+			}
+		}
+		fs.ServeHTTP(w, r)
+	})
+}
+
+func seedAdminUser(database *db.DB) {
+	user, err := database.GetAdminUser()
+	if err != nil {
+		log.Fatal("check admin user:", err)
+	}
+	if user != nil {
+		return
+	}
+	initialPass := os.Getenv("ADMIN_INITIAL_PASSWORD")
+	if initialPass == "" {
+		log.Println("WARNING: No admin user exists. Set ADMIN_INITIAL_PASSWORD env var on first run.")
+		return
+	}
+	email := os.Getenv("ADMIN_EMAIL")
+	if email == "" {
+		email = "brcoldir@gmail.com"
+	}
+	hash, err := bcrypt.GenerateFromPassword([]byte(initialPass), 12)
+	if err != nil {
+		log.Fatal("hash admin password:", err)
+	}
+	if err := database.UpsertAdminUser(email, string(hash)); err != nil {
+		log.Fatal("seed admin user:", err)
+	}
+	log.Printf("Admin user created: %s (remove ADMIN_INITIAL_PASSWORD from env after first login)", email)
+}
+
+// ContactRequest and handleContact preserved from original main.go
 type ContactRequest struct {
 	Name    string `json:"name"`
 	Email   string `json:"email"`
 	Message string `json:"message"`
 }
 
-// Response defines the standard API response structure
-type Response struct {
-	Status  string `json:"status"`
-	Message string `json:"message"`
-}
-
-func main() {
-	// 1. Serve Static Files (The React App)
-	// Expects a 'dist' or 'build' folder in the same directory
-	fs := http.FileServer(http.Dir("./dist"))
-	http.Handle("/", fs)
-
-	// 2. API Routes
-	http.HandleFunc("/api/contact", handleContact)
-	http.HandleFunc("/api/health", handleHealth)
-
-	// 3. Start Server
-	port := os.Getenv("PORT")
-	if port == "" {
-		port = "8080"
-	}
-
-	fmt.Printf("🚀 Server starting on port %s...\n", port)
-	fmt.Printf("📂 Serving static files from ./dist\n")
-
-	err := http.ListenAndServe(":"+port, nil)
-	if err != nil {
-		log.Fatal("Server failed to start:", err)
-	}
-}
-
-// handleContact processes the form submission from the React frontend
 func handleContact(w http.ResponseWriter, r *http.Request) {
-	// 1. Check Method
-	if r.Method != "POST" {
-		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
-		return
-	}
-
-	// 2. Parse JSON Body
 	var req ContactRequest
 	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
 		http.Error(w, "Invalid body", http.StatusBadRequest)
 		return
 	}
 
-	// 3. Get Credentials (from Server Environment)
 	senderEmail := os.Getenv("GMAIL_USER")
 	senderPassword := os.Getenv("GMAIL_PASS")
-	toEmail := "brcoldir@gmail.com" // Your personal email
+	toEmail := "brcoldir@gmail.com"
 
-	if senderEmail == "" || senderPassword == "" {
-		log.Println("Error: Email credentials not set on server.")
-		// We still send success to the user so they don't worry, but we log the error
-		// In a real app, you might want to return a 500 error here.
-	} else {
-		// 4. Send Email via Gmail
+	if senderEmail != "" && senderPassword != "" {
 		auth := smtp.PlainAuth("", senderEmail, senderPassword, "smtp.gmail.com")
-		msg := []byte("To: " + toEmail + "\r\n" +
-			"Subject: Portfolio Contact: " + req.Name + "\r\n" +
-			"\r\n" +
-			"From: " + req.Name + " (" + req.Email + ")\n\n" +
-			req.Message + "\r\n")
-
-		err := smtp.SendMail("smtp.gmail.com:587", auth, senderEmail, []string{toEmail}, msg)
-		if err != nil {
-			log.Printf("Failed to send email: %v\n", err)
+		msg := []byte("To: " + toEmail + "\r\nSubject: Portfolio Contact: " + req.Name + "\r\n\r\n" +
+			"From: " + req.Name + " (" + req.Email + ")\n\n" + req.Message + "\r\n")
+		if err := smtp.SendMail("smtp.gmail.com:587", auth, senderEmail, []string{toEmail}, msg); err != nil {
+			log.Printf("Failed to send email: %v", err)
 			http.Error(w, "Failed to send email", http.StatusInternalServerError)
 			return
 		}
-		log.Printf("Email sent successfully from %s", req.Name)
 	}
 
-	// 5. Respond to React
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(Response{Status: "success", Message: "Message received"})
+	json.NewEncoder(w).Encode(map[string]string{"status": "success", "message": "Message received"})
 }
 
-// handleHealth is a simple health check endpoint
 func handleHealth(w http.ResponseWriter, r *http.Request) {
-	enableCors(&w)
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(map[string]string{"status": "alive", "uptime": "forever"})
-}
-
-// enableCors helper to allow cross-origin requests during development
-func enableCors(w *http.ResponseWriter) {
-	(*w).Header().Set("Access-Control-Allow-Origin", "*")
-	(*w).Header().Set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
-	(*w).Header().Set("Access-Control-Allow-Headers", "Accept, Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization")
+	json.NewEncoder(w).Encode(map[string]string{"status": "alive"})
 }
