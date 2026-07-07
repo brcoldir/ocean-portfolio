@@ -1,5 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 import Coldiron from './pages/Coldiron'
+import { ChatWidget } from './components/ChatWidget'
+import ManageAI from './pages/ManageAI'
 
 import React, { useState, useEffect } from 'react';
 import {
@@ -638,10 +640,17 @@ const App = () => {
   );
 
   return (
-    <Routes>
-      <Route path="/" element={home} />
-      <Route path="/coldiron" element={<Coldiron mode={mode} />} />
-    </Routes>
+    <>
+      <Routes>
+        <Route path="/" element={home} />
+        <Route path="/coldiron" element={<Coldiron mode={mode} />} />
+        <Route path="/manageai" element={<ManageAI mode={mode} />} />
+      </Routes>
+      <Routes>
+        <Route path="/" element={<ChatWidget mode={mode} />} />
+        <Route path="/coldiron" element={<ChatWidget mode={mode} />} />
+      </Routes>
+    </>
   );
 
 };
