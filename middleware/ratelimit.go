@@ -25,10 +25,36 @@ type RateLimiter struct {
 }
 
 func NewRateLimiter() *RateLimiter {
-	return &RateLimiter{
+	rl := &RateLimiter{
 		perMinute:  make(map[string]*bucket),
 		perDay:     make(map[string]*bucket),
 		loginFails: make(map[string]*loginState),
+	}
+	go rl.sweep()
+	return rl
+}
+
+func (rl *RateLimiter) sweep() {
+	for {
+		time.Sleep(time.Hour)
+		rl.mu.Lock()
+		now := time.Now()
+		for ip, b := range rl.perMinute {
+			if now.After(b.resetAt) {
+				delete(rl.perMinute, ip)
+			}
+		}
+		for ip, b := range rl.perDay {
+			if now.After(b.resetAt) {
+				delete(rl.perDay, ip)
+			}
+		}
+		for ip, ls := range rl.loginFails {
+			if !ls.lockedUntil.IsZero() && now.After(ls.lockedUntil) {
+				delete(rl.loginFails, ip)
+			}
+		}
+		rl.mu.Unlock()
 	}
 }
 
@@ -59,8 +85,12 @@ func (rl *RateLimiter) Allow(ip string) bool {
 func (rl *RateLimiter) AllowLogin(ip string) bool {
 	rl.mu.Lock()
 	defer rl.mu.Unlock()
-	ls := rl.loginFails[ip]
-	if ls == nil {
+	ls, ok := rl.loginFails[ip]
+	if !ok {
+		return true
+	}
+	if !ls.lockedUntil.IsZero() && !time.Now().Before(ls.lockedUntil) {
+		delete(rl.loginFails, ip)
 		return true
 	}
 	if time.Now().Before(ls.lockedUntil) {

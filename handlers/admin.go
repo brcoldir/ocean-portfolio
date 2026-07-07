@@ -98,11 +98,12 @@ func (h *AdminHandler) HandleRAGList(w http.ResponseWriter, r *http.Request) {
 
 func (h *AdminHandler) HandleRAGFile(w http.ResponseWriter, r *http.Request) {
 	name := r.PathValue("name")
-	if !isAllowedRAG(name) {
-		http.Error(w, `{"error":"not found"}`, http.StatusNotFound)
+	canonical, ok := canonicalRAGName(name)
+	if !ok {
+		http.Error(w, "not found", http.StatusNotFound)
 		return
 	}
-	path := filepath.Join("./rag", name)
+	path := filepath.Join("./rag", canonical)
 
 	switch r.Method {
 	case http.MethodGet:
@@ -133,11 +134,11 @@ func (h *AdminHandler) HandleRAGFile(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func isAllowedRAG(name string) bool {
+func canonicalRAGName(name string) (string, bool) {
 	for _, a := range ragAllowlist {
 		if strings.EqualFold(name, a) {
-			return true
+			return a, true
 		}
 	}
-	return false
+	return "", false
 }

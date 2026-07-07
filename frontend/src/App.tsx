@@ -646,10 +646,7 @@ const App = () => {
         <Route path="/coldiron" element={<Coldiron mode={mode} />} />
         <Route path="/manageai" element={<ManageAI mode={mode} />} />
       </Routes>
-      <Routes>
-        <Route path="/" element={<ChatWidget mode={mode} />} />
-        <Route path="/coldiron" element={<ChatWidget mode={mode} />} />
-      </Routes>
+      <ChatWidget mode={mode} />
     </>
   );
 

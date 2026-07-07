@@ -15,6 +15,11 @@ import (
 )
 
 func main() {
+	jwtSecret := os.Getenv("JWT_SECRET")
+	if len(jwtSecret) < 32 {
+		log.Fatal("JWT_SECRET must be set to at least 32 characters")
+	}
+
 	if err := os.MkdirAll("./data", 0755); err != nil {
 		log.Fatal("create data dir:", err)
 	}
@@ -48,7 +53,7 @@ func main() {
 	// Auth API
 	mux.HandleFunc("POST /api/auth/login", authH.HandleLogin)
 	mux.HandleFunc("POST /api/auth/logout", authH.HandleLogout)
-	mux.HandleFunc("POST /api/auth/reset-request", authH.HandleResetRequest)
+	mux.Handle("POST /api/auth/reset-request", rl.Limit(http.HandlerFunc(authH.HandleResetRequest)))
 	mux.HandleFunc("POST /api/auth/reset-confirm", authH.HandleResetConfirm)
 
 	// Admin API (JWT protected)

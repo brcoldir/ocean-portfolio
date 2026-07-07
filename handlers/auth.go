@@ -191,12 +191,9 @@ func sendResetEmail(to, resetURL string) {
 	smtp.SendMail("smtp.gmail.com:587", auth, from, []string{to}, []byte(body))
 }
 
-// extractIP extracts the client IP from the request, respecting X-Forwarded-For
-// for reverse-proxy deployments. Shared across handler files via same package.
+// extractIP returns the IP of the actual TCP connection. X-Forwarded-For is
+// intentionally ignored to prevent IP spoofing for login lockout purposes.
 func extractIP(r *http.Request) string {
-	if xff := r.Header.Get("X-Forwarded-For"); xff != "" {
-		return strings.TrimSpace(strings.Split(xff, ",")[0])
-	}
 	host, _, err := net.SplitHostPort(r.RemoteAddr)
 	if err != nil {
 		return r.RemoteAddr

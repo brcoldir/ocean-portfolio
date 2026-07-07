@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"io"
 	"mime/multipart"
+	"net"
 	"net/http"
 	"os"
 	"path/filepath"
@@ -62,6 +63,9 @@ func (h *ChatHandler) HandleChat(w http.ResponseWriter, r *http.Request) {
 	}
 
 	ip := extractIP(r)
+	if net.ParseIP(ip) == nil {
+		ip = "unknown"
+	}
 	h.DB.EnsureSession(req.SessionID, ip)
 
 	ragContent, _ := loadRAG("./rag")
@@ -237,8 +241,8 @@ func (h *ChatHandler) HandleSpeak(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, `{"error":"text required"}`, http.StatusBadRequest)
 		return
 	}
-	if len(body.Text) > 5000 {
-		body.Text = body.Text[:5000]
+	if utf8.RuneCountInString(body.Text) > 5000 {
+		body.Text = string([]rune(body.Text)[:5000])
 	}
 
 	apiKey := os.Getenv("ELEVENLABS_API_KEY")
