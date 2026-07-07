@@ -30,7 +30,8 @@ func (h *AuthHandler) HandleLogin(w http.ResponseWriter, r *http.Request) {
 	ip := extractIP(r)
 	if !h.RL.AllowLogin(ip) {
 		w.Header().Set("Content-Type", "application/json")
-		http.Error(w, `{"error":"too many failed attempts, try again in 15 minutes"}`, http.StatusTooManyRequests)
+		w.WriteHeader(http.StatusTooManyRequests)
+		w.Write([]byte(`{"error":"too many failed attempts, try again in 15 minutes"}`))
 		return
 	}
 
@@ -39,19 +40,25 @@ func (h *AuthHandler) HandleLogin(w http.ResponseWriter, r *http.Request) {
 		Password string `json:"password"`
 	}
 	if err := json.NewDecoder(r.Body).Decode(&body); err != nil {
-		http.Error(w, `{"error":"invalid request"}`, http.StatusBadRequest)
+		w.Header().Set("Content-Type", "application/json")
+		w.WriteHeader(http.StatusBadRequest)
+		w.Write([]byte(`{"error":"invalid request"}`))
 		return
 	}
 
 	user, err := h.DB.GetAdminUser()
 	if err != nil || user == nil || strings.ToLower(body.Email) != strings.ToLower(user.Email) {
 		h.RL.RecordLoginFail(ip)
-		http.Error(w, `{"error":"invalid credentials"}`, http.StatusUnauthorized)
+		w.Header().Set("Content-Type", "application/json")
+		w.WriteHeader(http.StatusUnauthorized)
+		w.Write([]byte(`{"error":"invalid credentials"}`))
 		return
 	}
 	if bcrypt.CompareHashAndPassword([]byte(user.PasswordHash), []byte(body.Password)) != nil {
 		h.RL.RecordLoginFail(ip)
-		http.Error(w, `{"error":"invalid credentials"}`, http.StatusUnauthorized)
+		w.Header().Set("Content-Type", "application/json")
+		w.WriteHeader(http.StatusUnauthorized)
+		w.Write([]byte(`{"error":"invalid credentials"}`))
 		return
 	}
 
@@ -59,7 +66,9 @@ func (h *AuthHandler) HandleLogin(w http.ResponseWriter, r *http.Request) {
 
 	token, err := middleware.GenerateToken()
 	if err != nil {
-		http.Error(w, `{"error":"internal error"}`, http.StatusInternalServerError)
+		w.Header().Set("Content-Type", "application/json")
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte(`{"error":"internal error"}`))
 		return
 	}
 	middleware.SetAuthCookie(w, token)
@@ -118,30 +127,42 @@ func (h *AuthHandler) HandleResetConfirm(w http.ResponseWriter, r *http.Request)
 		Password string `json:"password"`
 	}
 	if err := json.NewDecoder(r.Body).Decode(&body); err != nil {
-		http.Error(w, `{"error":"invalid request"}`, http.StatusBadRequest)
+		w.Header().Set("Content-Type", "application/json")
+		w.WriteHeader(http.StatusBadRequest)
+		w.Write([]byte(`{"error":"invalid request"}`))
 		return
 	}
 	if len(body.Password) < 8 {
-		http.Error(w, `{"error":"password must be at least 8 characters"}`, http.StatusBadRequest)
+		w.Header().Set("Content-Type", "application/json")
+		w.WriteHeader(http.StatusBadRequest)
+		w.Write([]byte(`{"error":"password must be at least 8 characters"}`))
 		return
 	}
 	ok, err := h.DB.UseResetToken(body.Token)
 	if err != nil || !ok {
-		http.Error(w, `{"error":"invalid or expired token"}`, http.StatusBadRequest)
+		w.Header().Set("Content-Type", "application/json")
+		w.WriteHeader(http.StatusBadRequest)
+		w.Write([]byte(`{"error":"invalid or expired token"}`))
 		return
 	}
 	hash, err := bcrypt.GenerateFromPassword([]byte(body.Password), 12)
 	if err != nil {
-		http.Error(w, `{"error":"internal error"}`, http.StatusInternalServerError)
+		w.Header().Set("Content-Type", "application/json")
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte(`{"error":"internal error"}`))
 		return
 	}
 	user, _ := h.DB.GetAdminUser()
 	if user == nil {
-		http.Error(w, `{"error":"no admin user"}`, http.StatusInternalServerError)
+		w.Header().Set("Content-Type", "application/json")
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte(`{"error":"no admin user"}`))
 		return
 	}
 	if err := h.DB.UpsertAdminUser(user.Email, string(hash)); err != nil {
-		http.Error(w, `{"error":"internal error"}`, http.StatusInternalServerError)
+		w.Header().Set("Content-Type", "application/json")
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte(`{"error":"internal error"}`))
 		return
 	}
 	w.Header().Set("Content-Type", "application/json")
@@ -155,7 +176,8 @@ func sendResetEmail(to, resetURL string) {
 		return
 	}
 	auth := smtp.PlainAuth("", from, pass, "smtp.gmail.com")
-	body := "To: " + to + "\r\n" +
+	body := "From: " + from + "\r\n" +
+		"To: " + to + "\r\n" +
 		"Subject: Portfolio Admin — Password Reset\r\n" +
 		"\r\n" +
 		"Click the link below to reset your password (expires in 15 minutes):\r\n\r\n" +
