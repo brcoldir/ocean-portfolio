@@ -98,7 +98,8 @@ export default function ManageAI({ mode }: Props) {
 
   const deleteSession = async (id: string) => {
     if (!confirm('Delete this conversation?')) return;
-    await fetch(`/api/admin/conversations/${id}`, { method: 'DELETE', credentials: 'include' });
+    const res = await fetch(`/api/admin/conversations/${id}`, { method: 'DELETE', credentials: 'include' });
+    if (!res.ok) { console.error('Failed to delete conversation'); return; }
     setSessions(s => s.filter(x => x.ID !== id));
     if (expanded === id) setExpanded(null);
   };
