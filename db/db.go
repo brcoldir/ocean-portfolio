@@ -174,7 +174,7 @@ func (d *DB) ListSessions() ([]SessionSummary, error) {
 func (d *DB) GetSessionMessages(sessionID string) ([]Message, error) {
 	rows, err := d.Query(`
 		SELECT id, session_id, role, content, created_at FROM messages
-		WHERE session_id = ? ORDER BY created_at ASC
+		WHERE session_id = ? ORDER BY created_at ASC, id ASC
 	`, sessionID)
 	if err != nil {
 		return nil, err
