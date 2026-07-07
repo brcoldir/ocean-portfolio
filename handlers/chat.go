@@ -1,0 +1,167 @@
+package handlers
+
+import (
+	"bytes"
+	"encoding/json"
+	"fmt"
+	"io"
+	"net/http"
+	"os"
+	"path/filepath"
+	"strings"
+
+	"github.com/brandoncoldiron/portfolio/db"
+)
+
+type ChatHandler struct {
+	DB *db.DB
+}
+
+var ragAllowlist = []string{"career.md", "adventures.md", "entrepreneurship.md", "personal.md"}
+
+const (
+	maxMessageLen   = 500
+	historyLimit    = 20
+	maxHistoryChars = 1000
+	claudeModel     = "claude-haiku-4-5-20251001"
+	maxTokens       = 512
+)
+
+type chatRequest struct {
+	SessionID string `json:"sessionId"`
+	Message   string `json:"message"`
+}
+
+func (h *ChatHandler) HandleChat(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodPost {
+		http.Error(w, "method not allowed", http.StatusMethodNotAllowed)
+		return
+	}
+
+	var req chatRequest
+	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
+		http.Error(w, `{"error":"invalid request"}`, http.StatusBadRequest)
+		return
+	}
+
+	req.Message = strings.TrimSpace(req.Message)
+	if req.SessionID == "" || req.Message == "" {
+		http.Error(w, `{"error":"sessionId and message required"}`, http.StatusBadRequest)
+		return
+	}
+	if len(req.Message) > maxMessageLen {
+		http.Error(w, `{"error":"message too long, max 500 characters"}`, http.StatusBadRequest)
+		return
+	}
+
+	ip := extractIP(r)
+	h.DB.EnsureSession(req.SessionID, ip)
+
+	ragContent, _ := loadRAG("./rag")
+	history, _ := h.DB.GetRecentMessages(req.SessionID, historyLimit)
+
+	reply, err := callClaude(ragContent, history, req.Message)
+	if err != nil {
+		http.Error(w, `{"error":"AI unavailable, please try again"}`, http.StatusServiceUnavailable)
+		return
+	}
+
+	h.DB.SaveMessage(req.SessionID, "user", req.Message)
+	h.DB.SaveMessage(req.SessionID, "assistant", reply)
+
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(map[string]string{"reply": reply})
+}
+
+func loadRAG(dir string) (string, error) {
+	var sb strings.Builder
+	for _, name := range ragAllowlist {
+		data, err := os.ReadFile(filepath.Join(dir, name))
+		if err != nil {
+			continue
+		}
+		sb.WriteString("\n\n## ")
+		sb.WriteString(strings.TrimSuffix(name, ".md"))
+		sb.WriteString("\n")
+		sb.Write(data)
+	}
+	return sb.String(), nil
+}
+
+func buildSystemPrompt(ragContent string) string {
+	return `You are Ocean Coldiron's personal AI assistant on his portfolio website.
+Answer questions about Ocean based ONLY on the information in the knowledge base below.
+If the answer is not covered in the knowledge base, respond with: "I don't have that information, but you can reach Ocean directly at brcoldir@gmail.com."
+Never guess or invent details. Never discuss compensation, salary, pay rates, or income for any reason.
+Keep responses concise (2-4 sentences unless more detail is explicitly requested).
+
+--- KNOWLEDGE BASE ---` + ragContent + `
+--- END KNOWLEDGE BASE ---`
+}
+
+type claudeMessage struct {
+	Role    string `json:"role"`
+	Content string `json:"content"`
+}
+
+type claudeRequest struct {
+	Model     string          `json:"model"`
+	MaxTokens int             `json:"max_tokens"`
+	System    string          `json:"system"`
+	Messages  []claudeMessage `json:"messages"`
+}
+
+type claudeResponse struct {
+	Content []struct {
+		Text string `json:"text"`
+	} `json:"content"`
+}
+
+func callClaude(ragContent string, history []db.Message, userMessage string) (string, error) {
+	apiKey := os.Getenv("ANTHROPIC_API_KEY")
+	if apiKey == "" {
+		return "", fmt.Errorf("ANTHROPIC_API_KEY not set")
+	}
+
+	msgs := make([]claudeMessage, 0, len(history)+1)
+	for _, m := range history {
+		content := m.Content
+		if len(content) > maxHistoryChars {
+			content = content[:maxHistoryChars]
+		}
+		msgs = append(msgs, claudeMessage{Role: m.Role, Content: content})
+	}
+	msgs = append(msgs, claudeMessage{Role: "user", Content: userMessage})
+
+	payload, _ := json.Marshal(claudeRequest{
+		Model:     claudeModel,
+		MaxTokens: maxTokens,
+		System:    buildSystemPrompt(ragContent),
+		Messages:  msgs,
+	})
+
+	req, _ := http.NewRequest(http.MethodPost, "https://api.anthropic.com/v1/messages", bytes.NewReader(payload))
+	req.Header.Set("Content-Type", "application/json")
+	req.Header.Set("x-api-key", apiKey)
+	req.Header.Set("anthropic-version", "2023-06-01")
+
+	resp, err := http.DefaultClient.Do(req)
+	if err != nil {
+		return "", err
+	}
+	defer resp.Body.Close()
+
+	if resp.StatusCode != http.StatusOK {
+		body, _ := io.ReadAll(resp.Body)
+		return "", fmt.Errorf("anthropic %d: %s", resp.StatusCode, body)
+	}
+
+	var cr claudeResponse
+	if err := json.NewDecoder(resp.Body).Decode(&cr); err != nil {
+		return "", err
+	}
+	if len(cr.Content) == 0 {
+		return "", fmt.Errorf("empty response from anthropic")
+	}
+	return cr.Content[0].Text, nil
+}
