@@ -8,7 +8,6 @@ import React, { useState, useEffect } from 'react';
 import {
   Code,
   Terminal,
-  Coffee,
   Mail,
   Github,
   Linkedin,
@@ -22,7 +21,6 @@ import {
   MapPin,
   Youtube,
   Mountain,
-  Tent,
   Activity,
   Map,
   Instagram,
