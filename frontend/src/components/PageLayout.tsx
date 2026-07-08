@@ -1,10 +1,11 @@
+import type { ReactNode } from 'react'
 import { Terminal, Tent, Cpu, Coffee } from 'lucide-react'
 import { ChatWidget } from './ChatWidget'
 import MobileNav from './MobileNav'
 import { useMediaQuery } from '../hooks/useMediaQuery'
 
 interface PageLayoutProps {
-  children: React.ReactNode
+  children: ReactNode
   mode: 'dev' | 'human'
   scrolled: boolean
   onToggleMode: () => void

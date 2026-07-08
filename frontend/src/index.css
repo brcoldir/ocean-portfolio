@@ -1,1 +1,5 @@
 @import "tailwindcss";
+
+[id] {
+  scroll-margin-top: 4rem;
+}
