@@ -193,7 +193,7 @@ export const ChatWidget: React.FC<Props> = ({ mode, variant = 'floating' }) => {
       <div className={`flex items-center justify-between px-4 py-3 border-b flex-shrink-0 ${header}`}>
         <div className="flex items-center gap-2">
           <span className={`font-semibold text-sm ${isDev ? 'text-slate-200 font-mono' : 'text-stone-700'}`}>
-            {isDev ? 'Ask Ocean_' : "Ocean's AI Agent"}
+            {"Ask Ocean's AI Agent"}
           </span>
           {isSpeaking && (
             <span className={`text-xs animate-pulse ${accentColor}`}>speaking…</span>
@@ -303,7 +303,7 @@ export const ChatWidget: React.FC<Props> = ({ mode, variant = 'floating' }) => {
         onClick={() => setIsOpen(o => !o)}
         className={`flex items-center gap-2 px-4 py-3 rounded-full text-white font-medium text-sm shadow-lg transition-all hover:scale-105 active:scale-95 ${fab}`}>
         {isOpen ? <X size={16} /> : <MessageCircle size={16} />}
-        {!isOpen && (isDev ? 'Ask Ocean_' : 'Chat with Ocean')}
+        {!isOpen && "Ask Ocean's AI Agent"}
       </button>
     </div>
   );
