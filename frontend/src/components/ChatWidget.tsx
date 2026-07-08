@@ -294,7 +294,7 @@ export const ChatWidget: React.FC<Props> = ({ mode, variant = 'floating' }) => {
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
       {isOpen && (
-        <div className="w-80 flex flex-col overflow-hidden" style={{ height: '480px' }}>
+        <div className="w-80 max-w-[calc(100vw-3rem)] flex flex-col overflow-hidden" style={{ height: '480px' }}>
           {chatPanel}
         </div>
       )}
