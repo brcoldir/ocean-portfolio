@@ -99,7 +99,7 @@ const Coldiron = ({ mode }: Props) => {
             </div>
             <div className="text-center">
               <div className={`text-2xl font-bold ${mode === "dev" ? "text-white" : "text-stone-800"}`}>
-                39/50
+                46/50
               </div>
               <div className="text-xs uppercase tracking-wide opacity-50">State High Points</div>
             </div>
@@ -113,7 +113,7 @@ const Coldiron = ({ mode }: Props) => {
 
           <div className="flex flex-wrap justify-center gap-4 pt-8">
             <a
-              href="https://youtube.com/@oceanoutdoors"
+              href="https://youtube.com/@oceansoutdoors"
               target="_blank"
               rel="noreferrer"
               className={`group flex items-center gap-2 px-5 py-2 rounded-lg transition-all ${
@@ -170,7 +170,7 @@ const Coldiron = ({ mode }: Props) => {
                 <a className="underline" href="https://oceancoldiron.com">oceancoldiron.com</a>
               </li>
               <li>
-                <a className="underline" href="https://youtube.com/@oceanoutdoors">youtube.com/@oceanoutdoors</a>
+                <a className="underline" href="https://youtube.com/@oceansoutdoors">youtube.com/@oceansoutdoors</a>
               </li>
               <li>
                 <a className="underline" href="https://linkedin.com/in/brandon-coldiron/">linkedin.com/in/brandon-coldiron</a>

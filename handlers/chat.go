@@ -21,8 +21,6 @@ type ChatHandler struct {
 	DB *db.DB
 }
 
-var ragAllowlist = []string{"career.md", "adventures.md", "entrepreneurship.md", "personal.md"}
-
 var anthropicClient = &http.Client{Timeout: 30 * time.Second}
 
 var elevenLabsClient = &http.Client{Timeout: 60 * time.Second}
@@ -86,7 +84,7 @@ func (h *ChatHandler) HandleChat(w http.ResponseWriter, r *http.Request) {
 
 func loadRAG(dir string) (string, error) {
 	var sb strings.Builder
-	for _, name := range ragAllowlist {
+	for _, name := range listRAGFiles() {
 		data, err := os.ReadFile(filepath.Join(dir, name))
 		if err != nil {
 			continue
@@ -268,11 +266,18 @@ func (h *ChatHandler) HandleSpeak(w http.ResponseWriter, r *http.Request) {
 	req.Header.Set("Accept", "audio/mpeg")
 
 	resp, err := elevenLabsClient.Do(req)
-	if err != nil || resp.StatusCode != http.StatusOK {
+	if err != nil {
+		fmt.Printf("[TTS] ElevenLabs request error: %v\n", err)
 		http.Error(w, `{"error":"TTS failed"}`, http.StatusServiceUnavailable)
 		return
 	}
 	defer resp.Body.Close()
+	if resp.StatusCode != http.StatusOK {
+		body, _ := io.ReadAll(resp.Body)
+		fmt.Printf("[TTS] ElevenLabs %d: %s\n", resp.StatusCode, body)
+		http.Error(w, `{"error":"TTS failed"}`, http.StatusServiceUnavailable)
+		return
+	}
 
 	w.Header().Set("Content-Type", "audio/mpeg")
 	io.Copy(w, resp.Body)

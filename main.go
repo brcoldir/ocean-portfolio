@@ -61,8 +61,10 @@ func main() {
 	mux.Handle("GET /api/admin/conversations/{id}", middleware.Protect(http.HandlerFunc(adminH.HandleConversation)))
 	mux.Handle("DELETE /api/admin/conversations/{id}", middleware.Protect(http.HandlerFunc(adminH.HandleConversation)))
 	mux.Handle("GET /api/admin/rag", middleware.Protect(http.HandlerFunc(adminH.HandleRAGList)))
+	mux.Handle("POST /api/admin/rag", middleware.Protect(http.HandlerFunc(adminH.HandleRAGCreate)))
 	mux.Handle("GET /api/admin/rag/{name}", middleware.Protect(http.HandlerFunc(adminH.HandleRAGFile)))
 	mux.Handle("PUT /api/admin/rag/{name}", middleware.Protect(http.HandlerFunc(adminH.HandleRAGFile)))
+	mux.Handle("DELETE /api/admin/rag/{name}", middleware.Protect(http.HandlerFunc(adminH.HandleRAGFile)))
 
 	// Existing endpoints
 	mux.HandleFunc("POST /api/contact", handleContact)

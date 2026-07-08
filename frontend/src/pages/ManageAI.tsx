@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Terminal, Tent, LogOut, MessageSquare, FileText, Trash2, ChevronDown, ChevronUp, Download, Save } from 'lucide-react';
+import { Terminal, Tent, LogOut, MessageSquare, FileText, Trash2, ChevronDown, ChevronUp, Download, Save, Plus } from 'lucide-react';
 
 interface Props { mode: 'dev' | 'human' }
 
@@ -27,6 +27,9 @@ export default function ManageAI({ mode }: Props) {
   const [ragFiles, setRagFiles] = useState<RAGFile[]>([]);
   const [editing, setEditing] = useState<string | null>(null);
   const [editContent, setEditContent] = useState('');
+  const [creating, setCreating] = useState(false);
+  const [newName, setNewName] = useState('');
+  const [newContent, setNewContent] = useState('');
   const [saving, setSaving] = useState(false);
 
   // Check auth on mount
@@ -124,6 +127,35 @@ export default function ManageAI({ mode }: Props) {
     setSaving(false);
     setEditing(null);
     loadRAGFiles();
+  };
+
+  const createRAGFile = async () => {
+    let name = newName.trim();
+    if (!name) return;
+    if (!name.endsWith('.md')) name += '.md';
+    setSaving(true);
+    const res = await fetch('/api/admin/rag', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify({ name, content: newContent }),
+    });
+    setSaving(false);
+    if (res.ok) {
+      setCreating(false);
+      setNewName('');
+      setNewContent('');
+      loadRAGFiles();
+    } else {
+      const d = await res.json().catch(() => ({ error: 'Failed to create' }));
+      alert(d.error || 'Failed to create document');
+    }
+  };
+
+  const deleteRAGFile = async (name: string) => {
+    if (!confirm(`Delete "${name}"? This cannot be undone.`)) return;
+    const res = await fetch(`/api/admin/rag/${name}`, { method: 'DELETE', credentials: 'include' });
+    if (res.ok) setRagFiles(f => f.filter(x => x.name !== name));
   };
 
   // Style tokens
@@ -278,20 +310,65 @@ export default function ManageAI({ mode }: Props) {
         {/* RAG Tab */}
         {tab === 'rag' && (
           <div>
-            {!editing ? (
-              <div className="space-y-3">
-                {ragFiles.map(f => (
-                  <div key={f.name} className={`flex items-center justify-between px-5 py-4 rounded-xl border ${card}`}>
-                    <div>
-                      <div className="font-medium text-sm">{f.name}</div>
-                      <div className="text-xs opacity-40 mt-0.5">Last edited: {f.editedAt}</div>
-                    </div>
-                    <button onClick={() => startEdit(f.name)}
-                      className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-all ${btnPrimary}`}>
-                      Edit
+            {creating ? (
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <h2 className="font-bold">New Document</h2>
+                  <div className="flex items-center gap-2">
+                    <button onClick={() => { setCreating(false); setNewName(''); setNewContent(''); }}
+                      className="px-4 py-1.5 rounded-lg text-sm opacity-60 hover:opacity-100 transition-opacity">
+                      Cancel
+                    </button>
+                    <button onClick={createRAGFile} disabled={saving || !newName.trim()}
+                      className={`flex items-center gap-1.5 px-4 py-1.5 rounded-lg text-sm font-medium ${btnPrimary} disabled:opacity-50`}>
+                      <Save size={14} /> {saving ? 'Creating…' : 'Create'}
                     </button>
                   </div>
-                ))}
+                </div>
+                <div className="mb-3">
+                  <label className="block text-xs font-bold uppercase tracking-wider mb-1 opacity-50">Filename</label>
+                  <input type="text" value={newName} onChange={e => setNewName(e.target.value)}
+                    placeholder="my-document.md"
+                    className={`w-full px-4 py-2.5 rounded-xl border text-sm outline-none transition-colors ${inputCls}`}
+                  />
+                </div>
+                <textarea
+                  value={newContent}
+                  onChange={e => setNewContent(e.target.value)}
+                  placeholder="# My Document&#10;&#10;Start writing..."
+                  className={`w-full h-[55vh] px-4 py-3 rounded-xl border font-mono text-sm outline-none transition-colors resize-none ${inputCls}`}
+                />
+              </div>
+            ) : !editing ? (
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <p className="text-sm opacity-50">{ragFiles.length} documents</p>
+                  <button onClick={() => setCreating(true)}
+                    className={`flex items-center gap-1.5 px-4 py-1.5 rounded-lg text-sm font-medium ${btnPrimary}`}>
+                    <Plus size={14} /> New Document
+                  </button>
+                </div>
+                <div className="space-y-3">
+                  {ragFiles.length === 0 && <p className="text-sm opacity-40 text-center py-12">No documents yet.</p>}
+                  {ragFiles.map(f => (
+                    <div key={f.name} className={`flex items-center justify-between px-5 py-4 rounded-xl border ${card}`}>
+                      <div>
+                        <div className="font-medium text-sm">{f.name}</div>
+                        <div className="text-xs opacity-40 mt-0.5">Last edited: {f.editedAt}</div>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <button onClick={() => deleteRAGFile(f.name)}
+                          className="p-1.5 rounded text-red-400 opacity-50 hover:opacity-100 transition-opacity">
+                          <Trash2 size={15} />
+                        </button>
+                        <button onClick={() => startEdit(f.name)}
+                          className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-all ${btnPrimary}`}>
+                          Edit
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             ) : (
               <div>

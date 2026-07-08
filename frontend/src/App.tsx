@@ -41,8 +41,8 @@ const SITE_DATA = {
   tagline: "Modernizing business operations with AI, Go, and 15+ years of systems expertise.",
 
   about: {
-dev: "I’m a systems and integration engineer with 15+ years of experience building reliable automation across cloud and healthcare. I specialize in Go services, AWS infrastructure, and HL7/FHIR interoperability at scale (200+ client integrations). My focus is turning operational pain into calm, maintainable systems, eliminating failure modes, reducing noise, and preventing the daily fires.",
-    human: "I design my life around growth, discomfort, and perspective. I live and work full-time from my RV, deliberately placing myself in unfamiliar places and cultures, often as the outsider in the room, because that is where real learning happens. I am pursuing the highest point in every U.S. state and training for Denali in 2027, not as a bucket list, but as a practice in discipline, resilience, and long-term thinking. Every challenge I choose is a system I’m trying to understand. Every place I go makes me better at building the next one.",
+dev: "Senior Systems Engineer with 15+ years of experience building enterprise software, cloud infrastructure, healthcare integrations, and agentic AI systems. I specialize in Go services, AWS, HL7/FHIR interoperability across 200+ client integrations, and production AI engineering — MCP, RAG, multi-agent workflows, and LLMOps. My focus is turning operational chaos into calm, maintainable systems that run without constant intervention.",
+    human: "I design my life around growth, discomfort, and perspective. I live and work full-time from my RV, deliberately placing myself in unfamiliar places and cultures, often as the outsider in the room, because that is where real learning happens. I am pursuing the highest point in every U.S. state and training for Denali in 2028, not as a bucket list, but as a practice in discipline, resilience, and long-term thinking. Every challenge I choose is a system I’m trying to understand. Every place I go makes me better at building the next one.",
   },
 
   // --- SPLIT STATS: The Metrics that Matter for Each Side ---
@@ -55,16 +55,16 @@ dev: "I’m a systems and integration engineer with 15+ years of experience buil
     ],
     human: [
       { value: "100k+", label: "YouTube Subs" },
-      { value: "39/50", label: "State High Points" }, // Updated to your specific number
+      { value: "46/50", label: "State High Points" }, // Updated to your specific number
       { value: "Full-Time", label: "RV Living" },
-      { value: "2027", label: "Denali Goal" },
+      { value: "2028", label: "Denali Goal" },
     ]
   },
 
   skills: [
-    { name: "Go (Golang)", icon: Code, level: 40, type: "dev" },
-    { name: "AI / LLM Integrations", icon: Brain, level: 50, type: "dev" },
-    { name: "AWS & Cloud", icon: Cloud, level: 50, type: "dev" },
+    { name: "Go (Golang)", icon: Code, level: 85, type: "dev" },
+    { name: "Agentic AI / MCP / RAG", icon: Brain, level: 85, type: "dev" },
+    { name: "AWS & Cloud", icon: Cloud, level: 70, type: "dev" },
     { name: "Mirth Connect / HL7", icon: Server, level: 90, type: "dev" },
     { name: "SQL & DB Optimization", icon: Database, level: 80, type: "dev" },
     { name: "Content Creation", icon: Youtube, level: 80, type: "human" },
@@ -77,7 +77,7 @@ dev: "I’m a systems and integration engineer with 15+ years of experience buil
   // --- SPLIT CONTENT: EXPERIENCE VS ADVENTURES ---
   experience: {
     dev: [
-      { year: "2021 - Present", role: "Integration Consultant II", company: "ModMed", desc: "Built a full-stack Go app for dynamic protocols. Managing 200+ healthcare client integrations via Mirth Connect & AWS." },
+      { year: "2021 - Present", role: "Integration Consultant II", company: "ModMed", desc: "Completed ModMed's inaugural AI Acceleration intensive. Designs production agentic workflows using Claude Code, MCP, Databricks, FastAPI, and RAG. Leads resolution of high-impact platform failures across 200+ enterprise clients — 95% reduction in critical incident recurrence, 75% improvement in MTTR." },
       { year: "2020 - 2021", role: "Telecom Engineer", company: "Snap-On Credit", desc: "Managed an Avaya Systems Upgrade, upgrade was a success with zero downtime" },
       { year: "2019 - 2020", role: "IT Specialist / Lead DBA", company: "Lakeshore Bone & Joint", desc: "Sole DBA managing 5TB+ of clinical data. Collaborated directly with physicians to optimize EHR workflows and clinical operations." },
       { year: "2015 - 2019", role: "Entreprenuer/CEO", company: "Coldiron Auto Transport and RC Lawn and Tree", desc: "Founded and Ran 2 Businesses, Learnt all the hard lessons of being an Entreprenuer" },
@@ -90,7 +90,7 @@ dev: "I’m a systems and integration engineer with 15+ years of experience buil
         company: "North America",
         desc: "Left conventional stability behind to live and work full-time on the road. I chose constant change, unfamiliar environments, and new communities as my classroom—because comfort is the enemy of growth."
       },
-      { year: "2027", role: "Denali Summit Attempt", company: "Alaska Range", desc: "Primary expedition objective: reach the summit of Denali after completing all U.S. state high points." },
+      { year: "2028", role: "Denali Summit Attempt", company: "Alaska Range", desc: "Primary expedition objective: reach the summit of Denali after completing all U.S. state high points." },
       { year: "2023 - Present", role: "High Points Project", company: "North America", desc: "Transitioned to full-time RV life to pursue the highest point in every U.S. state while building software remotely." },
       { year: "2023 - Present", role: "Ocean Outdoors", company: "Media Platform", desc: "Built a 100k+ subscriber community focused on outdoor endurance, exploration, and lifestyle design." },
       { year: "2015 - 2019", role: "Owner / CEO", company: "RC Lawn and Tree", desc: "Bootstrapped a service business from zero. Learned the hard lessons of P&L, staffing, and customer satisfaction." },
@@ -105,13 +105,13 @@ dev: "I’m a systems and integration engineer with 15+ years of experience buil
   // --- SPLIT CONTENT: CODE VS CREATION ---
   projects: {
     dev: [
-      { title: "EZPostScheduler.com", desc: "Social Media AI Caption Generator and Scheduler", tags: ["Go", "AWS", "React", "Typescript", "Postgres"], link: "https://ezpostscheduler.com" },
-      { title: "Healthcare Interop Engine", desc: "Architected HL7 & FHIR data pipelines using Mirth Connect for 200+ clients. Decreased Integration Trouble Tickets 87% MoM.", tags: ["Mirth", "HL7", "JavaScript"], link: "#" },
-      { title: "Summit Ridge Digital", desc: "Website Hosting and Building Services", tags: ["S3", "AWS", "Typescript"], link: "https://summitridgedigital.com" },
+      { title: "EZPostScheduler.com", desc: "AI caption generator and cross-platform scheduler. Upload content, generate AI captions, post to multiple social platforms — reduces manual cross-posting by ~85%.", tags: ["Go", "AWS", "React", "Typescript", "Postgres"], link: "https://ezpostscheduler.com" },
+      { title: "Healthcare Interop Engine", desc: "Architected HL7 & FHIR data pipelines using Mirth Connect for 200+ clients. Decreased integration trouble tickets 87% MoM.", tags: ["Mirth", "HL7", "JavaScript"], link: "#" },
+      { title: "Clinical Notes REST API", desc: "Production-ready clinical notes API modeling real-world EHR patterns — patient demographics, Epic/Cerner IDs, provider NPI, SOAP notes, duplicate detection, and Swagger-validated endpoints.", tags: ["Python", "FastAPI", "SQLite", "pytest"], link: "#" },
     ],
     human: [
-      { title: "Ocean Outdoors", desc: "A YouTube community of 100k+ outdoor enthusiasts following my journey across America.", tags: ["Video Production", "Community"], link: "https://youtube.com/@oceanoutdoors" },
-      { title: "Project 50", desc: "The quest to summit the highest point in every US state. Currently at 39/50.", tags: ["Alpinism", "Logistics"], link: "#" },
+      { title: "Ocean Outdoors", desc: "A YouTube community of 100k+ outdoor enthusiasts following my journey across America.", tags: ["Video Production", "Community"], link: "https://youtube.com/@oceansoutdoors" },
+      { title: "Project 50", desc: "The quest to summit the highest point in every US state. Currently at 46/50.", tags: ["Alpinism", "Logistics"], link: "#" },
       { title: "The Mobile HQ", desc: "Custom retrofitted RV setup allowing for enterprise-grade remote work from off-grid locations.", tags: ["Solar", "Starlink", "Build"], link: "#" },
     ]
   },
@@ -119,7 +119,7 @@ dev: "I’m a systems and integration engineer with 15+ years of experience buil
   socials: {
     linkedin: "https://linkedin.com/in/brandon-coldiron/",
     email: "brcoldir@gmail.com",
-    youtube: "https://youtube.com/@oceanoutdoors",
+    youtube: "https://youtube.com/@oceansoutdoors",
     tiktok: "https://www.tiktok.com/@oceansoutdoors",
     instagram: "https://www.instagram.com/oceansoutdoors",
     facebook: "https://www.facebook.com/OceansOutdoors"
@@ -195,10 +195,10 @@ const App = () => {
   };
 
   const home = (
-    <div className={`min-h-screen transition-colors duration-700 font-sans selection:bg-opacity-30 ${mode === 'dev' ? 'bg-[#0a0f1e] text-slate-100 selection:bg-blue-500' : 'bg-[#f8f5f2] text-stone-800 selection:bg-orange-500'}`}>
+    <div className={`flex min-h-screen transition-colors duration-700 font-sans selection:bg-opacity-30 ${mode === 'dev' ? 'bg-[#0a0f1e] text-slate-100 selection:bg-blue-500' : 'bg-[#f8f5f2] text-stone-800 selection:bg-orange-500'}`}><div className="flex-1 min-w-0">
 
       {/* Navigation */}
-      <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? (mode === 'dev' ? 'bg-[#0a0f1e]/90 backdrop-blur border-b border-slate-800' : 'bg-white/90 backdrop-blur border-b border-stone-200 shadow-sm') : 'bg-transparent'}`}>
+      <nav className={`fixed top-0 left-0 right-[25%] z-50 transition-all duration-300 ${scrolled ? (mode === 'dev' ? 'bg-[#0a0f1e]/90 backdrop-blur border-b border-slate-800' : 'bg-white/90 backdrop-blur border-b border-stone-200 shadow-sm') : 'bg-transparent'}`}>
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="font-bold text-xl flex items-center gap-2">
             {mode === 'dev' ? <Terminal size={20} className="text-blue-500" /> : <Tent size={20} className="text-orange-600" />}
@@ -286,7 +286,7 @@ const App = () => {
               <Youtube size={20} />
               <div className="text-left flex flex-col leading-none">
                 <span className="text-xs opacity-50 font-mono">Watch</span>
-                <span className="text-xs font-bold mt-1">@oceanoutdoors</span>
+                <span className="text-xs font-bold mt-1">@oceansoutdoors</span>
               </div>
             </a>
 
@@ -409,7 +409,7 @@ const App = () => {
                     <div className="p-2 bg-indigo-100 text-indigo-700 rounded-lg"><Mountain size={24} /></div>
                     <div>
                       <div className="font-bold text-stone-800">Mountaineer</div>
-                      <div className="text-xs text-stone-500">Goal: Denali 2027</div>
+                      <div className="text-xs text-stone-500">Goal: Denali 2028</div>
                     </div>
                   </div>
                   <p className="text-sm text-stone-600 leading-snug">
@@ -637,6 +637,12 @@ const App = () => {
       </footer>
 
     </div>
+
+      {/* Embedded chat sidebar */}
+      <div className={`w-1/4 flex-shrink-0 sticky top-0 h-screen border-l ${mode === 'dev' ? 'border-slate-800' : 'border-stone-200'}`}>
+        <ChatWidget mode={mode} variant="embedded" />
+      </div>
+    </div>
   );
 
   return (
@@ -646,7 +652,9 @@ const App = () => {
         <Route path="/coldiron" element={<Coldiron mode={mode} />} />
         <Route path="/manageai" element={<ManageAI mode={mode} />} />
       </Routes>
-      <ChatWidget mode={mode} />
+      <Routes>
+        <Route path="/coldiron" element={<ChatWidget mode={mode} />} />
+      </Routes>
     </>
   );
 

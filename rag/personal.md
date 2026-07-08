@@ -12,7 +12,7 @@
 Ocean believes the best systems — technical or personal — are built on clear thinking, honest feedback, and eliminating noise. He approaches both software and life with a systems engineering mindset: find the failure modes, reduce them, and build something that runs without constant intervention.
 
 ## Social Links
-- YouTube: youtube.com/@oceanoutdoors (100k+ subscribers)
+- YouTube: youtube.com/@oceansoutdoors (100k+ subscribers)
 - TikTok: tiktok.com/@oceansoutdoors
 - Instagram: instagram.com/oceansoutdoors
 - Facebook: facebook.com/OceansOutdoors
@@ -23,4 +23,4 @@ Ocean believes the best systems — technical or personal — are built on clear
 Ocean is based remotely, currently living full-time in his RV. He travels across the United States pursuing his High Points project while working remotely in systems engineering and AI.
 
 ## One-Line Summary
-Ocean Coldiron is a systems engineer and AI technologist with 15+ years of experience who lives full-time on the road, has reached the high point of 39/50 U.S. states, and is training for Denali in 2027.
+Ocean Coldiron is a systems engineer and AI technologist with 15+ years of experience who lives full-time on the road, has reached the high point of 46/50 U.S. states, and is training for Denali in 2028.
