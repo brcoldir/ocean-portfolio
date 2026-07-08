@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 import Coldiron from './pages/Coldiron'
 import { ChatWidget } from './components/ChatWidget'
 import ManageAI from './pages/ManageAI'
+import PageLayout from './components/PageLayout'
 
 import React, { useState, useEffect } from 'react';
 import {
@@ -23,7 +24,6 @@ import {
   Mountain,
   Tent,
   Activity,
-  Cpu,
   Map,
   Instagram,
   Facebook,
@@ -195,34 +195,10 @@ const App = () => {
   };
 
   const home = (
-    <div className={`flex min-h-screen transition-colors duration-700 font-sans selection:bg-opacity-30 ${mode === 'dev' ? 'bg-[#0a0f1e] text-slate-100 selection:bg-blue-500' : 'bg-[#f8f5f2] text-stone-800 selection:bg-orange-500'}`}><div className="flex-1 min-w-0">
-
-      {/* Navigation */}
-      <nav className={`fixed top-0 left-0 right-[25%] z-50 transition-all duration-300 ${scrolled ? (mode === 'dev' ? 'bg-[#0a0f1e]/90 backdrop-blur border-b border-slate-800' : 'bg-white/90 backdrop-blur border-b border-stone-200 shadow-sm') : 'bg-transparent'}`}>
-        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <div className="font-bold text-xl flex items-center gap-2">
-            {mode === 'dev' ? <Terminal size={20} className="text-blue-500" /> : <Tent size={20} className="text-orange-600" />}
-            <span className="tracking-tight">{SITE_DATA.name}</span>
-          </div>
-
-          <button
-            onClick={toggleMode}
-            className={`flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-300 hover:scale-105 active:scale-95 ${mode === 'dev'
-              ? 'bg-slate-800 hover:bg-slate-700 text-blue-400 border border-slate-700 shadow-[0_0_15px_rgba(59,130,246,0.2)]'
-              : 'bg-white hover:bg-stone-50 text-orange-600 border border-stone-200 shadow-sm'
-              }`}
-          >
-            {mode === 'dev' ? (
-              <><span>System View</span><Cpu size={16} /></>
-            ) : (
-              <><span>Human View</span><Coffee size={16} /></>
-            )}
-          </button>
-        </div>
-      </nav>
+    <PageLayout mode={mode} scrolled={scrolled} onToggleMode={toggleMode} name={SITE_DATA.name}>
 
       {/* Hero Section */}
-      <section className="pt-40 pb-20 px-6 relative overflow-hidden">
+      <section className="pt-20 pb-16 md:pt-40 md:pb-20 px-6 relative overflow-hidden">
         {mode === 'dev' && (
           <div className="absolute top-20 right-0 opacity-10 font-mono text-xs pointer-events-none select-none">
             {Array.from({ length: 20 }).map((_, i) => (
@@ -636,13 +612,7 @@ const App = () => {
         <p className="text-xs">Built with Go, React, & Tailwind.</p>
       </footer>
 
-    </div>
-
-      {/* Embedded chat sidebar */}
-      <div className={`w-1/4 flex-shrink-0 sticky top-0 h-screen border-l ${mode === 'dev' ? 'border-slate-800' : 'border-stone-200'}`}>
-        <ChatWidget mode={mode} variant="embedded" />
-      </div>
-    </div>
+    </PageLayout>
   );
 
   return (
