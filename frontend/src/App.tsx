@@ -325,7 +325,7 @@ const App = () => {
       </section>
 
       {/* The Dual Content Section */}
-      <section className={`py-24 px-6 transition-colors duration-500 ${mode === 'dev' ? 'bg-slate-900/50 border-y border-slate-800' : 'bg-stone-100 border-y border-stone-200'}`}>
+      <section id="about" className={`py-24 px-6 transition-colors duration-500 ${mode === 'dev' ? 'bg-slate-900/50 border-y border-slate-800' : 'bg-stone-100 border-y border-stone-200'}`}>
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
 
           <div className="space-y-8">
@@ -337,7 +337,7 @@ const App = () => {
               {mode === 'dev' ? SITE_DATA.about.dev : SITE_DATA.about.human}
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div id="skills" className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {SITE_DATA.skills.filter(s => s.type === mode).map((skill, idx) => (
                 <div key={idx} className={`p-4 rounded-xl border flex items-center gap-4 transition-all hover:translate-x-1 ${mode === 'dev'
                   ? 'bg-slate-950 border-slate-800 hover:border-blue-500/50 hover:shadow-[0_0_15px_rgba(59,130,246,0.1)]'
@@ -390,8 +390,8 @@ const App = () => {
                 </div>
               </div>
             ) : (
-              <div className="relative h-80 w-full">
-                <div className="absolute top-0 right-10 bg-white p-5 rounded-lg shadow-md border border-stone-200 rotate-3 z-10 max-w-xs transition-transform hover:scale-105 hover:z-20">
+              <div className="flex flex-wrap gap-6 justify-center">
+                <div className="bg-white p-5 rounded-lg shadow-md border border-stone-200 rotate-3 max-w-xs transition-transform hover:scale-105">
                   <div className="flex gap-3 mb-3">
                     <div className="p-2 bg-red-100 text-red-600 rounded-lg"><Youtube size={24} /></div>
                     <div>
@@ -404,7 +404,7 @@ const App = () => {
                   </p>
                 </div>
 
-                <div className="absolute bottom-4 left-4 bg-white p-5 rounded-lg shadow-md border border-stone-200 -rotate-2 max-w-xs transition-transform hover:scale-105 hover:z-20">
+                <div className="bg-white p-5 rounded-lg shadow-md border border-stone-200 -rotate-2 max-w-xs transition-transform hover:scale-105">
                   <div className="flex gap-3 mb-3">
                     <div className="p-2 bg-indigo-100 text-indigo-700 rounded-lg"><Mountain size={24} /></div>
                     <div>
@@ -423,7 +423,7 @@ const App = () => {
       </section>
 
       {/* Experience Timeline (SPLIT) */}
-      <section className="py-24 px-6">
+      <section id="experience" className="py-24 px-6">
         <div className="max-w-3xl mx-auto">
           <h2 className={`text-3xl font-bold mb-16 text-center ${mode === 'dev' ? 'font-sans' : 'font-serif'}`}>
             {mode === 'dev' ? "Professional History" : "The Making of Me"}
@@ -457,7 +457,7 @@ const App = () => {
       </section>
 
       {/* Education Section (ONLY SHOW IN DEV MODE for Cleanliness, or keep both?) Let's keep both. */}
-      <section className={`py-24 px-6 ${mode === 'dev' ? 'bg-slate-900/30 border-y border-slate-800' : 'bg-stone-50 border-y border-stone-200'}`}>
+      <section id="education" className={`py-24 px-6 ${mode === 'dev' ? 'bg-slate-900/30 border-y border-slate-800' : 'bg-stone-50 border-y border-stone-200'}`}>
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center justify-center gap-4 mb-12">
             <div className={`p-3 rounded-xl ${mode === 'dev' ? 'bg-purple-500/10 text-purple-400' : 'bg-indigo-500/10 text-indigo-600'}`}>
@@ -485,7 +485,7 @@ const App = () => {
       </section>
 
       {/* Projects Grid (SPLIT) */}
-      <section className={`py-24 px-6 ${mode === 'dev' ? 'bg-[#0a0f1e]' : 'bg-[#f4f1ea]'}`}>
+      <section id="projects" className={`py-24 px-6 ${mode === 'dev' ? 'bg-[#0a0f1e]' : 'bg-[#f4f1ea]'}`}>
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center gap-4 mb-12">
             <div className={`p-3 rounded-xl ${mode === 'dev' ? 'bg-blue-500/10 text-blue-400' : 'bg-orange-500/10 text-orange-600'}`}>
@@ -542,7 +542,7 @@ const App = () => {
       </section>
 
       {/* Contact Section */}
-      <section className={`py-24 px-6 ${mode === 'dev' ? 'bg-gradient-to-b from-[#0a0f1e] to-slate-950' : 'bg-stone-100'}`}>
+      <section id="contact" className={`py-24 px-6 ${mode === 'dev' ? 'bg-gradient-to-b from-[#0a0f1e] to-slate-950' : 'bg-stone-100'}`}>
         <div className="max-w-xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-6">Let's Connect</h2>
           <p className="mb-10 opacity-70">
@@ -552,7 +552,7 @@ const App = () => {
           </p>
 
           <form onSubmit={handleSubmit} className="space-y-4 text-left">
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="block text-xs font-bold uppercase tracking-wider mb-2 opacity-50 ml-1">Name</label>
                 <input
