@@ -444,18 +444,38 @@ const App = () => {
                 {/* Dot */}
                 <div className={`absolute left-0 top-2 w-6 h-6 rounded-full border-4 transition-colors ${mode === 'dev' ? 'bg-slate-950 border-blue-500 group-hover:border-cyan-400' : 'bg-stone-50 border-orange-400 group-hover:border-orange-600'}`} />
 
-                <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-2">
-                  <h3 className="text-xl font-bold">{item.role}</h3>
-                  <span className={`text-sm font-mono ${mode === 'dev' ? 'text-slate-500' : 'text-stone-500'}`}>{item.year}</span>
-                </div>
+                <div className="flex items-start gap-4">
+                  <div className="flex-1">
+                    <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-2">
+                      <h3 className="text-xl font-bold">{item.role}</h3>
+                      <span className={`text-sm font-mono ${mode === 'dev' ? 'text-slate-500' : 'text-stone-500'}`}>{item.year}</span>
+                    </div>
 
-                <div className={`text-lg font-medium mb-3 ${mode === 'dev' ? 'text-blue-400' : 'text-orange-600'}`}>
-                  {item.company}
-                </div>
+                    <div className={`text-lg font-medium mb-3 ${mode === 'dev' ? 'text-blue-400' : 'text-orange-600'}`}>
+                      {item.company}
+                    </div>
 
-                <p className={`leading-relaxed ${mode === 'dev' ? 'text-slate-400' : 'text-stone-600'}`}>
-                  {item.desc}
-                </p>
+                    <p className={`leading-relaxed ${mode === 'dev' ? 'text-slate-400' : 'text-stone-600'}`}>
+                      {item.desc}
+                    </p>
+                  </div>
+
+                  {mode === 'human' && (item.role === 'High Points Project' || item.role === 'Denali Summit Attempt') && (
+                    <div className="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0 mt-1">
+                      {item.role === 'High Points Project' ? (
+                        <img
+                          src={granitePeakImg}
+                          alt="Granite Peak, Montana"
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <div className="w-full h-full bg-amber-100 flex items-center justify-center">
+                          <Mountain size={24} className="text-amber-600" />
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
               </div>
             ))}
           </div>
