@@ -461,7 +461,7 @@ const App = () => {
                   </div>
 
                   {mode === 'human' && (item.role === 'High Points Project' || item.role === 'Denali Summit Attempt') && (
-                    <div className="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0 mt-1">
+                    <div className="w-[72px] h-[72px] rounded-xl overflow-hidden flex-shrink-0 mt-1">
                       {item.role === 'High Points Project' ? (
                         <img
                           src={granitePeakImg}
@@ -469,7 +469,7 @@ const App = () => {
                           className="w-full h-full object-cover"
                         />
                       ) : (
-                        <div className="w-full h-full bg-amber-100 flex items-center justify-center">
+                        <div className="w-full h-full bg-amber-100 flex items-center justify-center" role="img" aria-label="Denali (no summit photo yet)">
                           <Mountain size={24} className="text-amber-600" />
                         </div>
                       )}
@@ -647,7 +647,7 @@ const App = () => {
               ) : (
                 <>
                   {submitStatus === 'success' ? "Message Sent!" : "Send Message"}
-                  {!submitStatus && <Send size={20} />}
+                  {submitStatus === 'idle' && <Send size={20} />}
                 </>
               )}
             </button>
