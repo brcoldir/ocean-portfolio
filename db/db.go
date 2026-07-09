@@ -224,11 +224,13 @@ func (d *DB) ListSessions() ([]SessionSummary, error) {
 	var out []SessionSummary
 	for rows.Next() {
 		var s SessionSummary
-		var createdAt string
+		var createdAt sql.NullString
 		if err := rows.Scan(&s.ID, &s.IP, &s.MessageCount, &createdAt); err != nil {
 			return nil, err
 		}
-		s.CreatedAt, _ = time.Parse("2006-01-02 15:04:05", createdAt)
+		if createdAt.Valid {
+			s.CreatedAt, _ = time.Parse("2006-01-02 15:04:05", createdAt.String)
+		}
 		out = append(out, s)
 	}
 	return out, rows.Err()

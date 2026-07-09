@@ -19,15 +19,24 @@ type AdminHandler struct {
 
 var ragNameRe = regexp.MustCompile(`^[a-z0-9_-]+\.md$`)
 
-// listRAGFiles returns all .md filenames in ./rag, in directory order.
+// listRAGFiles returns knowledge base .md filenames (excludes guardrails.md, which is a system prompt).
 func listRAGFiles() []string {
+	return readRAGDir(func(name string) bool { return name != "guardrails.md" })
+}
+
+// listAllRAGFiles returns all .md filenames including guardrails.md, for the admin UI.
+func listAllRAGFiles() []string {
+	return readRAGDir(func(_ string) bool { return true })
+}
+
+func readRAGDir(keep func(string) bool) []string {
 	entries, err := os.ReadDir("./rag")
 	if err != nil {
 		return nil
 	}
 	var names []string
 	for _, e := range entries {
-		if !e.IsDir() && strings.HasSuffix(e.Name(), ".md") {
+		if !e.IsDir() && strings.HasSuffix(e.Name(), ".md") && keep(e.Name()) {
 			names = append(names, e.Name())
 		}
 	}
@@ -36,7 +45,7 @@ func listRAGFiles() []string {
 
 // canonicalRAGName returns the real filename for name (case-insensitive match), or ("", false).
 func canonicalRAGName(name string) (string, bool) {
-	for _, f := range listRAGFiles() {
+	for _, f := range listAllRAGFiles() {
 		if strings.EqualFold(name, f) {
 			return f, true
 		}
@@ -112,7 +121,7 @@ func (h *AdminHandler) HandleRAGList(w http.ResponseWriter, r *http.Request) {
 		EditedAt string `json:"editedAt"`
 	}
 	var files []ragFile
-	for _, name := range listRAGFiles() {
+	for _, name := range listAllRAGFiles() {
 		info, err := os.Stat(filepath.Join("./rag", name))
 		if err != nil {
 			continue

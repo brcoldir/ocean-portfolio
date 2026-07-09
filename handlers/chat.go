@@ -31,7 +31,7 @@ const (
 	historyLimit    = 20
 	maxHistoryChars = 1000
 	claudeModel     = "claude-haiku-4-5-20251001"
-	maxTokens       = 512
+	maxTokens       = 350
 )
 
 type chatRequest struct {
@@ -110,10 +110,11 @@ func (h *ChatHandler) HandleChat(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	guardrails, _ := loadGuardrails("./rag/guardrails.md")
 	ragContent, _ := loadRAG("./rag")
 	history, _ := h.DB.GetRecentMessages(req.SessionID, historyLimit)
 
-	reply, err := callClaude(ragContent, history, req.Message)
+	reply, err := callClaude(guardrails, ragContent, history, req.Message)
 	if err != nil {
 		http.Error(w, `{"error":"AI unavailable, please try again"}`, http.StatusServiceUnavailable)
 		return
@@ -133,23 +134,65 @@ func loadRAG(dir string) (string, error) {
 		if err != nil {
 			continue
 		}
-		sb.WriteString("\n\n## ")
-		sb.WriteString(strings.TrimSuffix(name, ".md"))
-		sb.WriteString("\n")
-		sb.Write(data)
+		sb.WriteString("\n\n=== ")
+		sb.WriteString(strings.ToUpper(strings.TrimSuffix(name, ".md")))
+		sb.WriteString(" ===\n")
+		sb.WriteString(stripMarkdown(string(data)))
 	}
 	return sb.String(), nil
 }
 
-func buildSystemPrompt(ragContent string) string {
-	return `You are Ocean Coldiron's personal AI assistant on his portfolio website.
-Answer questions about Ocean based ONLY on the information in the knowledge base below.
-If the answer is not covered in the knowledge base, respond with: "I don't have that information, but you can reach Ocean directly at brcoldir@gmail.com."
-Never guess or invent details. Never discuss compensation, salary, pay rates, or income for any reason.
-Keep responses concise (2-4 sentences unless more detail is explicitly requested).
+func stripMarkdown(s string) string {
+	lines := strings.Split(s, "\n")
+	for i, line := range lines {
+		// ## Heading → Heading
+		trimmed := strings.TrimLeft(line, "#")
+		if len(trimmed) < len(line) {
+			line = strings.TrimPrefix(trimmed, " ")
+		}
+		// - bullet, * bullet, + bullet → plain text
+		if len(line) >= 2 && (line[0] == '-' || line[0] == '*' || line[0] == '+') && line[1] == ' ' {
+			line = line[2:]
+		}
+		// **bold** and __bold__ → bold
+		line = strings.ReplaceAll(line, "**", "")
+		line = strings.ReplaceAll(line, "__", "")
+		// `code` → code
+		line = strings.ReplaceAll(line, "`", "")
+		lines[i] = line
+	}
+	return strings.Join(lines, "\n")
+}
 
---- KNOWLEDGE BASE ---` + ragContent + `
---- END KNOWLEDGE BASE ---`
+func loadGuardrails(path string) (string, error) {
+	data, err := os.ReadFile(path)
+	if err != nil {
+		return "", err
+	}
+	return string(data), nil
+}
+
+type systemBlock struct {
+	Type         string        `json:"type"`
+	Text         string        `json:"text"`
+	CacheControl *cacheControl `json:"cache_control,omitempty"`
+}
+
+type cacheControl struct {
+	Type string `json:"type"`
+}
+
+func buildSystemPrompt(guardrails, ragContent string) []systemBlock {
+	// These critical rules appear first so the model sees them before anything else.
+	critical := `CRITICAL RULES — no exceptions:
+1. Plain text only. Zero markdown. No *, **, #, ##, -bullets, backticks, or any other markdown syntax. Every response must be plain sentences.
+2. Maximum 5 sentences. Never write more than 5 sentences regardless of the question.
+3. Vague or broad questions (e.g. "tell me about Ocean", "who is he", "what does he do") get exactly ONE short clarifying question back, nothing else.`
+
+	return []systemBlock{
+		{Type: "text", Text: critical + "\n\n" + stripMarkdown(guardrails)},
+		{Type: "text", Text: "--- KNOWLEDGE BASE ---" + ragContent + "\n--- END KNOWLEDGE BASE ---", CacheControl: &cacheControl{Type: "ephemeral"}},
+	}
 }
 
 type claudeMessage struct {
@@ -158,9 +201,9 @@ type claudeMessage struct {
 }
 
 type claudeRequest struct {
-	Model     string          `json:"model"`
-	MaxTokens int             `json:"max_tokens"`
-	System    string          `json:"system"`
+	Model     string        `json:"model"`
+	MaxTokens int           `json:"max_tokens"`
+	System    []systemBlock `json:"system"`
 	Messages  []claudeMessage `json:"messages"`
 }
 
@@ -170,7 +213,7 @@ type claudeResponse struct {
 	} `json:"content"`
 }
 
-func callClaude(ragContent string, history []db.Message, userMessage string) (string, error) {
+func callClaude(guardrails, ragContent string, history []db.Message, userMessage string) (string, error) {
 	apiKey := os.Getenv("ANTHROPIC_API_KEY")
 	if apiKey == "" {
 		return "", fmt.Errorf("ANTHROPIC_API_KEY not set")
@@ -190,7 +233,7 @@ func callClaude(ragContent string, history []db.Message, userMessage string) (st
 	payload, _ := json.Marshal(claudeRequest{
 		Model:     claudeModel,
 		MaxTokens: maxTokens,
-		System:    buildSystemPrompt(ragContent),
+		System:    buildSystemPrompt(guardrails, ragContent),
 		Messages:  msgs,
 	})
 
@@ -198,6 +241,7 @@ func callClaude(ragContent string, history []db.Message, userMessage string) (st
 	req.Header.Set("Content-Type", "application/json")
 	req.Header.Set("x-api-key", apiKey)
 	req.Header.Set("anthropic-version", "2023-06-01")
+	req.Header.Set("anthropic-beta", "prompt-caching-2024-07-31")
 
 	resp, err := anthropicClient.Do(req)
 	if err != nil {
@@ -217,7 +261,7 @@ func callClaude(ragContent string, history []db.Message, userMessage string) (st
 	if len(cr.Content) == 0 {
 		return "", fmt.Errorf("empty response from anthropic")
 	}
-	return cr.Content[0].Text, nil
+	return stripMarkdown(cr.Content[0].Text), nil
 }
 
 func (h *ChatHandler) HandleTranscribe(w http.ResponseWriter, r *http.Request) {

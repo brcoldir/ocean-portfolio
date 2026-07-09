@@ -43,7 +43,7 @@ const SITE_DATA = {
   tagline: "Modernizing business operations with AI, Go, and 15+ years of systems expertise.",
 
   about: {
-dev: "Senior Systems Engineer with 15+ years of experience building enterprise software, cloud infrastructure, healthcare integrations, and agentic AI systems. I specialize in Go services, AWS, HL7/FHIR interoperability across 200+ client integrations, and production AI engineering — MCP, RAG, multi-agent workflows, and LLMOps. My focus is turning operational chaos into calm, maintainable systems that run without constant intervention.",
+dev: "Senior Systems Engineer with 15+ years of experience building enterprise software, cloud infrastructure, healthcare integrations, and agentic AI systems. I specialize in Go services, AWS, HL7/FHIR interoperability across 200+ client integrations, and production AI engineering, MCP, RAG, multi-agent workflows, and LLMOps. My focus is turning operational chaos into calm, maintainable systems that run without constant intervention.",
     human: "I design my life around growth, discomfort, and perspective. I live and work full-time from my RV, deliberately placing myself in unfamiliar places and cultures, often as the outsider in the room, because that is where real learning happens. I am pursuing the highest point in every U.S. state and training for Denali in 2028, not as a bucket list, but as a practice in discipline, resilience, and long-term thinking. Every challenge I choose is a system I’m trying to understand. Every place I go makes me better at building the next one.",
   },
 
@@ -79,8 +79,8 @@ dev: "Senior Systems Engineer with 15+ years of experience building enterprise s
   // --- SPLIT CONTENT: EXPERIENCE VS ADVENTURES ---
   experience: {
     dev: [
-      { year: "2025 – Present", role: "AI Engineering | Building in Public", company: "Personal Projects + ModMed AI Initiative", desc: "Actively building with RAG, MCP, Databricks, Lakebase, Claude Code, and agentic workflows. Contributing to ModMed's AI acceleration initiative. Shipping personal AI projects in public — portfolio chatbot, MCP servers, healthcare automation concepts." },
-      { year: "2021 - Present", role: "Integration Consultant II", company: "ModMed", desc: "Completed ModMed's inaugural AI Acceleration intensive. Designs production agentic workflows using Claude Code, MCP, Databricks, FastAPI, and RAG. Leads resolution of high-impact platform failures across 200+ enterprise clients — 95% reduction in critical incident recurrence, 75% improvement in MTTR." },
+      { year: "2025 – Present", role: "AI Engineering | Building in Public", company: "Personal Projects + ModMed AI Initiative", desc: "Actively building with RAG, MCP, Databricks, Lakebase, Claude Code, and agentic workflows. Contributing to ModMed's AI acceleration initiative. Shipping personal AI projects in public, portfolio chatbot, MCP servers, healthcare automation concepts." },
+      { year: "2021 - Present", role: "Integration Consultant II", company: "ModMed", desc: "Completed ModMed's inaugural AI Acceleration intensive. Designs production agentic workflows using Claude Code, MCP, Databricks, FastAPI, and RAG. Leads resolution of high-impact platform failures across 200+ enterprise clients, 95% reduction in critical incident recurrence, 75% improvement in MTTR." },
       { year: "2020 - 2021", role: "Telecom Engineer", company: "Snap-On Credit", desc: "Managed an Avaya Systems Upgrade, upgrade was a success with zero downtime" },
       { year: "2019 - 2020", role: "IT Specialist / Lead DBA", company: "Lakeshore Bone & Joint", desc: "Sole DBA managing 5TB+ of clinical data. Collaborated directly with physicians to optimize EHR workflows and clinical operations." },
       { year: "2015 - 2019", role: "Entreprenuer/CEO", company: "Coldiron Auto Transport and RC Lawn and Tree", desc: "Founded and Ran 2 Businesses, Learnt all the hard lessons of being an Entreprenuer" },
@@ -91,7 +91,7 @@ dev: "Senior Systems Engineer with 15+ years of experience building enterprise s
         year: "2023 - Present",
         role: "Deliberate Discomfort",
         company: "North America",
-        desc: "Left conventional stability behind to live and work full-time on the road. I chose constant change, unfamiliar environments, and new communities as my classroom—because comfort is the enemy of growth."
+        desc: "Left conventional stability behind to live and work full-time on the road. I chose constant change, unfamiliar environments, and new communities as my classroom, because comfort is the enemy of growth."
       },
       { year: "2028", role: "Denali Summit Attempt", company: "Alaska Range", desc: "Primary expedition objective: reach the summit of Denali after completing all U.S. state high points." },
       { year: "2023 - Present", role: "High Points Project", company: "North America", desc: "Transitioned to full-time RV life to pursue the highest point in every U.S. state while building software remotely." },
@@ -108,15 +108,15 @@ dev: "Senior Systems Engineer with 15+ years of experience building enterprise s
   // --- SPLIT CONTENT: CODE VS CREATION ---
   projects: {
     dev: [
-      { title: "EZPostScheduler.com", desc: "AI caption generator and cross-platform scheduler. Upload content, generate AI captions, post to multiple social platforms — reduces manual cross-posting by ~85%.", tags: ["Go", "AWS", "React", "Typescript", "Postgres"], link: "https://ezpostscheduler.com" },
+      { title: "EZPostScheduler.com", desc: "AI caption generator and cross-platform scheduler. Upload content, generate AI captions, post to multiple social platforms, reduces manual cross-posting by ~85%.", tags: ["Go", "AWS", "React", "Typescript", "Postgres"], link: "https://ezpostscheduler.com" },
       { title: "Healthcare Interop Engine", desc: "Architected HL7 & FHIR data pipelines using Mirth Connect for 200+ clients. Decreased integration trouble tickets 87% MoM.", tags: ["Mirth", "HL7", "JavaScript"], link: "#" },
-      { title: "Clinical Notes REST API", desc: "Production-ready clinical notes API modeling real-world EHR patterns — patient demographics, Epic/Cerner IDs, provider NPI, SOAP notes, duplicate detection, and Swagger-validated endpoints.", tags: ["Python", "FastAPI", "SQLite", "pytest"], link: "#" },
+      { title: "Clinical Notes REST API", desc: "Production-ready clinical notes API modeling real-world EHR patterns, patient demographics, Epic/Cerner IDs, provider NPI, SOAP notes, duplicate detection, and Swagger-validated endpoints.", tags: ["Python", "FastAPI", "SQLite", "pytest"], link: "#" },
     ],
     human: [
       { title: "Ocean Outdoors", desc: "A YouTube community of 100k+ outdoor enthusiasts following my journey across America.", tags: ["Video Production", "Community"], link: "https://youtube.com/@oceansoutdoors" },
       { title: "Project 50", desc: "The quest to summit the highest point in every US state. Currently at 46/50.", tags: ["Alpinism", "Logistics"], link: "#" },
       { title: "The Mobile HQ", desc: "Custom retrofitted RV setup allowing for enterprise-grade remote work from off-grid locations.", tags: ["Solar", "Starlink", "Build"], link: "#" },
-      { title: "Summit Ridge Digital", desc: "Web design, hosting, and digital services for small businesses. Because not every business needs a dev team — just a reliable partner.", tags: ["Web Design", "Hosting", "AWS", "Small Business"], link: "https://summitridgedigital.com" },
+      { title: "Summit Ridge Digital", desc: "Web design, hosting, and digital services for small businesses. Because not every business needs a dev team, just a reliable partner.", tags: ["Web Design", "Hosting", "AWS", "Small Business"], link: "https://summitridgedigital.com" },
     ]
   },
 
@@ -142,12 +142,12 @@ const DIFFERENTIATORS: Record<'dev' | 'human', { icon: React.ElementType; title:
     {
       icon: Brain,
       title: "AI Engineering Momentum",
-      body: "Building now with RAG, MCP, Databricks, Lakebase, Claude Code, and agentic workflows. Not studying AI — shipping it.",
+      body: "Building now with RAG, MCP, Databricks, Lakebase, Claude Code, and agentic workflows. Not studying AI, shipping it.",
     },
     {
       icon: Briefcase,
       title: "Entrepreneur + Product Builder",
-      body: "Founded businesses. Built EZPostScheduler from idea to production SaaS — Go, React, Postgres, AWS, Stripe, OAuth. Full-stack ownership, not just tickets.",
+      body: "Founded businesses. Built EZPostScheduler from idea to production SaaS, Go, React, Postgres, AWS, Stripe, OAuth. Full-stack ownership, not just tickets.",
     },
     {
       icon: GraduationCap,
@@ -164,7 +164,7 @@ const DIFFERENTIATORS: Record<'dev' | 'human', { icon: React.ElementType; title:
     {
       icon: Mountain,
       title: "46/50 State High Points",
-      body: "One deliberate goal, pursued over years. Denali 2028. Discipline isn't a trait — it's a practice.",
+      body: "One deliberate goal, pursued over years. Denali 2028. Discipline isn't a trait, it's a practice.",
     },
     {
       icon: Code,
@@ -174,7 +174,7 @@ const DIFFERENTIATORS: Record<'dev' | 'human', { icon: React.ElementType; title:
     {
       icon: Brain,
       title: "Building with AI",
-      body: "Not just using AI — building with it. RAG, MCP, Claude Code. Sharing what I learn in public.",
+      body: "Not just using AI, building with it. RAG, MCP, Claude Code. Sharing what I learn in public.",
     },
   ],
 };
@@ -582,34 +582,6 @@ const App = () => {
         </div>
       </section>
 
-      {/* Education Section (ONLY SHOW IN DEV MODE for Cleanliness, or keep both?) Let's keep both. */}
-      <section id="education" className={`py-24 px-6 ${mode === 'dev' ? 'bg-slate-900/30 border-y border-slate-800' : 'bg-stone-50 border-y border-stone-200'}`}>
-        <div className="max-w-4xl mx-auto">
-          <div className="flex items-center justify-center gap-4 mb-12">
-            <div className={`p-3 rounded-xl ${mode === 'dev' ? 'bg-purple-500/10 text-purple-400' : 'bg-indigo-500/10 text-indigo-600'}`}>
-              <GraduationCap size={32} />
-            </div>
-            <h2 className="text-3xl font-bold">Education</h2>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            {SITE_DATA.education.map((edu, idx) => (
-              <div key={idx} className={`p-8 rounded-2xl border transition-all hover:-translate-y-1 ${mode === 'dev'
-                ? 'bg-slate-950 border-slate-800 hover:border-purple-500/50'
-                : 'bg-white border-stone-200 shadow-sm hover:shadow-md'
-                }`}>
-                <div className={`text-sm font-mono mb-2 opacity-60 ${mode === 'dev' ? 'text-purple-300' : 'text-indigo-600'}`}>{edu.year}</div>
-                <h3 className="text-xl font-bold mb-1">{edu.school}</h3>
-                <div className={`font-medium mb-4 ${mode === 'dev' ? 'text-purple-400' : 'text-indigo-600'}`}>{edu.degree}</div>
-                <p className={`text-sm leading-relaxed ${mode === 'dev' ? 'text-slate-400' : 'text-stone-600'}`}>
-                  {edu.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* AI Stack / Gear & Tools */}
       <section className={`py-24 px-6 ${mode === 'dev' ? 'bg-slate-900/30 border-y border-slate-800' : 'bg-stone-50 border-y border-stone-200'}`}>
         <div className="max-w-5xl mx-auto">
@@ -714,15 +686,66 @@ const App = () => {
         </div>
       </section>
 
+      {/* Education Section */}
+      <section id="education" className={`py-24 px-6 ${mode === 'dev' ? 'bg-slate-900/30 border-y border-slate-800' : 'bg-stone-50 border-y border-stone-200'}`}>
+        <div className="max-w-4xl mx-auto">
+          <div className="flex items-center justify-center gap-4 mb-12">
+            <div className={`p-3 rounded-xl ${mode === 'dev' ? 'bg-purple-500/10 text-purple-400' : 'bg-indigo-500/10 text-indigo-600'}`}>
+              <GraduationCap size={32} />
+            </div>
+            <h2 className="text-3xl font-bold">Education</h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {SITE_DATA.education.map((edu, idx) => (
+              <div key={idx} className={`p-8 rounded-2xl border transition-all hover:-translate-y-1 ${mode === 'dev'
+                ? 'bg-slate-950 border-slate-800 hover:border-purple-500/50'
+                : 'bg-white border-stone-200 shadow-sm hover:shadow-md'
+                }`}>
+                <div className={`text-sm font-mono mb-2 opacity-60 ${mode === 'dev' ? 'text-purple-300' : 'text-indigo-600'}`}>{edu.year}</div>
+                <h3 className="text-xl font-bold mb-1">{edu.school}</h3>
+                <div className={`font-medium mb-4 ${mode === 'dev' ? 'text-purple-400' : 'text-indigo-600'}`}>{edu.degree}</div>
+                <p className={`text-sm leading-relaxed ${mode === 'dev' ? 'text-slate-400' : 'text-stone-600'}`}>
+                  {edu.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Contact Section */}
       <section id="contact" className={`py-24 px-6 ${mode === 'dev' ? 'bg-gradient-to-b from-[#0a0f1e] to-slate-950' : 'bg-stone-100'}`}>
         <div className="max-w-xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-6">Let's Connect</h2>
-          <p className="mb-10 opacity-70">
+          <h2 className="text-3xl font-bold mb-6">Let's Talk</h2>
+          <p className="mb-6 opacity-70">
             {mode === 'dev'
-              ? "Ready to collaborate on scalable systems or AI architecture?"
-              : "Whether it's about tech, business, or the best way to fell a tree, I'm all ears."}
+              ? "I'm building in public with AI and always interested in talking shop, healthcare tech, agentic systems, or whatever hard problem you're working on."
+              : "Adventures, ideas, collabs, hit me up. I like real conversations with people doing interesting things."}
           </p>
+
+          <div className="flex flex-col sm:flex-row justify-center gap-3 mb-10">
+            <a
+              href="mailto:brcoldir@gmail.com"
+              className={`flex items-center justify-center gap-2 px-5 py-3 rounded-xl border font-medium text-sm transition-all hover:scale-105 ${
+                mode === 'dev'
+                  ? 'bg-slate-900 border-slate-700 text-blue-300 hover:border-blue-500'
+                  : 'bg-white border-stone-200 text-stone-700 hover:border-orange-400 hover:text-orange-700 shadow-sm'
+              }`}
+            >
+              brcoldir@gmail.com
+            </a>
+            <a
+              href="tel:+15748065895"
+              className={`flex items-center justify-center gap-2 px-5 py-3 rounded-xl border font-medium text-sm transition-all hover:scale-105 ${
+                mode === 'dev'
+                  ? 'bg-slate-900 border-slate-700 text-blue-300 hover:border-blue-500'
+                  : 'bg-white border-stone-200 text-stone-700 hover:border-orange-400 hover:text-orange-700 shadow-sm'
+              }`}
+            >
+              (574) 806-5895
+            </a>
+          </div>
 
           <form onSubmit={handleSubmit} className="space-y-4 text-left">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
