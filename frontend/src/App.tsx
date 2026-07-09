@@ -79,6 +79,7 @@ dev: "Senior Systems Engineer with 15+ years of experience building enterprise s
   // --- SPLIT CONTENT: EXPERIENCE VS ADVENTURES ---
   experience: {
     dev: [
+      { year: "2025 – Present", role: "AI Engineering | Building in Public", company: "Personal Projects + ModMed AI Initiative", desc: "Actively building with RAG, MCP, Databricks, Lakebase, Claude Code, and agentic workflows. Contributing to ModMed's AI acceleration initiative. Shipping personal AI projects in public — portfolio chatbot, MCP servers, healthcare automation concepts." },
       { year: "2021 - Present", role: "Integration Consultant II", company: "ModMed", desc: "Completed ModMed's inaugural AI Acceleration intensive. Designs production agentic workflows using Claude Code, MCP, Databricks, FastAPI, and RAG. Leads resolution of high-impact platform failures across 200+ enterprise clients — 95% reduction in critical incident recurrence, 75% improvement in MTTR." },
       { year: "2020 - 2021", role: "Telecom Engineer", company: "Snap-On Credit", desc: "Managed an Avaya Systems Upgrade, upgrade was a success with zero downtime" },
       { year: "2019 - 2020", role: "IT Specialist / Lead DBA", company: "Lakeshore Bone & Joint", desc: "Sole DBA managing 5TB+ of clinical data. Collaborated directly with physicians to optimize EHR workflows and clinical operations." },
@@ -115,6 +116,7 @@ dev: "Senior Systems Engineer with 15+ years of experience building enterprise s
       { title: "Ocean Outdoors", desc: "A YouTube community of 100k+ outdoor enthusiasts following my journey across America.", tags: ["Video Production", "Community"], link: "https://youtube.com/@oceansoutdoors" },
       { title: "Project 50", desc: "The quest to summit the highest point in every US state. Currently at 46/50.", tags: ["Alpinism", "Logistics"], link: "#" },
       { title: "The Mobile HQ", desc: "Custom retrofitted RV setup allowing for enterprise-grade remote work from off-grid locations.", tags: ["Solar", "Starlink", "Build"], link: "#" },
+      { title: "Summit Ridge Digital", desc: "Web design, hosting, and digital services for small businesses. Because not every business needs a dev team — just a reliable partner.", tags: ["Web Design", "Hosting", "AWS", "Small Business"], link: "https://summitridgedigital.com" },
     ]
   },
 
@@ -127,6 +129,70 @@ dev: "Senior Systems Engineer with 15+ years of experience building enterprise s
     facebook: "https://www.facebook.com/OceansOutdoors"
   }
 
+};
+
+// --- DATA: DIFFERENTIATORS ---
+const DIFFERENTIATORS: Record<'dev' | 'human', { icon: React.ElementType; title: string; body: string }[]> = {
+  dev: [
+    {
+      icon: Server,
+      title: "Healthcare Integration Depth",
+      body: "HL7, Mirth Connect, 200+ enterprise clients. 95% reduction in critical incident recurrence. 75% improvement in MTTR. The messy real-world systems AI has to actually plug into.",
+    },
+    {
+      icon: Brain,
+      title: "AI Engineering Momentum",
+      body: "Building now with RAG, MCP, Databricks, Lakebase, Claude Code, and agentic workflows. Not studying AI — shipping it.",
+    },
+    {
+      icon: Briefcase,
+      title: "Entrepreneur + Product Builder",
+      body: "Founded businesses. Built EZPostScheduler from idea to production SaaS — Go, React, Postgres, AWS, Stripe, OAuth. Full-stack ownership, not just tickets.",
+    },
+    {
+      icon: GraduationCap,
+      title: "Systems Thinking + Business Depth",
+      body: "15+ years across enterprise, healthcare, and cloud. MBA (3.9 GPA), PMP certified. Bridges engineering, customers, and business outcomes.",
+    },
+  ],
+  human: [
+    {
+      icon: Youtube,
+      title: "Outdoor Creator",
+      body: "100k+ YouTube subscribers. Adventure storytelling through Brandon Coldiron Outdoors and Ocean Outdoors. Building an audience around real, hard things.",
+    },
+    {
+      icon: Mountain,
+      title: "46/50 State High Points",
+      body: "One deliberate goal, pursued over years. Denali 2028. Discipline isn't a trait — it's a practice.",
+    },
+    {
+      icon: Code,
+      title: "Builder Who Ships",
+      body: "EZPostScheduler, Summit Ridge Digital, OceanColdiron.com. Ideas become real things. Imperfect first, improved always.",
+    },
+    {
+      icon: Brain,
+      title: "Building with AI",
+      body: "Not just using AI — building with it. RAG, MCP, Claude Code. Sharing what I learn in public.",
+    },
+  ],
+};
+
+// --- DATA: TECH STACK ---
+const STACK: Record<'dev' | 'human', { label: string; tags: string[] }[]> = {
+  dev: [
+    { label: "LLM & Agents", tags: ["Claude", "Claude Code", "RAG", "MCP", "FastMCP", "Agentic Workflows", "Prompt Engineering"] },
+    { label: "Data & Platform", tags: ["Databricks", "Lakebase", "FastAPI", "PostgreSQL", "AWS"] },
+    { label: "Languages & Frameworks", tags: ["Go", "React", "TypeScript", "Python", "Java / Spring Boot"] },
+    { label: "Healthcare Interop", tags: ["HL7", "FHIR", "Mirth Connect", "EHR / Practice Mgmt", "OAuth2"] },
+  ],
+  human: [
+    { label: "Out There", tags: ["Garmin inReach", "Starlink", "Grand Design RV", "Hiking Boots"] },
+    { label: "Creating", tags: ["Final Cut Pro", "DJI", "iPhone", "YouTube"] },
+    { label: "Building", tags: ["Claude Code", "Go", "React", "AWS"] },
+    { label: "Moving", tags: ["Running Shoes", "Trekking Poles", "Crampons"] },
+  ],
 };
 
 // --- COMPONENT: TYPEWRITER EFFECT ---
@@ -250,7 +316,7 @@ const App = () => {
             <div className={`text-xl md:text-2xl max-w-2xl mx-auto leading-relaxed h-24 flex items-center justify-center ${mode === 'dev' ? 'text-blue-200/80 font-mono' : 'text-stone-600 font-serif italic'}`}>
               {mode === 'dev' ? (
                 <span>
-                  <span className="text-blue-500">func</span> <span className="text-yellow-300">init</span>() &#123; <Typewriter text='replace("Chaos", "Clarity")' startDelay={500} />
+                  <span className="text-blue-500">func</span> <span className="text-yellow-300">build</span>() &#123; <Typewriter text='ship("in", "public")' startDelay={500} />
  &#125;
                 </span>
               ) : (
@@ -317,6 +383,40 @@ const App = () => {
             </a>
 
 
+          </div>
+        </div>
+      </section>
+
+      {/* What Makes Me Different */}
+      <section className={`py-24 px-6 ${mode === 'dev' ? 'bg-[#0a0f1e]' : 'bg-[#f4f1ea]'}`}>
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className={`text-3xl font-bold mb-3 ${mode === 'dev' ? 'font-mono' : 'font-serif'}`}>
+              {mode === 'dev' ? '// Why Ocean?' : 'What makes me, me.'}
+            </h2>
+            <p className={`text-sm opacity-60 ${mode === 'dev' ? 'font-mono text-slate-400' : 'text-stone-500'}`}>
+              {mode === 'dev' ? "The combination that doesn't show up on a resume." : "The stuff that actually matters."}
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {DIFFERENTIATORS[mode].map((item, idx) => (
+              <div
+                key={idx}
+                className={`p-8 rounded-2xl border transition-all hover:-translate-y-1 ${
+                  mode === 'dev'
+                    ? 'bg-slate-950 border-slate-800 hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-900/10'
+                    : 'bg-white border-stone-200 shadow-sm hover:shadow-lg'
+                }`}
+              >
+                <div className={`p-3 rounded-xl w-fit mb-4 ${mode === 'dev' ? 'bg-blue-500/10 text-blue-400' : 'bg-orange-500/10 text-orange-600'}`}>
+                  <item.icon size={28} />
+                </div>
+                <h3 className="text-xl font-bold mb-3">{item.title}</h3>
+                <p className={`text-sm leading-relaxed ${mode === 'dev' ? 'text-slate-400' : 'text-stone-600'}`}>
+                  {item.body}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -504,6 +604,43 @@ const App = () => {
                 <p className={`text-sm leading-relaxed ${mode === 'dev' ? 'text-slate-400' : 'text-stone-600'}`}>
                   {edu.desc}
                 </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* AI Stack / Gear & Tools */}
+      <section className={`py-24 px-6 ${mode === 'dev' ? 'bg-slate-900/30 border-y border-slate-800' : 'bg-stone-50 border-y border-stone-200'}`}>
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className={`text-3xl font-bold mb-3 ${mode === 'dev' ? 'font-sans' : 'font-serif'}`}>
+              {mode === 'dev' ? 'Tech Stack' : 'Gear & Tools'}
+            </h2>
+            <p className={`text-sm opacity-60 ${mode === 'dev' ? 'font-mono text-slate-400' : 'text-stone-500'}`}>
+              {mode === 'dev' ? 'What I actually build with.' : 'What I carry.'}
+            </p>
+          </div>
+          <div className="space-y-8">
+            {STACK[mode].map((group, gIdx) => (
+              <div key={gIdx}>
+                <div className={`text-xs font-bold uppercase tracking-widest mb-3 ${mode === 'dev' ? 'text-slate-500' : 'text-stone-400'}`}>
+                  {group.label}
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {group.tags.map((tag, tIdx) => (
+                    <span
+                      key={tIdx}
+                      className={`px-3 py-1.5 rounded-lg text-sm font-medium border transition-all hover:scale-105 cursor-default ${
+                        mode === 'dev'
+                          ? 'bg-slate-950 border-slate-700 text-slate-300 hover:border-blue-500/50 hover:text-blue-300'
+                          : 'bg-white border-stone-200 text-stone-700 hover:border-orange-300 hover:text-orange-700'
+                      }`}
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
             ))}
           </div>
