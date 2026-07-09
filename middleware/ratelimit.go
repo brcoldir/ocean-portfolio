@@ -1,6 +1,7 @@
 package middleware
 
 import (
+	"log"
 	"net"
 	"net/http"
 	"sync"
@@ -17,18 +18,42 @@ type loginState struct {
 	lockedUntil time.Time
 }
 
+// LockoutStore persists login lockout state so it survives server restarts.
+type LockoutStore interface {
+	SaveLockout(ip string, fails int, lockedUntil time.Time) error
+	DeleteLockout(ip string) error
+}
+
+// SeedLockout is used to pre-load persisted lockout state on startup.
+type SeedLockout struct {
+	IP          string
+	Fails       int
+	LockedUntil time.Time
+}
+
 type RateLimiter struct {
 	mu         sync.Mutex
 	perMinute  map[string]*bucket
 	perDay     map[string]*bucket
 	loginFails map[string]*loginState
+	store      LockoutStore
 }
 
-func NewRateLimiter() *RateLimiter {
+func NewRateLimiter(store LockoutStore, seed []SeedLockout) *RateLimiter {
 	rl := &RateLimiter{
 		perMinute:  make(map[string]*bucket),
 		perDay:     make(map[string]*bucket),
 		loginFails: make(map[string]*loginState),
+		store:      store,
+	}
+	now := time.Now()
+	for _, s := range seed {
+		if s.LockedUntil.IsZero() || now.Before(s.LockedUntil) {
+			rl.loginFails[s.IP] = &loginState{
+				fails:       s.Fails,
+				lockedUntil: s.LockedUntil,
+			}
+		}
 	}
 	go rl.sweep()
 	return rl
@@ -36,7 +61,7 @@ func NewRateLimiter() *RateLimiter {
 
 func (rl *RateLimiter) sweep() {
 	for {
-		time.Sleep(time.Hour)
+		time.Sleep(time.Minute)
 		rl.mu.Lock()
 		now := time.Now()
 		for ip, b := range rl.perMinute {
@@ -52,6 +77,11 @@ func (rl *RateLimiter) sweep() {
 		for ip, ls := range rl.loginFails {
 			if !ls.lockedUntil.IsZero() && now.After(ls.lockedUntil) {
 				delete(rl.loginFails, ip)
+				if rl.store != nil {
+					if err := rl.store.DeleteLockout(ip); err != nil {
+						log.Printf("[ratelimit] failed to delete expired lockout for %s: %v", ip, err)
+					}
+				}
 			}
 		}
 		rl.mu.Unlock()
@@ -101,7 +131,6 @@ func (rl *RateLimiter) AllowLogin(ip string) bool {
 
 func (rl *RateLimiter) RecordLoginFail(ip string) {
 	rl.mu.Lock()
-	defer rl.mu.Unlock()
 	ls := rl.loginFails[ip]
 	if ls == nil {
 		ls = &loginState{}
@@ -111,12 +140,28 @@ func (rl *RateLimiter) RecordLoginFail(ip string) {
 	if ls.fails >= 5 {
 		ls.lockedUntil = time.Now().Add(15 * time.Minute)
 	}
+	fails, lockedUntil := ls.fails, ls.lockedUntil
+	store := rl.store
+	rl.mu.Unlock()
+
+	if store != nil {
+		if err := store.SaveLockout(ip, fails, lockedUntil); err != nil {
+			log.Printf("[ratelimit] failed to persist lockout for %s: %v", ip, err)
+		}
+	}
 }
 
 func (rl *RateLimiter) ResetLoginFails(ip string) {
 	rl.mu.Lock()
-	defer rl.mu.Unlock()
 	delete(rl.loginFails, ip)
+	store := rl.store
+	rl.mu.Unlock()
+
+	if store != nil {
+		if err := store.DeleteLockout(ip); err != nil {
+			log.Printf("[ratelimit] failed to clear lockout for %s: %v", ip, err)
+		}
+	}
 }
 
 func extractIP(r *http.Request) string {

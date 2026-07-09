@@ -39,6 +39,39 @@ type chatRequest struct {
 	Message   string `json:"message"`
 }
 
+// isAudioMagic checks the first 12 bytes against known audio container magic bytes.
+// Accepts WebM/WebA, OGG, MP3, MP4/M4A, and WAV.
+func isAudioMagic(b []byte) bool {
+	if len(b) < 4 {
+		return false
+	}
+	// WebM / WebA (EBML header)
+	if b[0] == 0x1a && b[1] == 0x45 && b[2] == 0xdf && b[3] == 0xa3 {
+		return true
+	}
+	// OGG
+	if b[0] == 'O' && b[1] == 'g' && b[2] == 'g' && b[3] == 'S' {
+		return true
+	}
+	// MP3: ID3 tag or sync frame
+	if b[0] == 'I' && b[1] == 'D' && b[2] == '3' {
+		return true
+	}
+	if b[0] == 0xff && (b[1]&0xe0 == 0xe0) {
+		return true
+	}
+	// WAV: RIFF....WAVE
+	if len(b) >= 12 && b[0] == 'R' && b[1] == 'I' && b[2] == 'F' && b[3] == 'F' &&
+		b[8] == 'W' && b[9] == 'A' && b[10] == 'V' && b[11] == 'E' {
+		return true
+	}
+	// MP4 / M4A: ....ftyp at bytes 4-7
+	if len(b) >= 8 && b[4] == 'f' && b[5] == 't' && b[6] == 'y' && b[7] == 'p' {
+		return true
+	}
+	return false
+}
+
 func (h *ChatHandler) HandleChat(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
 		http.Error(w, "method not allowed", http.StatusMethodNotAllowed)
@@ -68,6 +101,14 @@ func (h *ChatHandler) HandleChat(w http.ResponseWriter, r *http.Request) {
 		ip = "unknown"
 	}
 	h.DB.EnsureSession(req.SessionID, ip)
+
+	// Bind sessions to their originating IP to prevent cross-session snooping.
+	storedIP, err := h.DB.GetSessionIP(req.SessionID)
+	if err != nil || (storedIP != "" && storedIP != ip) {
+		log.Printf("[chat] session IP mismatch for %s: stored=%s current=%s", req.SessionID, storedIP, ip)
+		http.Error(w, `{"error":"session invalid"}`, http.StatusForbidden)
+		return
+	}
 
 	ragContent, _ := loadRAG("./rag")
 	history, _ := h.DB.GetRecentMessages(req.SessionID, historyLimit)
@@ -201,6 +242,22 @@ func (h *ChatHandler) HandleTranscribe(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	defer file.Close()
+
+	// Validate audio MIME type by magic bytes before proxying to ElevenLabs.
+	magic := make([]byte, 12)
+	if _, err := io.ReadFull(file, magic); err != nil {
+		http.Error(w, `{"error":"audio file unreadable"}`, http.StatusBadRequest)
+		return
+	}
+	if !isAudioMagic(magic) {
+		http.Error(w, `{"error":"unsupported audio format"}`, http.StatusBadRequest)
+		return
+	}
+	// Rewind after reading magic bytes.
+	if _, err := file.Seek(0, io.SeekStart); err != nil {
+		http.Error(w, `{"error":"audio file unreadable"}`, http.StatusBadRequest)
+		return
+	}
 
 	var buf bytes.Buffer
 	mw := multipart.NewWriter(&buf)

@@ -34,7 +34,15 @@ func main() {
 	}
 	seedAdminUser(database)
 
-	rl := middleware.NewRateLimiter()
+	lockouts, err := database.LoadLockouts()
+	if err != nil {
+		log.Fatal("load lockouts:", err)
+	}
+	seed := make([]middleware.SeedLockout, len(lockouts))
+	for i, l := range lockouts {
+		seed[i] = middleware.SeedLockout{IP: l.IP, Fails: l.Fails, LockedUntil: l.LockedUntil}
+	}
+	rl := middleware.NewRateLimiter(database, seed)
 
 	chatH := &handlers.ChatHandler{DB: database}
 	authH := &handlers.AuthHandler{DB: database, RL: rl}
@@ -75,8 +83,12 @@ func main() {
 	if port == "" {
 		port = "8080"
 	}
+	allowedOrigin := os.Getenv("ALLOWED_ORIGIN")
+	if allowedOrigin == "" {
+		allowedOrigin = "https://oceancoldiron.com"
+	}
 	fmt.Printf("Server starting on :%s\n", port)
-	log.Fatal(http.ListenAndServe(":"+port, secureHeaders(mux)))
+	log.Fatal(http.ListenAndServe(":"+port, secureHeaders(corsMiddleware(allowedOrigin)(mux))))
 }
 
 func secureHeaders(next http.Handler) http.Handler {
@@ -88,6 +100,27 @@ func secureHeaders(next http.Handler) http.Handler {
 		w.Header().Set("Content-Security-Policy", "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; media-src 'self'; font-src 'self'")
 		next.ServeHTTP(w, r)
 	})
+}
+
+func corsMiddleware(allowedOrigin string) func(http.Handler) http.Handler {
+	return func(next http.Handler) http.Handler {
+		return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+			origin := r.Header.Get("Origin")
+			if origin == allowedOrigin || origin == "http://localhost:5173" {
+				w.Header().Set("Access-Control-Allow-Origin", origin)
+				w.Header().Set("Vary", "Origin")
+				w.Header().Set("Access-Control-Allow-Credentials", "true")
+			}
+			if r.Method == http.MethodOptions {
+				w.Header().Set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
+				w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+				w.Header().Set("Access-Control-Max-Age", "86400")
+				w.WriteHeader(http.StatusNoContent)
+				return
+			}
+			next.ServeHTTP(w, r)
+		})
+	}
 }
 
 // spaHandler serves static files and falls back to index.html for SPA routing
@@ -119,7 +152,8 @@ func seedAdminUser(database *db.DB) {
 	}
 	email := os.Getenv("ADMIN_EMAIL")
 	if email == "" {
-		email = "brcoldir@gmail.com"
+		log.Println("WARNING: No admin user and ADMIN_EMAIL is not set — skipping admin seed. Set ADMIN_EMAIL and ADMIN_INITIAL_PASSWORD to create the admin account.")
+		return
 	}
 	hash, err := bcrypt.GenerateFromPassword([]byte(initialPass), 12)
 	if err != nil {

@@ -66,7 +66,70 @@ func (d *DB) CreateSchema() error {
 			expires_at TEXT NOT NULL,
 			used       INTEGER DEFAULT 0
 		);
+		CREATE TABLE IF NOT EXISTS login_lockouts (
+			ip           TEXT PRIMARY KEY,
+			fails        INTEGER NOT NULL DEFAULT 0,
+			locked_until TEXT NOT NULL DEFAULT ''
+		);
 	`)
+	return err
+}
+
+// GetSessionIP returns the IP that created the session, or "" if not found.
+func (d *DB) GetSessionIP(id string) (string, error) {
+	var ip string
+	err := d.QueryRow(`SELECT ip FROM sessions WHERE id = ?`, id).Scan(&ip)
+	if err == sql.ErrNoRows {
+		return "", nil
+	}
+	return ip, err
+}
+
+// LoginLockout holds a persisted login-lockout record.
+type LoginLockout struct {
+	IP          string
+	Fails       int
+	LockedUntil time.Time
+}
+
+// LoadLockouts returns all persisted lockout records for seeding the rate limiter.
+func (d *DB) LoadLockouts() ([]LoginLockout, error) {
+	rows, err := d.Query(`SELECT ip, fails, locked_until FROM login_lockouts`)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	var out []LoginLockout
+	for rows.Next() {
+		var l LoginLockout
+		var lockedUntil string
+		if err := rows.Scan(&l.IP, &l.Fails, &lockedUntil); err != nil {
+			return nil, err
+		}
+		if lockedUntil != "" {
+			l.LockedUntil, _ = time.Parse(time.RFC3339, lockedUntil)
+		}
+		out = append(out, l)
+	}
+	return out, rows.Err()
+}
+
+// SaveLockout upserts a lockout record for ip.
+func (d *DB) SaveLockout(ip string, fails int, lockedUntil time.Time) error {
+	lt := ""
+	if !lockedUntil.IsZero() {
+		lt = lockedUntil.UTC().Format(time.RFC3339)
+	}
+	_, err := d.Exec(`
+		INSERT INTO login_lockouts (ip, fails, locked_until) VALUES (?, ?, ?)
+		ON CONFLICT(ip) DO UPDATE SET fails = excluded.fails, locked_until = excluded.locked_until
+	`, ip, fails, lt)
+	return err
+}
+
+// DeleteLockout removes the lockout record for ip.
+func (d *DB) DeleteLockout(ip string) error {
+	_, err := d.Exec(`DELETE FROM login_lockouts WHERE ip = ?`, ip)
 	return err
 }
 

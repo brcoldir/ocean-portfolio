@@ -9,7 +9,7 @@ import (
 )
 
 func TestAllow_UnderLimit(t *testing.T) {
-	rl := middleware.NewRateLimiter()
+	rl := middleware.NewRateLimiter(nil, nil)
 	for i := 0; i < 20; i++ {
 		if !rl.Allow("1.2.3.4") {
 			t.Fatalf("expected allow at request %d", i+1)
@@ -18,7 +18,7 @@ func TestAllow_UnderLimit(t *testing.T) {
 }
 
 func TestAllow_BlocksAtMinuteLimit(t *testing.T) {
-	rl := middleware.NewRateLimiter()
+	rl := middleware.NewRateLimiter(nil, nil)
 	for i := 0; i < 20; i++ {
 		rl.Allow("1.2.3.4")
 	}
@@ -28,7 +28,7 @@ func TestAllow_BlocksAtMinuteLimit(t *testing.T) {
 }
 
 func TestAllow_DifferentIPs(t *testing.T) {
-	rl := middleware.NewRateLimiter()
+	rl := middleware.NewRateLimiter(nil, nil)
 	for i := 0; i < 20; i++ {
 		rl.Allow("1.2.3.4")
 	}
@@ -38,7 +38,7 @@ func TestAllow_DifferentIPs(t *testing.T) {
 }
 
 func TestLoginLockout(t *testing.T) {
-	rl := middleware.NewRateLimiter()
+	rl := middleware.NewRateLimiter(nil, nil)
 	ip := "9.9.9.9"
 	for i := 0; i < 5; i++ {
 		if !rl.AllowLogin(ip) {
@@ -52,7 +52,7 @@ func TestLoginLockout(t *testing.T) {
 }
 
 func TestLoginReset(t *testing.T) {
-	rl := middleware.NewRateLimiter()
+	rl := middleware.NewRateLimiter(nil, nil)
 	ip := "9.9.9.9"
 	for i := 0; i < 5; i++ {
 		rl.RecordLoginFail(ip)
@@ -64,7 +64,7 @@ func TestLoginReset(t *testing.T) {
 }
 
 func TestLimitMiddleware_Blocks(t *testing.T) {
-	rl := middleware.NewRateLimiter()
+	rl := middleware.NewRateLimiter(nil, nil)
 	handler := rl.Limit(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusOK)
 	}))
