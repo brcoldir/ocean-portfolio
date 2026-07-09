@@ -3,6 +3,10 @@ import Coldiron from './pages/Coldiron'
 import { ChatWidget } from './components/ChatWidget'
 import ManageAI from './pages/ManageAI'
 import PageLayout from './components/PageLayout'
+import headshot from './images/Headshot.jpg'
+import granitePeakImg from './images/granitepeak.jpg'
+import snowshoePeakImg from './images/snowshoepeak.jpg'
+import sunriseWhitneyImg from './images/sunrisewhitney.jpg'
 
 import React, { useState, useEffect } from 'react';
 import {
@@ -207,6 +211,25 @@ const App = () => {
 
         <div className="max-w-5xl mx-auto text-center space-y-8 relative z-10">
           <div className="space-y-4">
+            {/* Headshot portrait */}
+            <div className="flex justify-center">
+              <div
+                className={`p-[3px] rounded-full transition-all duration-300 hover:scale-105 ${
+                  mode === 'dev'
+                    ? 'bg-gradient-to-br from-blue-400 via-cyan-400 to-blue-600 shadow-[0_0_24px_rgba(59,130,246,0.45)] hover:shadow-[0_0_40px_rgba(59,130,246,0.7)]'
+                    : 'bg-gradient-to-br from-orange-400 via-amber-400 to-orange-600 shadow-[0_0_24px_rgba(251,146,60,0.45)] hover:shadow-[0_0_40px_rgba(251,146,60,0.7)]'
+                }`}
+              >
+                <div className="rounded-full overflow-hidden w-24 h-24 md:w-32 md:h-32 lg:w-36 lg:h-36">
+                  <img
+                    src={headshot}
+                    alt="Ocean Coldiron headshot"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+
             <h1 className="text-6xl md:text-8xl font-black tracking-tighter mb-4">
               {mode === 'dev' ? (
                 <span>
