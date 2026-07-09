@@ -533,11 +533,21 @@ const App = () => {
                   href={isExternal ? project.link : undefined}
                   target={isExternal ? "_blank" : undefined}
                   rel={isExternal ? "noreferrer" : undefined}
-                  className={`group flex flex-col p-8 rounded-2xl border transition-all duration-300 hover:-translate-y-2 cursor-pointer ${mode === 'dev'
+                  className={`group flex flex-col p-8 rounded-2xl border transition-all duration-300 hover:-translate-y-2 cursor-pointer overflow-hidden ${mode === 'dev'
                     ? 'bg-slate-950 border-slate-800 hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-900/20'
                     : 'bg-white border-stone-200 hover:border-orange-300 shadow-sm hover:shadow-xl hover:shadow-orange-900/5'
                     }`}
                 >
+                  {mode === 'human' && project.title === 'Project 50' && (
+                    <div className="relative -mx-8 -mt-8 mb-6 h-40">
+                      <img
+                        src={sunriseWhitneyImg}
+                        alt="Sunrise at Mt. Whitney"
+                        className="w-full h-full object-cover object-top"
+                      />
+                      <div className="absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-white to-transparent" />
+                    </div>
+                  )}
                   <div className="flex justify-between items-start mb-6">
                     <h3 className="font-bold text-xl">{project.title}</h3>
                     {mode === 'dev' ? (
