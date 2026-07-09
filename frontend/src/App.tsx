@@ -401,17 +401,26 @@ const App = () => {
                   </p>
                 </div>
 
-                <div className="bg-white p-5 rounded-lg shadow-md border border-stone-200 -rotate-2 max-w-xs transition-transform hover:scale-105">
-                  <div className="flex gap-3 mb-3">
-                    <div className="p-2 bg-indigo-100 text-indigo-700 rounded-lg"><Mountain size={24} /></div>
-                    <div>
-                      <div className="font-bold text-stone-800">Mountaineer</div>
-                      <div className="text-xs text-stone-500">Goal: Denali 2028</div>
-                    </div>
+                <div className="bg-white rounded-lg shadow-md border border-stone-200 -rotate-2 max-w-xs transition-transform hover:scale-105 overflow-hidden">
+                  <div className="h-24 overflow-hidden">
+                    <img
+                      src={snowshoePeakImg}
+                      alt="Snowshoe Peak"
+                      className="w-full h-full object-cover"
+                    />
                   </div>
-                  <p className="text-sm text-stone-600 leading-snug">
-                    "Attempting to summit the high point of every US state. Living full-time on the road to make it happen."
-                  </p>
+                  <div className="p-5">
+                    <div className="flex gap-3 mb-3">
+                      <div className="p-2 bg-indigo-100 text-indigo-700 rounded-lg"><Mountain size={24} /></div>
+                      <div>
+                        <div className="font-bold text-stone-800">Mountaineer</div>
+                        <div className="text-xs text-stone-500">Goal: Denali 2028</div>
+                      </div>
+                    </div>
+                    <p className="text-sm text-stone-600 leading-snug">
+                      "Attempting to summit the high point of every US state. Living full-time on the road to make it happen."
+                    </p>
+                  </div>
                 </div>
               </div>
             )}
