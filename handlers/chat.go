@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
+	"log"
 	"mime/multipart"
 	"net"
 	"net/http"
@@ -43,6 +44,8 @@ func (h *ChatHandler) HandleChat(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "method not allowed", http.StatusMethodNotAllowed)
 		return
 	}
+
+	r.Body = http.MaxBytesReader(w, r.Body, 64*1024)
 
 	var req chatRequest
 	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
@@ -232,6 +235,8 @@ func (h *ChatHandler) HandleSpeak(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	r.Body = http.MaxBytesReader(w, r.Body, 8*1024)
+
 	var body struct {
 		Text string `json:"text"`
 	}
@@ -239,8 +244,8 @@ func (h *ChatHandler) HandleSpeak(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, `{"error":"text required"}`, http.StatusBadRequest)
 		return
 	}
-	if utf8.RuneCountInString(body.Text) > 5000 {
-		body.Text = string([]rune(body.Text)[:5000])
+	if utf8.RuneCountInString(body.Text) > 500 {
+		body.Text = string([]rune(body.Text)[:500])
 	}
 
 	apiKey := os.Getenv("ELEVENLABS_API_KEY")
@@ -267,14 +272,13 @@ func (h *ChatHandler) HandleSpeak(w http.ResponseWriter, r *http.Request) {
 
 	resp, err := elevenLabsClient.Do(req)
 	if err != nil {
-		fmt.Printf("[TTS] ElevenLabs request error: %v\n", err)
+		log.Printf("[TTS] ElevenLabs request error: %v", err)
 		http.Error(w, `{"error":"TTS failed"}`, http.StatusServiceUnavailable)
 		return
 	}
 	defer resp.Body.Close()
 	if resp.StatusCode != http.StatusOK {
-		body, _ := io.ReadAll(resp.Body)
-		fmt.Printf("[TTS] ElevenLabs %d: %s\n", resp.StatusCode, body)
+		log.Printf("[TTS] ElevenLabs error status %d", resp.StatusCode)
 		http.Error(w, `{"error":"TTS failed"}`, http.StatusServiceUnavailable)
 		return
 	}

@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"net/smtp"
 	"os"
+	"strings"
 
 	"github.com/brandoncoldiron/portfolio/db"
 	"github.com/brandoncoldiron/portfolio/handlers"
@@ -67,7 +68,7 @@ func main() {
 	mux.Handle("DELETE /api/admin/rag/{name}", middleware.Protect(http.HandlerFunc(adminH.HandleRAGFile)))
 
 	// Existing endpoints
-	mux.HandleFunc("POST /api/contact", handleContact)
+	mux.Handle("POST /api/contact", rl.Limit(http.HandlerFunc(handleContact)))
 	mux.HandleFunc("GET /api/health", handleHealth)
 
 	port := os.Getenv("PORT")
@@ -75,7 +76,18 @@ func main() {
 		port = "8080"
 	}
 	fmt.Printf("Server starting on :%s\n", port)
-	log.Fatal(http.ListenAndServe(":"+port, mux))
+	log.Fatal(http.ListenAndServe(":"+port, secureHeaders(mux)))
+}
+
+func secureHeaders(next http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("X-Frame-Options", "DENY")
+		w.Header().Set("X-Content-Type-Options", "nosniff")
+		w.Header().Set("Referrer-Policy", "strict-origin-when-cross-origin")
+		w.Header().Set("Strict-Transport-Security", "max-age=63072000; includeSubDomains")
+		w.Header().Set("Content-Security-Policy", "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; media-src 'self'; font-src 'self'")
+		next.ServeHTTP(w, r)
+	})
 }
 
 // spaHandler serves static files and falls back to index.html for SPA routing
@@ -126,10 +138,32 @@ type ContactRequest struct {
 	Message string `json:"message"`
 }
 
+// sanitizeHeader strips CR/LF characters to prevent email header injection.
+func sanitizeHeader(s string) string {
+	s = strings.ReplaceAll(s, "\r", "")
+	s = strings.ReplaceAll(s, "\n", "")
+	return strings.TrimSpace(s)
+}
+
 func handleContact(w http.ResponseWriter, r *http.Request) {
+	r.Body = http.MaxBytesReader(w, r.Body, 64*1024)
+
 	var req ContactRequest
 	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
 		http.Error(w, "Invalid body", http.StatusBadRequest)
+		return
+	}
+
+	name := sanitizeHeader(req.Name)
+	email := sanitizeHeader(req.Email)
+	message := strings.TrimSpace(req.Message)
+
+	if name == "" || email == "" || message == "" {
+		http.Error(w, "name, email, and message are required", http.StatusBadRequest)
+		return
+	}
+	if len(name) > 200 || len(email) > 200 || len(message) > 5000 {
+		http.Error(w, "input too long", http.StatusBadRequest)
 		return
 	}
 
@@ -139,8 +173,8 @@ func handleContact(w http.ResponseWriter, r *http.Request) {
 
 	if senderEmail != "" && senderPassword != "" {
 		auth := smtp.PlainAuth("", senderEmail, senderPassword, "smtp.gmail.com")
-		msg := []byte("To: " + toEmail + "\r\nSubject: Portfolio Contact: " + req.Name + "\r\n\r\n" +
-			"From: " + req.Name + " (" + req.Email + ")\n\n" + req.Message + "\r\n")
+		msg := []byte("To: " + toEmail + "\r\nSubject: Portfolio Contact: " + name + "\r\n\r\n" +
+			"From: " + name + " (" + email + ")\r\n\r\n" + message + "\r\n")
 		if err := smtp.SendMail("smtp.gmail.com:587", auth, senderEmail, []string{toEmail}, msg); err != nil {
 			log.Printf("Failed to send email: %v", err)
 			http.Error(w, "Failed to send email", http.StatusInternalServerError)

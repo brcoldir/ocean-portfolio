@@ -37,6 +37,8 @@ func (h *AuthHandler) HandleLogin(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	r.Body = http.MaxBytesReader(w, r.Body, 4*1024)
+
 	var body struct {
 		Email    string `json:"email"`
 		Password string `json:"password"`
@@ -128,6 +130,8 @@ func (h *AuthHandler) HandleResetConfirm(w http.ResponseWriter, r *http.Request)
 		w.Write([]byte(`{"error":"method not allowed"}`))
 		return
 	}
+	r.Body = http.MaxBytesReader(w, r.Body, 4*1024)
+
 	var body struct {
 		Token    string `json:"token"`
 		Password string `json:"password"`
