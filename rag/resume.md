@@ -9,15 +9,14 @@ Preferred public name: Ocean Coldiron
 Legal / alternate professional name: Brandon Coldiron
 Portfolio: OceanColdiron.com
 LinkedIn: linkedin.com/in/brandon-coldiron
-Email: [brcoldir@gmail.com](mailto:brcoldir@gmail.com)
-Phone: 574-806-5895
-Location: Granbury, Texas, USA
+Contact: the contact form at OceanColdiron.com or LinkedIn
+Location: Remote (full-time RV), base in Texas, USA
 Work preference: Full-time, remote, hybrid, or relocation for the right opportunity
 Relocation: Open to relocation, especially for high-impact AI, healthcare technology, forward-deployed engineering, or technical leadership roles
 
 Public positioning:
 
-Ocean Coldiron is a Senior Systems Engineer, healthcare integration specialist, AI platform builder, and entrepreneur with 15+ years of experience across enterprise software, healthcare integrations, cloud infrastructure, distributed systems, automation, and production support.
+Ocean Coldiron is an AI Engineer at ModMed, healthcare integration specialist, AI platform builder, and entrepreneur with 15+ years of experience across enterprise software, healthcare integrations, cloud infrastructure, distributed systems, automation, and production support.
 
 Ocean combines deep experience in healthcare interoperability, customer-facing solution design, platform reliability, technical troubleshooting, and AI-assisted development. He is especially interested in roles at the intersection of healthcare, AI, integration engineering, platform architecture, and forward-deployed engineering.
 

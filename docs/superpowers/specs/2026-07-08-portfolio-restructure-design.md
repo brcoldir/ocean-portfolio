@@ -149,7 +149,7 @@ No changes.
 
 **Contact info displayed above the form (both modes):**
 - Email: `brcoldir@gmail.com` (clickable mailto link)
-- Cell: `(574) 806-5895` (clickable tel link)
+- Cell: `(phone removed)` (clickable tel link)
 
 **Form:** Kept as-is below the contact info. Submit button text stays "Send Message."
 
@@ -173,7 +173,7 @@ No changes.
 ## Contact Info Added
 
 - Email: `brcoldir@gmail.com`
-- Cell: `(574) 806-5895`
+- Cell: `(phone removed)`
 
 Both displayed publicly above the contact form on the Let's Talk section.
 

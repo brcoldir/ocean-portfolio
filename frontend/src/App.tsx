@@ -38,12 +38,12 @@ import {
 const SITE_DATA = {
   name: "Ocean Coldiron",
   fullName: "Brandon Coldiron",
-  role: "Systems Engineer & AI Technologist",
+  role: "AI Engineer, Healthcare Interoperability",
   location: "Remote (RV) | Base: TX",
   tagline: "Modernizing business operations with AI, Go, and 15+ years of systems expertise.",
 
   about: {
-dev: "Senior Systems Engineer with 15+ years of experience building enterprise software, cloud infrastructure, healthcare integrations, and agentic AI systems. I specialize in Go services, AWS, HL7/FHIR interoperability across 200+ client integrations, and production AI engineering, MCP, RAG, multi-agent workflows, and LLMOps. My focus is turning operational chaos into calm, maintainable systems that run without constant intervention.",
+dev: "AI Engineer at ModMed with 15+ years of experience building enterprise software, cloud infrastructure, healthcare integrations, and agentic AI systems. I specialize in Go services, AWS, HL7/FHIR interoperability across 200+ client integrations, and production AI engineering, MCP, RAG, multi-agent workflows, and LLMOps. My focus is turning operational chaos into calm, maintainable systems that run without constant intervention.",
     human: "I design my life around growth, discomfort, and perspective. I live and work full-time from my RV, deliberately placing myself in unfamiliar places and cultures, often as the outsider in the room, because that is where real learning happens. I am pursuing the highest point in every U.S. state and training for Denali in 2028, not as a bucket list, but as a practice in discipline, resilience, and long-term thinking. Every challenge I choose is a system I’m trying to understand. Every place I go makes me better at building the next one.",
   },
 
@@ -80,7 +80,7 @@ dev: "Senior Systems Engineer with 15+ years of experience building enterprise s
   experience: {
     dev: [
       { year: "2025 – Present", role: "AI Engineering | Building in Public", company: "Personal Projects + ModMed AI Initiative", desc: "Actively building with RAG, MCP, Databricks, Lakebase, Claude Code, and agentic workflows. Contributing to ModMed's AI acceleration initiative. Shipping personal AI projects in public, portfolio chatbot, MCP servers, healthcare automation concepts." },
-      { year: "2021 - Present", role: "Integration Consultant II", company: "ModMed", desc: "Completed ModMed's inaugural AI Acceleration intensive. Designs production agentic workflows using Claude Code, MCP, Databricks, FastAPI, and RAG. Leads resolution of high-impact platform failures across 200+ enterprise clients, 95% reduction in critical incident recurrence, 75% improvement in MTTR." },
+      { year: "Aug 2026 - Present", role: "AI Engineer 3 (Integration Consultant II, 2021 - 2026)", company: "ModMed", desc: "Completed ModMed's inaugural AI Acceleration intensive. Designs production agentic workflows using Claude Code, MCP, Databricks, FastAPI, and RAG. Leads resolution of high-impact platform failures across 200+ enterprise clients, 95% reduction in critical incident recurrence, 75% improvement in MTTR." },
       { year: "2020 - 2021", role: "Telecom Engineer", company: "Snap-On Credit", desc: "Managed an Avaya Systems Upgrade, upgrade was a success with zero downtime" },
       { year: "2019 - 2020", role: "IT Specialist / Lead DBA", company: "Lakeshore Bone & Joint", desc: "Sole DBA managing 5TB+ of clinical data. Collaborated directly with physicians to optimize EHR workflows and clinical operations." },
       { year: "2015 - 2019", role: "Entreprenuer/CEO", company: "Coldiron Auto Transport and RC Lawn and Tree", desc: "Founded and Ran 2 Businesses, Learnt all the hard lessons of being an Entreprenuer" },
@@ -122,7 +122,7 @@ dev: "Senior Systems Engineer with 15+ years of experience building enterprise s
 
   socials: {
     linkedin: "https://linkedin.com/in/brandon-coldiron/",
-    email: "brcoldir@gmail.com",
+    github: "https://github.com/brcoldir",
     youtube: "https://youtube.com/@oceansoutdoors",
     tiktok: "https://www.tiktok.com/@oceansoutdoors",
     instagram: "https://www.instagram.com/oceansoutdoors",
@@ -377,7 +377,7 @@ const App = () => {
               </div>
             </a>
 
-            <a href={`mailto:${SITE_DATA.socials.email}`} className={`flex items-center gap-2 px-5 py-2 rounded-lg transition-all ${mode === 'dev' ? 'hover:bg-slate-900 text-slate-400 hover:text-white' : 'hover:bg-stone-200 text-stone-600 hover:text-stone-900'}`}>
+            <a href="#contact" className={`flex items-center gap-2 px-5 py-2 rounded-lg transition-all ${mode === 'dev' ? 'hover:bg-slate-900 text-slate-400 hover:text-white' : 'hover:bg-stone-200 text-stone-600 hover:text-stone-900'}`}>
               <Mail size={20} />
               <span className="text-sm font-bold">Email Me</span>
             </a>
@@ -723,29 +723,6 @@ const App = () => {
               ? "I'm building in public with AI and always interested in talking shop, healthcare tech, agentic systems, or whatever hard problem you're working on."
               : "Adventures, ideas, collabs, hit me up. I like real conversations with people doing interesting things."}
           </p>
-
-          <div className="flex flex-col sm:flex-row justify-center gap-3 mb-10">
-            <a
-              href="mailto:brcoldir@gmail.com"
-              className={`flex items-center justify-center gap-2 px-5 py-3 rounded-xl border font-medium text-sm transition-all hover:scale-105 ${
-                mode === 'dev'
-                  ? 'bg-slate-900 border-slate-700 text-blue-300 hover:border-blue-500'
-                  : 'bg-white border-stone-200 text-stone-700 hover:border-orange-400 hover:text-orange-700 shadow-sm'
-              }`}
-            >
-              brcoldir@gmail.com
-            </a>
-            <a
-              href="tel:+15748065895"
-              className={`flex items-center justify-center gap-2 px-5 py-3 rounded-xl border font-medium text-sm transition-all hover:scale-105 ${
-                mode === 'dev'
-                  ? 'bg-slate-900 border-slate-700 text-blue-300 hover:border-blue-500'
-                  : 'bg-white border-stone-200 text-stone-700 hover:border-orange-400 hover:text-orange-700 shadow-sm'
-              }`}
-            >
-              (574) 806-5895
-            </a>
-          </div>
 
           <form onSubmit={handleSubmit} className="space-y-4 text-left">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

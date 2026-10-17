@@ -15,7 +15,7 @@
 - Tailwind only — no inline style objects except where already used (e.g. progress bars)
 - Dev mode palette: `bg-[#0a0f1e]`, `bg-slate-950`, `border-slate-800`, `text-blue-400`, `text-slate-400`
 - Human mode palette: `bg-[#f4f1ea]`, `bg-white`, `border-stone-200`, `text-orange-600`, `text-stone-600`
-- Contact info to display publicly: `brcoldir@gmail.com`, `(574) 806-5895`
+- Contact info to display publicly: `brcoldir@gmail.com`, `(phone removed)`
 - Spec: `docs/superpowers/specs/2026-07-08-portfolio-restructure-design.md`
 
 ---
@@ -473,7 +473,7 @@ Replace that opening block (heading + subtext paragraph) with:
               brcoldir@gmail.com
             </a>
             <a
-              href="tel:+15748065895"
+              href="tel:+10000000000"
               className={`flex items-center justify-center gap-2 px-5 py-3 rounded-xl border font-medium transition-all hover:scale-105 ${
                 mode === 'dev'
                   ? 'bg-slate-900 border-slate-700 text-slate-200 hover:border-blue-500/50 hover:text-blue-300'
@@ -481,7 +481,7 @@ Replace that opening block (heading + subtext paragraph) with:
               }`}
             >
               <Send size={18} />
-              (574) 806-5895
+              (phone removed)
             </a>
           </div>
 ```
@@ -505,7 +505,7 @@ Open http://localhost:5173 and scroll to the bottom. Verify:
 - Dev mode subtext: "I'm building in public with AI..."
 - Human mode subtext: "Adventures, ideas, collabs..."
 - Email button visible, links to `mailto:brcoldir@gmail.com`
-- Phone button visible, links to `tel:+15748065895`
+- Phone button visible, links to `tel:+10000000000`
 - Contact form still present below the buttons
 - Submit button still works (test a submission)
 
