@@ -3,10 +3,11 @@ import Coldiron from './pages/Coldiron'
 import { ChatWidget } from './components/ChatWidget'
 import ManageAI from './pages/ManageAI'
 import PageLayout from './components/PageLayout'
-// TODO(Ocean): add real headshot at src/images/Headshot.jpg and import it; using /ocean.png placeholder for now
-const headshot = '/ocean.png'
-const BOOKING_URL = '#contact' // TODO(Ocean): replace with real Calendly/Cal.com booking link
-const RESUME_URL = '/resume.pdf' // TODO(Ocean): drop current resume PDF into frontend/public/resume.pdf
+import headshot from './images/Headshot.jpg'
+const RESUME_URL = '/resume.pdf'
+const EMAIL = 'brcoldir@gmail.com'
+const PHONE_TEL = 'tel:+15748065895'
+const PHONE_DISPLAY = '(574) 806-5895'
 import granitePeakImg from './images/granitepeak.jpg'
 import snowshoePeakImg from './images/snowshoepeak.jpg'
 import sunriseWhitneyImg from './images/sunrisewhitney.jpg'
@@ -33,7 +34,8 @@ import {
   Instagram,
   Facebook,
   Music,
-  Camera
+  Camera,
+  Phone
 } from 'lucide-react';
 
 
@@ -140,7 +142,7 @@ const CASE_STUDIES = [
     kicker: "Agents · MCP · RAG",
     title: "RAG chatbot + MCP tooling",
     problem: "Recruiters and hiring managers need fast, accurate answers about a candidate, and AI agents need safe, structured boundaries before they touch real tools, APIs, and data.",
-    built: "A RAG-powered assistant on OceanColdiron.com (Go backend, Claude, a markdown knowledge base with guardrails and prompt caching), plus MCP/FastMCP servers that expose tools to agents safely. At ModMed: production agentic workflows with Claude Code, MCP, Databricks, FastAPI, and RAG, after completing ModMed's inaugural AI Acceleration intensive.",
+    built: "A RAG-powered assistant on OceanColdiron.com (Go backend, Claude, a markdown knowledge base with guardrails and prompt caching), plus MCP/FastMCP servers that expose tools to agents safely. At ModMed: production agentic workflows with Claude Code, MCP, Databricks, FastAPI, and RAG, after completing ModMed's inaugural AI Acceleration intensive. Also an AI-powered sales dashboard for ModMed's Sales Executive team and an AI-driven Xtract template and skin test protocol generator that turns requirements into testable configurations.",
     // TODO(Ocean): add real numbers (users/queries served, hours saved, accuracy/eval scores, # MCP tools in production)
     result: "Promoted to AI Engineer 3 at ModMed in August 2026. The portfolio assistant is live and answers questions about his work 24/7.",
     tags: ["Claude", "MCP", "FastMCP", "RAG", "Go", "Databricks"],
@@ -303,7 +305,7 @@ const App = () => {
             I build MCP tools, RAG systems, and agentic workflows, and I plug them into the messy production systems they have to survive in: HL7, Mirth, SQL, and EHR data at real scale.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-3 pt-2">
-            <a href={BOOKING_URL} className={`px-7 py-3.5 rounded-lg font-bold text-lg transition-all hover:-translate-y-0.5 ${mode === 'dev' ? 'bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-900/50' : 'bg-orange-600 hover:bg-orange-500 text-white shadow-lg'}`}>Book a call</a>
+            <a href={`mailto:${EMAIL}`} className={`px-7 py-3.5 rounded-lg font-bold text-lg transition-all hover:-translate-y-0.5 ${mode === 'dev' ? 'bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-900/50' : 'bg-orange-600 hover:bg-orange-500 text-white shadow-lg'}`}>Contact me</a>
             <a href={RESUME_URL} target="_blank" rel="noreferrer" className={`px-7 py-3.5 rounded-lg font-bold text-lg border transition-all hover:-translate-y-0.5 ${mode === 'dev' ? 'border-slate-600 text-slate-200 hover:border-blue-400' : 'border-stone-400 text-stone-700 hover:border-orange-500'}`}>Resume</a>
           </div>
 
@@ -370,7 +372,7 @@ const App = () => {
               </div>
             ))}
           </div>
-          <a href={BOOKING_URL} className={`inline-block mt-10 px-7 py-3.5 rounded-lg font-bold ${mode === 'dev' ? 'bg-blue-600 hover:bg-blue-500 text-white' : 'bg-orange-600 hover:bg-orange-500 text-white'}`}>Book a call</a>
+          <a href={`mailto:${EMAIL}`} className={`inline-block mt-10 px-7 py-3.5 rounded-lg font-bold ${mode === 'dev' ? 'bg-blue-600 hover:bg-blue-500 text-white' : 'bg-orange-600 hover:bg-orange-500 text-white'}`}>Contact me</a>
         </div>
       </section>
 
@@ -707,11 +709,14 @@ const App = () => {
           <h2 className="text-3xl font-bold mb-6">Let's Talk</h2>
           <p className="mb-6 opacity-70">
             {mode === 'dev'
-              ? "Hiring for applied AI, forward-deployed, or AI solutions roles? Send a note and I'll reply personally, or grab time on my calendar."
+              ? "Hiring for applied AI, forward-deployed, or AI solutions roles? Send a note and I'll reply personally, or just email or call."
               : "Adventures, ideas, collabs, hit me up. I like real conversations with people doing interesting things."}
           </p>
 
-          <a href={BOOKING_URL} className={`inline-block mb-8 px-6 py-3 rounded-lg font-bold border ${mode === 'dev' ? 'border-blue-500 text-blue-300 hover:bg-blue-500/10' : 'border-orange-500 text-orange-700 hover:bg-orange-50'}`}>Prefer to talk? Book a 30-min call</a>
+          <div className="flex flex-col sm:flex-row justify-center gap-3 mb-8">
+            <a href={`mailto:${EMAIL}`} className={`inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg font-bold border ${mode === 'dev' ? 'border-blue-500 text-blue-300 hover:bg-blue-500/10' : 'border-orange-500 text-orange-700 hover:bg-orange-50'}`}><Mail size={18} />{EMAIL}</a>
+            <a href={PHONE_TEL} className={`inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg font-bold border ${mode === 'dev' ? 'border-blue-500 text-blue-300 hover:bg-blue-500/10' : 'border-orange-500 text-orange-700 hover:bg-orange-50'}`}><Phone size={18} />{PHONE_DISPLAY}</a>
+          </div>
           <form onSubmit={handleSubmit} className="space-y-4 text-left">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
@@ -794,6 +799,7 @@ const App = () => {
             Coldiron
           </a>
         </p>
+        <p className="mb-2"><a href={`mailto:${EMAIL}`} className="hover:underline">{EMAIL}</a> · <a href={PHONE_TEL} className="hover:underline">{PHONE_DISPLAY}</a></p>
         <p className="text-xs">Built with Go, React, & Tailwind.</p>
       </footer>
 
