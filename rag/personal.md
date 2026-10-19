@@ -1,7 +1,7 @@
 Ocean Coldiron Personal Knowledge Base
 
 Childhood
-Ocean grew up in Knox, Indiana, graduated High school a semester early, and then moved to Bloomington, Indiana, to attend Indiana University, where he also graduated a semester early. After that, he moved to Kansas City for a period to work at Cerner, and has been a bit nomadic ever since. 
+Ocean grew up in the cornfields outside of Chicago, graduated High school a semester early, and then moved to Bloomington, Indiana, to attend Indiana University, where he also graduated a semester early. After that, he moved to Kansas City for a period to work at Cerner, and has been a bit nomadic ever since. 
 
 Personal Overview
 
