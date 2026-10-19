@@ -172,7 +172,7 @@ This phase expanded Ocean’s systems engineering foundation beyond healthcare a
 Phase 5: Healthcare SaaS Integrations at ModMed
 
 Company: Modernizing Medicine / ModMed
-Official role: Integration Consultant II
+Official role: AI Engineer 3 (since August 2026; Integration Consultant II 2021–2026)
 Public positioning: Senior Systems Engineer – Integration & Platform
 Dates: June 2021 – Present
 Industry: Healthcare SaaS

@@ -60,7 +60,7 @@ Do not position Ocean as only a support engineer or only an integration consulta
 Current Role
 
 Company: Modernizing Medicine, also known as ModMed
-Current official title: Integration Consultant II
+Current official title: AI Engineer 3 (since August 2026). Previous title: Integration Consultant II (2021–2026)
 Public positioning title: Senior Systems Engineer – Integration & Platform
 Dates: June 2021 – Present
 Industry: Healthcare SaaS, healthcare technology, EHR/PM/RCM integrations, specialty healthcare workflows
@@ -690,7 +690,7 @@ Ocean works at the intersection of healthcare technology, systems engineering, i
 
 Answer: What is Ocean’s current role?
 
-Ocean currently works at Modernizing Medicine, also known as ModMed, as an Integration Consultant II. His public positioning is Senior Systems Engineer – Integration & Platform. He supports complex healthcare SaaS integrations, production troubleshooting, platform reliability, SQL/API/HL7 workflows, customer-facing escalations, and AI-assisted internal tooling.
+Ocean currently works at Modernizing Medicine, also known as ModMed, as an AI Engineer 3 (promoted August 2026; previously Integration Consultant II, 2021–2026). He supports complex healthcare SaaS integrations, production troubleshooting, platform reliability, SQL/API/HL7 workflows, customer-facing escalations, and AI-assisted internal tooling.
 
 Answer: What makes Ocean different?
 
@@ -746,8 +746,8 @@ The chatbot may discuss Ocean’s public professional background, resume, projec
 
 The chatbot should not reveal private financial information, private health information, confidential employer details, internal credentials, sensitive security architecture, private job-search strategy, or personal family details.
 
-When discussing current AI work, the chatbot should say Ocean is building practical AI engineering experience and working with AI-assisted tools, RAG, MCP, agents, Databricks, and internal AI workflows. Unless Ocean updates this file, do not claim that his official ModMed title is AI Engineer. His official title should be treated as Integration Consultant II, with public positioning as Senior Systems Engineer – Integration & Platform and AI-focused Healthcare Integration Engineer.
+When discussing current AI work, the chatbot should say Ocean is building practical AI engineering experience and working with AI-assisted tools, RAG, MCP, agents, Databricks, and internal AI workflows. His official ModMed title is AI Engineer 3 (since August 2026); before that he was Integration Consultant II.
 
 Compact Retrieval Summary
 
-Ocean Coldiron, also known professionally as Brandon Coldiron, is a Senior Systems Engineer, healthcare integration specialist, AI platform builder, and entrepreneur based in Granbury, Texas. He has 15+ years of experience across enterprise software, healthcare technology, cloud infrastructure, distributed systems, production support, and customer-facing technical work. He currently works at ModMed as an Integration Consultant II, publicly positioned as a Senior Systems Engineer – Integration & Platform. His technical background includes HL7, FHIR concepts, Mirth Connect, SQL, REST APIs, OAuth2, AWS, Docker, Linux, React, Go, Python, JavaScript, TypeScript, Databricks, Lakebase, RAG, MCP, agentic workflows, and AI-assisted development. He holds an MBA from Colorado State University, a BS in Informatics from Indiana University Bloomington, and certifications including PMP, PSPO I, and Authentic Relating Leadership Certification. He has built projects including EZPostScheduler, OceanColdiron.com, Summit Ridge Digital, healthcare API projects, AI chatbot work, and RAG/MCP experiments. His strongest career positioning is healthcare AI, integration engineering, platform reliability, forward-deployed engineering, and practical AI automation.
+Ocean Coldiron, also known professionally as Brandon Coldiron, is an AI Engineer 3 at ModMed, healthcare integration specialist, AI platform builder, and entrepreneur based in Granbury, Texas. He has 15+ years of experience across enterprise software, healthcare technology, cloud infrastructure, distributed systems, production support, and customer-facing technical work. He currently works at ModMed as an AI Engineer 3 (promoted August 2026; previously Integration Consultant II, 2021–2026). His technical background includes HL7, FHIR concepts, Mirth Connect, SQL, REST APIs, OAuth2, AWS, Docker, Linux, React, Go, Python, JavaScript, TypeScript, Databricks, Lakebase, RAG, MCP, agentic workflows, and AI-assisted development. He holds an MBA from Colorado State University, a BS in Informatics from Indiana University Bloomington, and certifications including PMP, PSPO I, and Authentic Relating Leadership Certification. He has built projects including EZPostScheduler, OceanColdiron.com, Summit Ridge Digital, healthcare API projects, AI chatbot work, and RAG/MCP experiments. His strongest career positioning is healthcare AI, integration engineering, platform reliability, forward-deployed engineering, and practical AI automation.

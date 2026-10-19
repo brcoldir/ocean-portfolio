@@ -3,7 +3,10 @@ import Coldiron from './pages/Coldiron'
 import { ChatWidget } from './components/ChatWidget'
 import ManageAI from './pages/ManageAI'
 import PageLayout from './components/PageLayout'
-import headshot from './images/Headshot.jpg'
+// TODO(Ocean): add real headshot at src/images/Headshot.jpg and import it; using /ocean.png placeholder for now
+const headshot = '/ocean.png'
+const BOOKING_URL = '#contact' // TODO(Ocean): replace with real Calendly/Cal.com booking link
+const RESUME_URL = '/resume.pdf' // TODO(Ocean): drop current resume PDF into frontend/public/resume.pdf
 import granitePeakImg from './images/granitepeak.jpg'
 import snowshoePeakImg from './images/snowshoepeak.jpg'
 import sunriseWhitneyImg from './images/sunrisewhitney.jpg'
@@ -38,7 +41,7 @@ import {
 const SITE_DATA = {
   name: "Ocean Coldiron",
   fullName: "Brandon Coldiron",
-  role: "AI Engineer, Healthcare Interoperability",
+  role: "AI Engineer 3 @ ModMed",
   location: "Remote (RV) | Base: TX",
   tagline: "Modernizing business operations with AI, Go, and 15+ years of systems expertise.",
 
@@ -50,10 +53,10 @@ dev: "AI Engineer at ModMed with 15+ years of experience building enterprise sof
   // --- SPLIT STATS: The Metrics that Matter for Each Side ---
   stats: {
     dev: [
-      { value: "15+", label: "Years Experience" },
-      { value: "200+", label: "Client Integrations" },
-      { value: "5 TB+", label: "Data Managed" },
-      { value: "99.9%", label: "System Uptime" },
+      { value: "125", label: "Integrations Shipped" },
+      { value: "5M+", label: "Patients Imported" },
+      { value: "100 TB", label: "Historical Data Migrated" },
+      { value: "15+", label: "Years in Production" },
     ],
     human: [
       { value: "100k+", label: "YouTube Subs" },
@@ -131,6 +134,44 @@ dev: "AI Engineer at ModMed with 15+ years of experience building enterprise sof
 
 };
 
+// --- DATA: CASE STUDIES (facts from rag/*.md + existing copy only) ---
+const CASE_STUDIES = [
+  {
+    kicker: "Agents · MCP · RAG",
+    title: "RAG chatbot + MCP tooling",
+    problem: "Recruiters and hiring managers need fast, accurate answers about a candidate, and AI agents need safe, structured boundaries before they touch real tools, APIs, and data.",
+    built: "A RAG-powered assistant on OceanColdiron.com (Go backend, Claude, a markdown knowledge base with guardrails and prompt caching), plus MCP/FastMCP servers that expose tools to agents safely. At ModMed: production agentic workflows with Claude Code, MCP, Databricks, FastAPI, and RAG, after completing ModMed's inaugural AI Acceleration intensive.",
+    // TODO(Ocean): add real numbers (users/queries served, hours saved, accuracy/eval scores, # MCP tools in production)
+    result: "Promoted to AI Engineer 3 at ModMed in August 2026. The portfolio assistant is live and answers questions about his work 24/7.",
+    tags: ["Claude", "MCP", "FastMCP", "RAG", "Go", "Databricks"],
+  },
+  {
+    kicker: "Healthcare at scale",
+    title: "HL7 / Mirth integration engine",
+    problem: "Healthcare SaaS clients need patient data flowing reliably between EHRs and practice-management systems, where every failure is a clinical and revenue problem.",
+    built: "HL7 and FHIR data pipelines in Mirth Connect, SQL, and Java/Spring Boot, plus incident triage and root-cause fixes across 200+ enterprise clients.",
+    // TODO(Ocean): confirm the timeframe for the 87% ticket reduction
+    result: "125 integrations shipped, 5M+ patients imported, 100 TB of historical data migrated. Roughly 95% fewer recurring critical incidents, roughly 75% faster MTTR, and 87% fewer integration trouble tickets month over month.",
+    tags: ["HL7", "FHIR", "Mirth Connect", "SQL", "Java / Spring Boot"],
+  },
+  {
+    kicker: "Founder",
+    title: "Summit Ridge Digital",
+    problem: "Small businesses need dependable websites and hosting but can't justify a dev team.",
+    built: "A web design, hosting, and digital services business covering sites, maintenance, domains, SSL/TLS, and AWS-hosted infrastructure, alongside EZPostScheduler, an AI caption + cross-platform scheduling SaaS (Go, React, Postgres, AWS, Stripe).",
+    // TODO(Ocean): add client count / revenue / sites hosted if you want them public (RAG says not to claim active clients unless confirmed)
+    result: "End-to-end ownership from product to infrastructure to customer. EZPostScheduler cuts manual cross-posting by about 85%.",
+    tags: ["AWS", "Go", "React", "Hosting", "SaaS"],
+  },
+];
+
+const HIRE_FOR = [
+  { role: "Forward Deployed AI Engineer", why: "Embedding with customers to get agents working against their real systems and data. That's the job I've done in healthcare integrations for years." },
+  { role: "AI Solutions Architect", why: "Designing MCP/RAG/agent architectures that fit enterprise constraints, with an MBA and PMP for the business side." },
+  { role: "Applied AI Engineer", why: "Shipping LLM features to production: retrieval, tool use, guardrails, evals, and the backend plumbing around them." },
+  { role: "Healthcare AI Engineer", why: "HL7, FHIR, Mirth, and EHR data at the scale of 5M+ patients. I already speak the domain." },
+];
+
 // --- DATA: DIFFERENTIATORS ---
 const DIFFERENTIATORS: Record<'dev' | 'human', { icon: React.ElementType; title: string; body: string }[]> = {
   dev: [
@@ -195,31 +236,6 @@ const STACK: Record<'dev' | 'human', { label: string; tags: string[] }[]> = {
   ],
 };
 
-// --- COMPONENT: TYPEWRITER EFFECT ---
-const Typewriter = ({ text, delay = 50, startDelay = 0 }: { text: string, delay?: number, startDelay?: number }) => {
-  const [currentText, setCurrentText] = useState('');
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [hasStarted, setHasStarted] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setHasStarted(true), startDelay);
-    return () => clearTimeout(timer);
-  }, [startDelay]);
-
-  useEffect(() => {
-    if (!hasStarted) return;
-    if (currentIndex < text.length) {
-      const timeout = setTimeout(() => {
-        setCurrentText(prev => prev + text[currentIndex]);
-        setCurrentIndex(prev => prev + 1);
-      }, delay);
-      return () => clearTimeout(timeout);
-    }
-  }, [currentIndex, delay, hasStarted, text]);
-
-  return <span>{currentText}</span>;
-};
-
 // --- MAIN APP COMPONENT ---
 const App = () => {
   const [mode, setMode] = useState<'dev' | 'human'>('dev');
@@ -266,124 +282,95 @@ const App = () => {
     <PageLayout mode={mode} scrolled={scrolled} onToggleMode={toggleMode} name={SITE_DATA.name}>
 
       {/* Hero Section */}
-      <section className="pt-20 pb-16 md:pt-40 md:pb-20 px-6 relative overflow-hidden">
-        {mode === 'dev' && (
-          <div className="absolute top-20 right-0 opacity-10 font-mono text-xs pointer-events-none select-none">
-            {Array.from({ length: 20 }).map((_, i) => (
-              <div key={i}>{Math.random().toString(36).substring(7)}</div>
-            ))}
-          </div>
-        )}
-
+      <section className="pt-24 pb-16 md:pt-36 md:pb-20 px-6 relative overflow-hidden">
         <div className="max-w-5xl mx-auto text-center space-y-8 relative z-10">
-          <div className="space-y-4">
-            {/* Headshot portrait */}
-            <div className="flex justify-center">
-              <div
-                className={`p-[3px] rounded-full transition-all duration-300 hover:scale-105 ${
-                  mode === 'dev'
-                    ? 'bg-gradient-to-br from-blue-400 via-cyan-400 to-blue-600 shadow-[0_0_24px_rgba(59,130,246,0.45)] hover:shadow-[0_0_40px_rgba(59,130,246,0.7)]'
-                    : 'bg-gradient-to-br from-orange-400 via-amber-400 to-orange-600 shadow-[0_0_24px_rgba(251,146,60,0.45)] hover:shadow-[0_0_40px_rgba(251,146,60,0.7)]'
-                }`}
-              >
-                <div className="rounded-full overflow-hidden w-24 h-24 md:w-32 md:h-32 lg:w-36 lg:h-36">
-                  <img
-                    src={headshot}
-                    alt="Ocean Coldiron headshot"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+          <div className="flex justify-center">
+            <div className={`p-[3px] rounded-full ${mode === 'dev' ? 'bg-gradient-to-br from-blue-400 via-cyan-400 to-blue-600' : 'bg-gradient-to-br from-orange-400 via-amber-400 to-orange-600'}`}>
+              <div className="rounded-full overflow-hidden w-24 h-24 md:w-32 md:h-32">
+                <img src={headshot} alt="Ocean Coldiron" width={128} height={128} className="w-full h-full object-cover" />
               </div>
             </div>
+          </div>
+          <p className={`text-xs md:text-sm uppercase tracking-[0.2em] font-bold ${mode === 'dev' ? 'text-cyan-400 font-mono' : 'text-orange-600'}`}>
+            Ocean Coldiron · AI Engineer 3 @ ModMed · Remote
+          </p>
+          <h1 className={`text-4xl sm:text-5xl md:text-7xl font-black tracking-tight leading-[1.05] ${mode === 'dev' ? '' : 'font-serif text-stone-800'}`}>
+            AI Engineer shipping{' '}
+            <span className={`text-transparent bg-clip-text ${mode === 'dev' ? 'bg-gradient-to-r from-blue-400 to-cyan-400' : 'bg-gradient-to-r from-orange-500 to-amber-500'}`}>agents</span>
+            {' '}into regulated healthcare.
+          </h1>
+          <p className={`text-lg md:text-xl max-w-2xl mx-auto leading-relaxed ${mode === 'dev' ? 'text-slate-300' : 'text-stone-600'}`}>
+            I build MCP tools, RAG systems, and agentic workflows, and I plug them into the messy production systems they have to survive in: HL7, Mirth, SQL, and EHR data at real scale.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-3 pt-2">
+            <a href={BOOKING_URL} className={`px-7 py-3.5 rounded-lg font-bold text-lg transition-all hover:-translate-y-0.5 ${mode === 'dev' ? 'bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-900/50' : 'bg-orange-600 hover:bg-orange-500 text-white shadow-lg'}`}>Book a call</a>
+            <a href={RESUME_URL} target="_blank" rel="noreferrer" className={`px-7 py-3.5 rounded-lg font-bold text-lg border transition-all hover:-translate-y-0.5 ${mode === 'dev' ? 'border-slate-600 text-slate-200 hover:border-blue-400' : 'border-stone-400 text-stone-700 hover:border-orange-500'}`}>Resume</a>
+          </div>
 
-            <h1 className="text-6xl md:text-8xl font-black tracking-tighter mb-4">
-              {mode === 'dev' ? (
-                <span>
-                  <span className="text-slate-600">&lt;</span>
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
-                    {SITE_DATA.name}
-                  </span>
-                  <span className="text-slate-600">/&gt;</span>
-                  <span className="animate-pulse text-blue-500">_</span>
-                </span>
-              ) : (
-                <span className="text-stone-800 font-serif">
-                  {SITE_DATA.name}<span className="text-orange-500">.</span>
-                </span>
-              )}
-            </h1>
-
-            <div className={`text-xl md:text-2xl max-w-2xl mx-auto leading-relaxed h-24 flex items-center justify-center ${mode === 'dev' ? 'text-blue-200/80 font-mono' : 'text-stone-600 font-serif italic'}`}>
-              {mode === 'dev' ? (
-                <span>
-                  <span className="text-blue-500">func</span> <span className="text-yellow-300">build</span>() &#123; <Typewriter text='ship("in", "public")' startDelay={500} />
- &#125;
-                </span>
-              ) : (
-                "I follow curiosity, not comfort."
-              )}
+          {/* Proof strip: production healthcare at scale */}
+          <div className="pt-8">
+            <div className={`text-xs uppercase tracking-widest mb-3 opacity-60 ${mode === 'dev' ? 'font-mono' : ''}`}>Production healthcare at scale</div>
+            <div className={`grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto p-4 rounded-2xl border ${mode === 'dev' ? 'bg-slate-900/50 border-slate-800' : 'bg-white border-stone-200 shadow-lg'}`}>
+              {SITE_DATA.stats.dev.map((stat, idx) => (
+                <div key={idx} className="text-center">
+                  <div className={`text-2xl md:text-3xl font-bold ${mode === 'dev' ? 'text-white' : 'text-stone-800'}`}>{stat.value}</div>
+                  <div className="text-xs uppercase tracking-wide opacity-60">{stat.label}</div>
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* DYNAMIC STATS BAR: This now changes based on mode */}
-          <div className={`grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto mt-12 p-4 rounded-2xl border ${mode === 'dev' ? 'bg-slate-900/50 border-slate-800' : 'bg-white border-stone-200 shadow-lg'}`}>
-            {/* We map over the correct stats array based on the current mode */}
-            {SITE_DATA.stats[mode].map((stat, idx) => (
-              <div key={idx} className="text-center">
-                <div className={`text-2xl font-bold ${mode === 'dev' ? 'text-white' : 'text-stone-800'}`}>{stat.value}</div>
-                <div className="text-xs uppercase tracking-wide opacity-50">{stat.label}</div>
+          <div className="flex flex-wrap justify-center gap-5 pt-4 opacity-70">
+            <a href={SITE_DATA.socials.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn"><Linkedin size={22} /></a>
+            <a href={SITE_DATA.socials.github} target="_blank" rel="noreferrer" aria-label="GitHub"><Github size={22} /></a>
+            <a href={SITE_DATA.socials.youtube} target="_blank" rel="noreferrer" aria-label="YouTube"><Youtube size={22} /></a>
+            <a href={SITE_DATA.socials.tiktok} target="_blank" rel="noreferrer" aria-label="TikTok"><Music size={22} /></a>
+            <a href={SITE_DATA.socials.instagram} target="_blank" rel="noreferrer" aria-label="Instagram"><Instagram size={22} /></a>
+            <a href={SITE_DATA.socials.facebook} target="_blank" rel="noreferrer" aria-label="Facebook"><Facebook size={22} /></a>
+            <a href="#contact" aria-label="Contact"><Mail size={22} /></a>
+          </div>
+        </div>
+      </section>
+
+      {/* Case Studies */}
+      <section id="work" className={`py-24 px-6 ${mode === 'dev' ? 'bg-[#0a0f1e]' : 'bg-[#f4f1ea]'}`}>
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-3 text-center">Case studies</h2>
+          <p className="text-center opacity-60 mb-12">Problem, what I built, and what happened.</p>
+          <div className="grid md:grid-cols-3 gap-6">
+            {CASE_STUDIES.map((c, idx) => (
+              <article key={idx} className={`flex flex-col p-7 rounded-2xl border ${mode === 'dev' ? 'bg-slate-950 border-slate-800' : 'bg-white border-stone-200 shadow-sm'}`}>
+                <div className={`text-xs font-bold uppercase tracking-widest mb-2 ${mode === 'dev' ? 'text-cyan-400' : 'text-orange-600'}`}>{c.kicker}</div>
+                <h3 className="text-xl font-bold mb-5">{c.title}</h3>
+                {(['problem', 'built', 'result'] as const).map(k => (
+                  <div key={k} className="mb-4">
+                    <div className="text-xs font-bold uppercase tracking-wider opacity-50 mb-1">{k}</div>
+                    <p className={`text-sm leading-relaxed ${mode === 'dev' ? 'text-slate-300' : 'text-stone-700'}`}>{c[k]}</p>
+                  </div>
+                ))}
+                <div className="flex flex-wrap gap-2 mt-auto pt-4">
+                  {c.tags.map(t => <span key={t} className={`text-xs px-2.5 py-1 rounded-md ${mode === 'dev' ? 'bg-slate-900 text-blue-300' : 'bg-stone-100 text-stone-600'}`}>{t}</span>)}
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Hire Me For */}
+      <section id="hire" className="py-24 px-6">
+        <div className="max-w-5xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-3">Hire me for</h2>
+          <p className="opacity-60 mb-10">Remote-first. US citizen, no sponsorship needed.</p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
+            {HIRE_FOR.map((h, idx) => (
+              <div key={idx} className={`p-6 rounded-2xl border ${mode === 'dev' ? 'bg-slate-900/50 border-slate-800' : 'bg-white border-stone-200 shadow-sm'}`}>
+                <h3 className="font-bold mb-2">{h.role}</h3>
+                <p className={`text-sm leading-relaxed ${mode === 'dev' ? 'text-slate-400' : 'text-stone-600'}`}>{h.why}</p>
               </div>
             ))}
           </div>
-
-          <div className="flex flex-wrap justify-center gap-4 pt-8">
-            <a href={SITE_DATA.socials.linkedin} target="_blank" rel="noreferrer" className={`group flex items-center gap-2 px-5 py-2 rounded-lg transition-all ${mode === 'dev' ? 'hover:bg-slate-900 text-slate-400 hover:text-white' : 'hover:bg-stone-200 text-stone-600 hover:text-stone-900'}`}>
-              <Linkedin size={20} />
-              <div className="text-left flex flex-col leading-none">
-                <span className="text-xs opacity-50 font-mono">Connect</span>
-                <span className="text-xs font-bold mt-1">LinkedIn</span>
-              </div>
-            </a>
-
-            <a href={SITE_DATA.socials.youtube} target="_blank" rel="noreferrer" className={`group flex items-center gap-2 px-5 py-2 rounded-lg transition-all ${mode === 'dev' ? 'hover:bg-slate-900 text-slate-400 hover:text-red-500' : 'hover:bg-stone-200 text-stone-600 hover:text-red-600'}`}>
-              <Youtube size={20} />
-              <div className="text-left flex flex-col leading-none">
-                <span className="text-xs opacity-50 font-mono">Watch</span>
-                <span className="text-xs font-bold mt-1">@oceansoutdoors</span>
-              </div>
-            </a>
-
-            <a href={SITE_DATA.socials.tiktok} target="_blank" rel="noreferrer" className={`group flex items-center gap-2 px-5 py-2 rounded-lg transition-all ${mode === 'dev' ? 'hover:bg-slate-900 text-slate-400 hover:text-pink-400' : 'hover:bg-stone-200 text-stone-600 hover:text-pink-500'}`}>
-              <Music size={20} />
-              <div className="text-left flex flex-col leading-none">
-                <span className="text-xs opacity-50 font-mono">Also on</span>
-                <span className="text-xs font-bold mt-1">TikTok</span>
-              </div>
-            </a>
-
-            <a href={SITE_DATA.socials.instagram} target="_blank" rel="noreferrer" className={`group flex items-center gap-2 px-5 py-2 rounded-lg transition-all ${mode === 'dev' ? 'hover:bg-slate-900 text-slate-400 hover:text-purple-400' : 'hover:bg-stone-200 text-stone-600 hover:text-purple-500'}`}>
-              <Instagram size={20} />
-              <div className="text-left flex flex-col leading-none">
-                <span className="text-xs opacity-50 font-mono">Lets Not Forget</span>
-                <span className="text-xs font-bold mt-1">Instagram</span>
-              </div>
-            </a>
-
-            <a href={SITE_DATA.socials.facebook} target="_blank" rel="noreferrer" className={`group flex items-center gap-2 px-5 py-2 rounded-lg transition-all ${mode === 'dev' ? 'hover:bg-slate-900 text-slate-400 hover:text-blue-400' : 'hover:bg-stone-200 text-stone-600 hover:text-blue-600'}`}>
-              <Facebook size={20} />
-              <div className="text-left flex flex-col leading-none">
-                <span className="text-xs opacity-50 font-mono">Check me out on</span>
-                <span className="text-xs font-bold mt-1">Facebook</span>
-              </div>
-            </a>
-
-            <a href="#contact" className={`flex items-center gap-2 px-5 py-2 rounded-lg transition-all ${mode === 'dev' ? 'hover:bg-slate-900 text-slate-400 hover:text-white' : 'hover:bg-stone-200 text-stone-600 hover:text-stone-900'}`}>
-              <Mail size={20} />
-              <span className="text-sm font-bold">Email Me</span>
-            </a>
-
-
-          </div>
+          <a href={BOOKING_URL} className={`inline-block mt-10 px-7 py-3.5 rounded-lg font-bold ${mode === 'dev' ? 'bg-blue-600 hover:bg-blue-500 text-white' : 'bg-orange-600 hover:bg-orange-500 text-white'}`}>Book a call</a>
         </div>
       </section>
 
@@ -428,7 +415,7 @@ const App = () => {
           <div className="space-y-8">
             <h2 className={`text-3xl font-bold flex items-center gap-3 ${mode === 'dev' ? 'font-sans' : 'font-serif'}`}>
               {mode === 'dev' ? <Terminal className="text-blue-500" /> : <MapPin className="text-orange-600" />}
-              {mode === 'dev' ? "System Architecture" : "The Mission"}
+              {mode === 'dev' ? "About" : "Beyond the Keyboard: Ultrarunner, RV Life"}
             </h2>
             <p className={`text-lg leading-loose ${mode === 'dev' ? 'text-slate-300' : 'text-stone-700'}`}>
               {mode === 'dev' ? SITE_DATA.about.dev : SITE_DATA.about.human}
@@ -720,10 +707,11 @@ const App = () => {
           <h2 className="text-3xl font-bold mb-6">Let's Talk</h2>
           <p className="mb-6 opacity-70">
             {mode === 'dev'
-              ? "I'm building in public with AI and always interested in talking shop, healthcare tech, agentic systems, or whatever hard problem you're working on."
+              ? "Hiring for applied AI, forward-deployed, or AI solutions roles? Send a note and I'll reply personally, or grab time on my calendar."
               : "Adventures, ideas, collabs, hit me up. I like real conversations with people doing interesting things."}
           </p>
 
+          <a href={BOOKING_URL} className={`inline-block mb-8 px-6 py-3 rounded-lg font-bold border ${mode === 'dev' ? 'border-blue-500 text-blue-300 hover:bg-blue-500/10' : 'border-orange-500 text-orange-700 hover:bg-orange-50'}`}>Prefer to talk? Book a 30-min call</a>
           <form onSubmit={handleSubmit} className="space-y-4 text-left">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
