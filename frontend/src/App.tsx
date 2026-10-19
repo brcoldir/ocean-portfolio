@@ -43,7 +43,7 @@ import {
 const SITE_DATA = {
   name: "Ocean Coldiron",
   fullName: "Brandon Coldiron",
-  role: "AI Engineer 3 @ ModMed",
+  role: "Forward Deployed AI Engineer 3 @ ModMed",
   location: "Remote (RV) | Base: TX",
   tagline: "Modernizing business operations with AI, Go, and 15+ years of systems expertise.",
 
@@ -85,11 +85,12 @@ dev: "AI Engineer at ModMed with 15+ years of experience building enterprise sof
   experience: {
     dev: [
       { year: "2025 – Present", role: "AI Engineering | Building in Public", company: "Personal Projects + ModMed AI Initiative", desc: "Actively building with RAG, MCP, Databricks, Lakebase, Claude Code, and agentic workflows. Contributing to ModMed's AI acceleration initiative. Shipping personal AI projects in public, portfolio chatbot, MCP servers, healthcare automation concepts." },
-      { year: "Aug 2026 - Present", role: "AI Engineer 3 (Integration Consultant II, 2021 - 2026)", company: "ModMed", desc: "Completed ModMed's inaugural AI Acceleration intensive. Designs production agentic workflows using Claude Code, MCP, Databricks, FastAPI, and RAG. Leads resolution of high-impact platform failures across 200+ enterprise clients, 95% reduction in critical incident recurrence, 75% improvement in MTTR." },
-      { year: "2020 - 2021", role: "Telecom Engineer", company: "Snap-On Credit", desc: "Managed an Avaya Systems Upgrade, upgrade was a success with zero downtime" },
-      { year: "2019 - 2020", role: "IT Specialist / Lead DBA", company: "Lakeshore Bone & Joint", desc: "Sole DBA managing 5TB+ of clinical data. Collaborated directly with physicians to optimize EHR workflows and clinical operations." },
+      { year: "Jun 2025 - Present", role: "Forward Deployed AI Engineer 3", company: "ModMed", desc: "Completed ModMed's inaugural AI Acceleration intensive. Designs production agentic workflows using Claude Code, MCP, Databricks, FastAPI, and RAG. Leads resolution of high-impact platform failures across 200+ enterprise clients, 95% reduction in critical incident recurrence, 75% improvement in MTTR." },
+      { year: "Jun 2021 - Jun 2025", role: "Integration Consultant II", company: "ModMed", desc: "Senior escalation engineer for HL7, Mirth Connect, API, and data-pipeline failures across 200+ enterprise clients." },
+      { year: "Jul 2020 - Jun 2021", role: "Telecom Systems Administrator", company: "Snap-On Credit", desc: "Managed an Avaya Systems Upgrade, upgrade was a success with zero downtime" },
+      { year: "Sep 2019 - Jul 2020", role: "IT Specialist / Lead DBA", company: "Lakeshore Bone & Joint", desc: "Sole DBA managing 5TB+ of clinical data. Collaborated directly with physicians to optimize EHR workflows and clinical operations." },
       { year: "2015 - 2019", role: "Entreprenuer/CEO", company: "Coldiron Auto Transport and RC Lawn and Tree", desc: "Founded and Ran 2 Businesses, Learnt all the hard lessons of being an Entreprenuer" },
-      { year: "2011 - 2015", role: "Systems Engineer", company: "Cerner Corp", desc: "Executive white-glove support for C-Suite. Managed global technical logistics." },
+      { year: "May 2011 - Aug 2015", role: "Systems Engineer - Executive Support", company: "Cerner Corp", desc: "Executive white-glove support for C-Suite. Managed global technical logistics." },
     ],
     human: [
       {
@@ -144,7 +145,7 @@ const CASE_STUDIES = [
     problem: "Recruiters and hiring managers need fast, accurate answers about a candidate, and AI agents need safe, structured boundaries before they touch real tools, APIs, and data.",
     built: "A RAG-powered assistant on OceanColdiron.com (Go backend, Claude, a markdown knowledge base with guardrails and prompt caching), plus MCP/FastMCP servers that expose tools to agents safely. At ModMed: production agentic workflows with Claude Code, MCP, Databricks, FastAPI, and RAG, after completing ModMed's inaugural AI Acceleration intensive. Also an AI-powered sales dashboard for ModMed's Sales Executive team and an AI-driven Xtract template and skin test protocol generator that turns requirements into testable configurations.",
     // TODO(Ocean): add real numbers (users/queries served, hours saved, accuracy/eval scores, # MCP tools in production)
-    result: "Promoted to AI Engineer 3 at ModMed in August 2026. The portfolio assistant is live and answers questions about his work 24/7.",
+    result: "Forward Deployed AI Engineer 3 at ModMed since June 2025. The portfolio assistant is live and answers questions about his work 24/7.",
     tags: ["Claude", "MCP", "FastMCP", "RAG", "Go", "Databricks"],
   },
   {
@@ -294,7 +295,7 @@ const App = () => {
             </div>
           </div>
           <p className={`text-xs md:text-sm uppercase tracking-[0.2em] font-bold ${mode === 'dev' ? 'text-cyan-400 font-mono' : 'text-orange-600'}`}>
-            Ocean Coldiron · AI Engineer 3 @ ModMed · Remote
+            Ocean Coldiron · Forward Deployed AI Engineer 3 @ ModMed · Remote
           </p>
           <h1 className={`text-4xl sm:text-5xl md:text-7xl font-black tracking-tight leading-[1.05] ${mode === 'dev' ? '' : 'font-serif text-stone-800'}`}>
             AI Engineer shipping{' '}

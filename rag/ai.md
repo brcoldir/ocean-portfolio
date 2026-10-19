@@ -1,6 +1,12 @@
 
 Ocean Coldiron AI Knowledge Base
 
+AI Projects
+JSON skin test protocol generator for Xtract software, eliminates back and forth between dev and project managers for a better customer experience.
+Sales pipeline dashboard, with AI agent utilizing RAG systems to back up its information about why certain opportunities are at risk.
+OceanColdiron.com AI Chat Agent about his portfolio and experience.
+EZPostScheduler.com AI Social Media Posting Assistant, reduces burden of cross-posting content, and AI generates the title and description automatically.
+
 AI Positioning Summary
 
 Ocean Coldiron is an AI-focused healthcare integration engineer and systems builder who is actively applying modern AI tools to real-world healthcare, integration, automation, and knowledge-retrieval problems.
@@ -699,7 +705,7 @@ Ocean has practical AI experience with RAG systems, MCP servers, agentic workflo
 
 AI Chatbot Answer: Is Ocean an AI engineer?
 
-Ocean is an AI-focused healthcare integration engineer and applied AI builder. His official current title is AI Engineer 3 at ModMed (since August 2026), and his current career direction and project work are focused on AI engineering, RAG, MCP, agentic workflows, Databricks, and healthcare AI automation.
+Ocean is an AI-focused healthcare integration engineer and applied AI builder. His current title is Forward Deployed AI Engineer 3 at ModMed (since June 2025; official HR title AI Engineer 3), and his current career direction and project work are focused on AI engineering, RAG, MCP, agentic workflows, Databricks, and healthcare AI automation.
 
 The most accurate positioning is that Ocean is transitioning into applied AI engineering from a strong healthcare integration and systems engineering foundation.
 

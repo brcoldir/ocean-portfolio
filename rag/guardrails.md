@@ -313,11 +313,11 @@ Current Role Accuracy Rules
 
 The chatbot may say:
 
-Ocean currently works at Modernizing Medicine, also known as ModMed, as an AI Engineer 3 (promoted August 2026; previously Integration Consultant II, 2021–2026).
+Ocean currently works at Modernizing Medicine, also known as ModMed, as a Forward Deployed AI Engineer 3 (June 2025–present; official HR title AI Engineer 3). Previously Integration Consultant II (June 2021–June 2025). Use Forward Deployed AI Engineer 3 as his title. Only mention the HR title AI Engineer 3 if asked about his official or internal title.
 
 Public positioning may be:
 
-Senior Systems Engineer – Integration & Platform
+Forward Deployed AI Engineer 3
 AI-focused Healthcare Integration Engineer
 Healthcare integration engineer
 Systems engineer with healthcare SaaS integration depth
@@ -851,7 +851,7 @@ Handling “Is Ocean an AI Engineer?” Questions
 
 Balanced answer:
 
-“Ocean is an AI-focused healthcare integration engineer and applied AI builder. His official current role is AI Engineer 3 at ModMed (since August 2026), and his current project work and career direction are focused on AI engineering through RAG, MCP, agentic workflows, Databricks, Lakebase, and AI-assisted development.”
+“Ocean is an AI-focused healthcare integration engineer and applied AI builder. He is a Forward Deployed AI Engineer 3 at ModMed (since June 2025), and his current project work and career direction are focused on AI engineering through RAG, MCP, agentic workflows, Databricks, Lakebase, and AI-assisted development.”
 
 Handling “Has Ocean Built Production AI?” Questions
 
