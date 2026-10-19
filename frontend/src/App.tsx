@@ -62,9 +62,9 @@ dev: "AI Engineer at ModMed with 15+ years of experience building enterprise sof
     ],
     human: [
       { value: "100k+", label: "YouTube Subs" },
-      { value: "46/50", label: "State High Points" }, // Updated to your specific number
+      { value: "48/50", label: "State High Points" },
       { value: "Full-Time", label: "RV Living" },
-      { value: "2028", label: "Denali Goal" },
+      { value: "2027", label: "Denali Goal" },
     ]
   },
 
@@ -99,7 +99,7 @@ dev: "AI Engineer at ModMed with 15+ years of experience building enterprise sof
         company: "North America",
         desc: "Left conventional stability behind to live and work full-time on the road. I chose constant change, unfamiliar environments, and new communities as my classroom, because comfort is the enemy of growth."
       },
-      { year: "2028", role: "Denali Summit Attempt", company: "Alaska Range", desc: "Primary expedition objective: reach the summit of Denali after completing all U.S. state high points." },
+      { year: "2027", role: "Denali Summit Attempt", company: "Alaska Range", desc: "Primary expedition objective: reach the summit of Denali after completing all U.S. state high points." },
       { year: "2023 - Present", role: "High Points Project", company: "North America", desc: "Transitioned to full-time RV life to pursue the highest point in every U.S. state while building software remotely." },
       { year: "2023 - Present", role: "Ocean Outdoors", company: "Media Platform", desc: "Built a 100k+ subscriber community focused on outdoor endurance, exploration, and lifestyle design." },
       { year: "2015 - 2019", role: "Owner / CEO", company: "RC Lawn and Tree", desc: "Bootstrapped a service business from zero. Learned the hard lessons of P&L, staffing, and customer satisfaction." },
@@ -120,7 +120,7 @@ dev: "AI Engineer at ModMed with 15+ years of experience building enterprise sof
     ],
     human: [
       { title: "Ocean Outdoors", desc: "A YouTube community of 100k+ outdoor enthusiasts following my journey across America.", tags: ["Video Production", "Community"], link: "https://youtube.com/@oceansoutdoors" },
-      { title: "Project 50", desc: "The quest to summit the highest point in every US state. Currently at 46/50.", tags: ["Alpinism", "Logistics"], link: "#" },
+      { title: "Project 50", desc: "The quest to summit the highest point in every US state. Currently at 48/50.", tags: ["Alpinism", "Logistics"], link: "#" },
       { title: "The Mobile HQ", desc: "Custom retrofitted RV setup allowing for enterprise-grade remote work from off-grid locations.", tags: ["Solar", "Starlink", "Build"], link: "#" },
       { title: "Summit Ridge Digital", desc: "Web design, hosting, and digital services for small businesses. Because not every business needs a dev team, just a reliable partner.", tags: ["Web Design", "Hosting", "AWS", "Small Business"], link: "https://summitridgedigital.com" },
     ]
@@ -207,8 +207,8 @@ const DIFFERENTIATORS: Record<'dev' | 'human', { icon: React.ElementType; title:
     },
     {
       icon: Mountain,
-      title: "46/50 State High Points",
-      body: "One deliberate goal, pursued over years. Denali 2028. Discipline isn't a trait, it's a practice.",
+      title: "48/50 State High Points",
+      body: "One deliberate goal, pursued over years. Denali 2027. Discipline isn't a trait, it's a practice.",
     },
     {
       icon: Code,
@@ -504,7 +504,7 @@ const App = () => {
                       <div className="p-2 bg-indigo-100 text-indigo-700 rounded-lg"><Mountain size={24} /></div>
                       <div>
                         <div className="font-bold text-stone-800">Mountaineer</div>
-                        <div className="text-xs text-stone-500">Goal: Denali 2028</div>
+                        <div className="text-xs text-stone-500">Goal: Denali 2027</div>
                       </div>
                     </div>
                     <p className="text-sm text-stone-600 leading-snug">

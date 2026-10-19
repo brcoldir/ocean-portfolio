@@ -9,9 +9,9 @@ Preferred public name: Ocean Coldiron
 Legal / alternate professional name: Brandon Coldiron
 Portfolio: OceanColdiron.com
 LinkedIn: linkedin.com/in/brandon-coldiron
-Contact: the contact form at OceanColdiron.com or LinkedIn
+Contact: brcoldir@gmail.com | (574) 806-5895 | OceanColdiron.com | linkedin.com/in/brandon-coldiron
 Location: Remote (full-time RV), base in Texas, USA
-Work preference: Full-time, remote, hybrid, or relocation for the right opportunity
+Work preference: Full-time, remote-first. US citizen, no visa sponsorship needed.
 Relocation: Open to relocation, especially for high-impact AI, healthcare technology, forward-deployed engineering, or technical leadership roles
 
 Public positioning:

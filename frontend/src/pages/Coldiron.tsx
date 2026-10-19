@@ -99,7 +99,7 @@ const Coldiron = ({ mode }: Props) => {
             </div>
             <div className="text-center">
               <div className={`text-2xl font-bold ${mode === "dev" ? "text-white" : "text-stone-800"}`}>
-                46/50
+                48/50
               </div>
               <div className="text-xs uppercase tracking-wide opacity-50">State High Points</div>
             </div>
