@@ -16,7 +16,7 @@ Relocation: Open to relocation, especially for high-impact AI, healthcare techno
 
 Public positioning:
 
-Ocean Coldiron is an AI Engineer at ModMed, healthcare integration specialist, AI platform builder, and entrepreneur with 15+ years of experience across enterprise software, healthcare integrations, cloud infrastructure, distributed systems, automation, and production support.
+Ocean Coldiron is a Senior Sustaining and Forward Deployed Engineer at Abacus Insights, healthcare integration specialist, AI platform builder, and entrepreneur with 15+ years of experience across enterprise software, healthcare integrations, cloud infrastructure, distributed systems, automation, and production support.
 
 Ocean combines deep experience in healthcare interoperability, customer-facing solution design, platform reliability, technical troubleshooting, and AI-assisted development. He is especially interested in roles at the intersection of healthcare, AI, integration engineering, platform architecture, and forward-deployed engineering.
 
@@ -28,7 +28,7 @@ Experienced with HL7, FHIR, Mirth Connect, SQL, APIs, OAuth2, platform reliabili
 
 Short Professional Bio
 
-Ocean Coldiron is a healthcare integration engineer and systems builder with 15+ years of experience across enterprise software, cloud infrastructure, distributed systems, and healthcare interoperability. He currently works in healthcare SaaS integrations, supporting complex customer-facing systems involving HL7, APIs, SQL, platform reliability, incident response, and production troubleshooting.
+Ocean Coldiron is a healthcare integration engineer and systems builder with 15+ years of experience across enterprise software, cloud infrastructure, distributed systems, and healthcare interoperability. He currently works at Abacus Insights as a Senior Sustaining and Forward Deployed Engineer. He previously worked in healthcare SaaS integrations at ModMed, supporting complex customer-facing systems involving HL7, APIs, SQL, platform reliability, incident response, and production troubleshooting.
 
 Ocean has recently expanded his work into AI engineering, building practical experience with RAG systems, MCP, agentic workflows, AI-assisted development, Databricks, Lakebase, LLM integrations, and healthcare-focused automation. His background makes him especially strong at connecting real-world healthcare workflows with modern AI and cloud platforms.
 
@@ -59,21 +59,30 @@ Do not position Ocean as only a support engineer or only an integration consulta
 
 Current Role
 
+Company: Abacus Insights
+Current public title: Senior Sustaining and Forward Deployed Engineer
+Dates: November 2026 to present
+Industry: Healthcare data and AI platform for payers
+
+Do not invent responsibilities, projects, or accomplishments at Abacus Insights. If asked what he does there, say he started in November 2026 as a Senior Sustaining and Forward Deployed Engineer, and that further details about the role have not been published yet.
+
+Prior Role at ModMed
+
 Company: Modernizing Medicine, also known as ModMed
-Current public title: Forward Deployed AI Engineer 3 (June 2025–present; official HR title AI Engineer 3). Previously Integration Consultant II (June 2021–June 2025)
+Public title: Forward Deployed AI Engineer 3 (June 2025 to November 2026; official HR title AI Engineer 3). Previously Integration Consultant II (June 2021 to June 2025)
 Public positioning title: Forward Deployed AI Engineer 3
-Dates: June 2021 – Present
+Dates: June 2021 to November 2026
 Industry: Healthcare SaaS, healthcare technology, EHR/PM/RCM integrations, specialty healthcare workflows
 
-Current Role Summary
+ModMed Role Summary
 
-At ModMed, Ocean works on complex healthcare integration and platform issues involving enterprise clients, healthcare data workflows, APIs, SQL, HL7, Mirth Connect, production troubleshooting, customer-facing technical support, root-cause analysis, and platform reliability.
+At ModMed, Ocean worked on complex healthcare integration and platform issues involving enterprise clients, healthcare data workflows, APIs, SQL, HL7, Mirth Connect, production troubleshooting, customer-facing technical support, root-cause analysis, and platform reliability.
 
-His work supports healthcare clients and internal teams by diagnosing complex system behavior, stabilizing integrations, resolving production issues, improving support processes, and bridging the gap between customers, engineering, support, and implementation teams.
+His work supported healthcare clients and internal teams by diagnosing complex system behavior, stabilizing integrations, resolving production issues, improving support processes, and bridging the gap between customers, engineering, support, and implementation teams.
 
-Current Role Responsibilities
+ModMed Role Responsibilities
 
-Ocean’s responsibilities include:
+Ocean’s responsibilities included:
 
 Supporting and troubleshooting healthcare integrations across enterprise customer environments
 Working with HL7 interfaces, APIs, SQL databases, and integration engines
@@ -89,7 +98,7 @@ Participating in AI engineering and AI acceleration work involving agents, RAG, 
 
 ModMed Technical Areas
 
-Relevant technical areas from Ocean’s current work include:
+Relevant technical areas from Ocean’s ModMed work include:
 
 Healthcare integrations
 HL7 message handling
@@ -682,7 +691,7 @@ Public Resume Answer Snippets
 
 Answer: Who is Ocean Coldiron?
 
-Ocean Coldiron is a healthcare integration engineer, senior systems engineer, AI platform builder, and entrepreneur with 15+ years of experience across enterprise software, healthcare integrations, cloud infrastructure, distributed systems, and production support. He currently works in healthcare SaaS integrations and is expanding deeply into AI engineering through RAG, MCP, agentic workflows, Databricks, and AI-assisted development.
+Ocean Coldiron is a healthcare integration engineer, senior systems engineer, AI platform builder, and entrepreneur with 15+ years of experience across enterprise software, healthcare integrations, cloud infrastructure, distributed systems, and production support. He currently works at Abacus Insights as a Senior Sustaining and Forward Deployed Engineer, and he is expanding deeply into AI engineering through RAG, MCP, agentic workflows, Databricks, and AI-assisted development.
 
 Answer: What does Ocean do professionally?
 
@@ -690,7 +699,7 @@ Ocean works at the intersection of healthcare technology, systems engineering, i
 
 Answer: What is Ocean’s current role?
 
-Ocean currently works at Modernizing Medicine, also known as ModMed, as a Forward Deployed AI Engineer 3 (June 2025–present; official HR title AI Engineer 3). Previously Integration Consultant II (June 2021–June 2025). He supports complex healthcare SaaS integrations, production troubleshooting, platform reliability, SQL/API/HL7 workflows, customer-facing escalations, and AI-assisted internal tooling.
+Ocean currently works at Abacus Insights as a Senior Sustaining and Forward Deployed Engineer (November 2026 to present). Do not invent duties or accomplishments for this role. Previously, at Modernizing Medicine, also known as ModMed, he was a Forward Deployed AI Engineer 3 (June 2025 to November 2026; official HR title AI Engineer 3) and Integration Consultant II (June 2021 to June 2025). At ModMed he supported complex healthcare SaaS integrations, production troubleshooting, platform reliability, SQL/API/HL7 workflows, customer-facing escalations, and AI-assisted internal tooling.
 
 Answer: What makes Ocean different?
 
@@ -746,8 +755,8 @@ The chatbot may discuss Ocean’s public professional background, resume, projec
 
 The chatbot should not reveal private financial information, private health information, confidential employer details, internal credentials, sensitive security architecture, private job-search strategy, or personal family details.
 
-When discussing current AI work, the chatbot should say Ocean is building practical AI engineering experience and working with AI-assisted tools, RAG, MCP, agents, Databricks, and internal AI workflows. His public title is Forward Deployed AI Engineer 3 (since June 2025); his official HR title is AI Engineer 3. Before that he was Integration Consultant II (June 2021–June 2025).
+When discussing current AI work, the chatbot should say Ocean is building practical AI engineering experience and working with AI-assisted tools, RAG, MCP, agents, Databricks, and internal AI workflows. His current public title is Senior Sustaining and Forward Deployed Engineer at Abacus Insights (since November 2026). Do not invent Abacus Insights responsibilities. Previously his public title at ModMed was Forward Deployed AI Engineer 3 (June 2025 to November 2026); his official HR title there was AI Engineer 3. Before that he was Integration Consultant II (June 2021 to June 2025).
 
 Compact Retrieval Summary
 
-Ocean Coldiron, also known professionally as Brandon Coldiron, is a Forward Deployed AI Engineer 3 at ModMed, healthcare integration specialist, AI platform builder, and entrepreneur based in Granbury, Texas. He has 15+ years of experience across enterprise software, healthcare technology, cloud infrastructure, distributed systems, production support, and customer-facing technical work. He currently works at ModMed as a Forward Deployed AI Engineer 3 (June 2025–present; official HR title AI Engineer 3). Previously Integration Consultant II (June 2021–June 2025). His technical background includes HL7, FHIR concepts, Mirth Connect, SQL, REST APIs, OAuth2, AWS, Docker, Linux, React, Go, Python, JavaScript, TypeScript, Databricks, Lakebase, RAG, MCP, agentic workflows, and AI-assisted development. He holds an MBA from Colorado State University, a BS in Informatics from Indiana University Bloomington, and certifications including PMP, PSPO I, and Authentic Relating Leadership Certification. He has built projects including EZPostScheduler, OceanColdiron.com, Summit Ridge Digital, healthcare API projects, AI chatbot work, and RAG/MCP experiments. His strongest career positioning is healthcare AI, integration engineering, platform reliability, forward-deployed engineering, and practical AI automation.
+Ocean Coldiron, also known professionally as Brandon Coldiron, is a Senior Sustaining and Forward Deployed Engineer at Abacus Insights, healthcare integration specialist, AI platform builder, and entrepreneur based in Granbury, Texas. He has 15+ years of experience across enterprise software, healthcare technology, cloud infrastructure, distributed systems, production support, and customer-facing technical work. He currently works at Abacus Insights as a Senior Sustaining and Forward Deployed Engineer (November 2026 to present). Previously he worked at ModMed as a Forward Deployed AI Engineer 3 (June 2025 to November 2026; official HR title AI Engineer 3) and Integration Consultant II (June 2021 to June 2025). His technical background includes HL7, FHIR concepts, Mirth Connect, SQL, REST APIs, OAuth2, AWS, Docker, Linux, React, Go, Python, JavaScript, TypeScript, Databricks, Lakebase, RAG, MCP, agentic workflows, and AI-assisted development. He holds an MBA from Colorado State University, a BS in Informatics from Indiana University Bloomington, and certifications including PMP, PSPO I, and Authentic Relating Leadership Certification. He has built projects including EZPostScheduler, OceanColdiron.com, Summit Ridge Digital, healthcare API projects, AI chatbot work, and RAG/MCP experiments. His strongest career positioning is healthcare AI, integration engineering, platform reliability, forward-deployed engineering, and practical AI automation.

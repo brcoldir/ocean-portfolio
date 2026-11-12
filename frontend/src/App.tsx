@@ -43,12 +43,12 @@ import {
 const SITE_DATA = {
   name: "Ocean Coldiron",
   fullName: "Brandon Coldiron",
-  role: "Forward Deployed AI Engineer 3 @ ModMed",
+  role: "Senior Sustaining and Forward Deployed Engineer @ Abacus Insights",
   location: "Remote (RV) | Base: TX",
   tagline: "Modernizing business operations with AI, Go, and 15+ years of systems expertise.",
 
   about: {
-dev: "AI Engineer at ModMed with 15+ years of experience building enterprise software, cloud infrastructure, healthcare integrations, and agentic AI systems. I specialize in Go services, AWS, HL7/FHIR interoperability across 200+ client integrations, and production AI engineering, MCP, RAG, multi-agent workflows, and LLMOps. My focus is turning operational chaos into calm, maintainable systems that run without constant intervention.",
+dev: "Senior Sustaining and Forward Deployed Engineer at Abacus Insights with 15+ years of experience building enterprise software, cloud infrastructure, healthcare integrations, and agentic AI systems. I specialize in Go services, AWS, HL7/FHIR interoperability across 200+ client integrations, and production AI engineering, MCP, RAG, multi-agent workflows, and LLMOps. My focus is turning operational chaos into calm, maintainable systems that run without constant intervention.",
     human: "I design my life around growth, discomfort, and perspective. I live and work full-time from my RV, deliberately placing myself in unfamiliar places and cultures, often as the outsider in the room, because that is where real learning happens. I am pursuing the highest point in every U.S. state and training for Denali in 2028, not as a bucket list, but as a practice in discipline, resilience, and long-term thinking. Every challenge I choose is a system I’m trying to understand. Every place I go makes me better at building the next one.",
   },
 
@@ -84,8 +84,9 @@ dev: "AI Engineer at ModMed with 15+ years of experience building enterprise sof
   // --- SPLIT CONTENT: EXPERIENCE VS ADVENTURES ---
   experience: {
     dev: [
-      { year: "2025 – Present", role: "AI Engineering | Building in Public", company: "Personal Projects + ModMed AI Initiative", desc: "Actively building with RAG, MCP, Databricks, Lakebase, Claude Code, and agentic workflows. Contributing to ModMed's AI acceleration initiative. Shipping personal AI projects in public, portfolio chatbot, MCP servers, healthcare automation concepts." },
-      { year: "Jun 2025 - Present", role: "Forward Deployed AI Engineer 3", company: "ModMed", desc: "Completed ModMed's inaugural AI Acceleration intensive. Designs production agentic workflows using Claude Code, MCP, Databricks, FastAPI, and RAG. Leads resolution of high-impact platform failures across 200+ enterprise clients, 95% reduction in critical incident recurrence, 75% improvement in MTTR." },
+      { year: "Nov 2026 - Present", role: "Senior Sustaining and Forward Deployed Engineer", company: "Abacus Insights", desc: "Healthcare data and AI platform for payers." },
+      { year: "2025 - Present", role: "AI Engineering | Building in Public", company: "Personal Projects", desc: "Actively building with RAG, MCP, Databricks, Lakebase, Claude Code, and agentic workflows. Shipping personal AI projects in public, portfolio chatbot, MCP servers, healthcare automation concepts. Previously contributed to ModMed's AI acceleration initiative." },
+      { year: "Jun 2025 - Nov 2026", role: "Forward Deployed AI Engineer 3", company: "ModMed", desc: "Completed ModMed's inaugural AI Acceleration intensive. Designed production agentic workflows using Claude Code, MCP, Databricks, FastAPI, and RAG. Led resolution of high-impact platform failures across 200+ enterprise clients, 95% reduction in critical incident recurrence, 75% improvement in MTTR." },
       { year: "Jun 2021 - Jun 2025", role: "Integration Consultant II", company: "ModMed", desc: "Senior escalation engineer for HL7, Mirth Connect, API, and data-pipeline failures across 200+ enterprise clients." },
       { year: "Jul 2020 - Jun 2021", role: "Telecom Systems Administrator", company: "Snap-On Credit", desc: "Managed an Avaya Systems Upgrade, upgrade was a success with zero downtime" },
       { year: "Sep 2019 - Jul 2020", role: "IT Specialist / Lead DBA", company: "Lakeshore Bone & Joint", desc: "Sole DBA managing 5TB+ of clinical data. Collaborated directly with physicians to optimize EHR workflows and clinical operations." },
@@ -145,7 +146,7 @@ const CASE_STUDIES = [
     problem: "Recruiters and hiring managers need fast, accurate answers about a candidate, and AI agents need safe, structured boundaries before they touch real tools, APIs, and data.",
     built: "A RAG-powered assistant on OceanColdiron.com (Go backend, Claude, a markdown knowledge base with guardrails and prompt caching), plus MCP/FastMCP servers that expose tools to agents safely. At ModMed: production agentic workflows with Claude Code, MCP, Databricks, FastAPI, and RAG, after completing ModMed's inaugural AI Acceleration intensive. Also an AI-powered sales dashboard for ModMed's Sales Executive team and an AI-driven Xtract template and skin test protocol generator that turns requirements into testable configurations.",
     // TODO(Ocean): add real numbers (users/queries served, hours saved, accuracy/eval scores, # MCP tools in production)
-    result: "Forward Deployed AI Engineer 3 at ModMed since June 2025. The portfolio assistant is live and answers questions about his work 24/7.",
+    result: "Forward Deployed AI Engineer 3 at ModMed from June 2025 to November 2026. The portfolio assistant is live and answers questions about his work 24/7.",
     tags: ["Claude", "MCP", "FastMCP", "RAG", "Go", "Databricks"],
   },
   {
@@ -295,7 +296,7 @@ const App = () => {
             </div>
           </div>
           <p className={`text-xs md:text-sm uppercase tracking-[0.2em] font-bold ${mode === 'dev' ? 'text-cyan-400 font-mono' : 'text-orange-600'}`}>
-            Ocean Coldiron · Forward Deployed AI Engineer 3 @ ModMed · Remote
+            Ocean Coldiron · Senior Sustaining and Forward Deployed Engineer @ Abacus Insights · Remote
           </p>
           <h1 className={`text-4xl sm:text-5xl md:text-7xl font-black tracking-tight leading-[1.05] ${mode === 'dev' ? '' : 'font-serif text-stone-800'}`}>
             AI Engineer shipping{' '}

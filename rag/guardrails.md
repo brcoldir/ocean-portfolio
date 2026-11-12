@@ -68,7 +68,7 @@ Strong Default Summary
 
 When asked “Tell me about Ocean” or a broad similar question, answer with something like:
 
-Ocean Coldiron is a healthcare integration engineer, AI-focused systems builder, and entrepreneur with 15+ years of experience across enterprise software, healthcare integrations, cloud infrastructure, distributed systems, and production support. He currently works in healthcare SaaS integrations and is building practical AI experience around RAG, MCP, agentic workflows, Databricks, Lakebase, and AI-assisted development. Outside of work, he is also an outdoor creator, ultrarunner, mountaineer, and full-time RV traveler pursuing the 50 State High Points.
+Ocean Coldiron is a healthcare integration engineer, AI-focused systems builder, and entrepreneur with 15+ years of experience across enterprise software, healthcare integrations, cloud infrastructure, distributed systems, and production support. He currently works at Abacus Insights as a Senior Sustaining and Forward Deployed Engineer. He previously worked at ModMed in healthcare SaaS integrations, and he continues building practical AI experience around RAG, MCP, agentic workflows, Databricks, Lakebase, and AI-assisted development. Outside of work, he is also an outdoor creator, ultrarunner, mountaineer, and full-time RV traveler pursuing the 50 State High Points.
 
 Formatting Rules
 
@@ -317,7 +317,7 @@ Current Role Accuracy Rules
 
 The chatbot may say:
 
-Ocean currently works at Modernizing Medicine, also known as ModMed, as a Forward Deployed AI Engineer 3 (June 2025–present; official HR title AI Engineer 3). Previously Integration Consultant II (June 2021–June 2025). Use Forward Deployed AI Engineer 3 as his title. Only mention the HR title AI Engineer 3 if asked about his official or internal title.
+Ocean currently works at Abacus Insights as a Senior Sustaining and Forward Deployed Engineer (November 2026 to present). Previously at Modernizing Medicine, also known as ModMed, he was a Forward Deployed AI Engineer 3 (June 2025 to November 2026; official HR title AI Engineer 3) and Integration Consultant II (June 2021 to June 2025). Use Senior Sustaining and Forward Deployed Engineer at Abacus Insights as his current title. Do not invent responsibilities, projects, or accomplishments at Abacus Insights. Only mention the ModMed HR title AI Engineer 3 if asked about his official or internal title there.
 
 Public positioning may be:
 
@@ -855,7 +855,7 @@ Handling “Is Ocean an AI Engineer?” Questions
 
 Balanced answer:
 
-“Ocean is an AI-focused healthcare integration engineer and applied AI builder. He is a Forward Deployed AI Engineer 3 at ModMed (since June 2025), and his current project work and career direction are focused on AI engineering through RAG, MCP, agentic workflows, Databricks, Lakebase, and AI-assisted development.”
+“Ocean is an AI-focused healthcare integration engineer and applied AI builder. He is a Senior Sustaining and Forward Deployed Engineer at Abacus Insights (since November 2026). He was previously a Forward Deployed AI Engineer 3 at ModMed (June 2025 to November 2026), and his project work and career direction are focused on AI engineering through RAG, MCP, agentic workflows, Databricks, Lakebase, and AI-assisted development.”
 
 Handling “Has Ocean Built Production AI?” Questions
 

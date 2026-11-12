@@ -33,7 +33,7 @@ Ocean Coldiron is a healthcare integration engineer and AI-focused systems build
 
 Best Public Career Summary
 
-Ocean Coldiron has spent 15+ years working across healthcare technology, enterprise systems, integrations, infrastructure, support, and entrepreneurship. His career began in healthcare IT at Cerner, expanded through business ownership and systems administration, and matured into healthcare SaaS integration engineering at ModMed.
+Ocean Coldiron has spent 15+ years working across healthcare technology, enterprise systems, integrations, infrastructure, support, and entrepreneurship. His career began in healthcare IT at Cerner, expanded through business ownership and systems administration, and matured into healthcare SaaS integration engineering at ModMed. He now works at Abacus Insights as a Senior Sustaining and Forward Deployed Engineer.
 
 Today, Ocean is focused on becoming a high-impact AI and healthcare technology builder. He brings practical experience with HL7, APIs, SQL, Mirth Connect, cloud infrastructure, production troubleshooting, customer-facing technical communication, RAG, MCP, agentic workflows, Databricks, and AI-assisted development.
 
@@ -172,14 +172,14 @@ This phase expanded Ocean’s systems engineering foundation beyond healthcare a
 Phase 5: Healthcare SaaS Integrations at ModMed
 
 Company: Modernizing Medicine / ModMed
-Role: Forward Deployed AI Engineer 3 (June 2025–present; official HR title AI Engineer 3). Previously Integration Consultant II (June 2021–June 2025)
+Role: Forward Deployed AI Engineer 3 (June 2025 to November 2026; official HR title AI Engineer 3). Previously Integration Consultant II (June 2021 to June 2025)
 Public positioning: Forward Deployed AI Engineer 3
-Dates: June 2021 – Present
+Dates: June 2021 to November 2026
 Industry: Healthcare SaaS
 
-Ocean’s current career phase is centered on healthcare SaaS integrations, platform reliability, production troubleshooting, and customer-facing technical problem solving.
+This career phase was centered on healthcare SaaS integrations, platform reliability, production troubleshooting, and customer-facing technical problem solving.
 
-At ModMed, Ocean supports complex healthcare integration workflows involving enterprise customers, clinical systems, SQL, APIs, HL7, Mirth Connect, reporting, platform behavior, and production issues. His work requires both deep technical troubleshooting and strong communication with customers, support teams, implementation teams, engineering teams, product teams, and business stakeholders.
+At ModMed, Ocean supported complex healthcare integration workflows involving enterprise customers, clinical systems, SQL, APIs, HL7, Mirth Connect, reporting, platform behavior, and production issues. His work required both deep technical troubleshooting and strong communication with customers, support teams, implementation teams, engineering teams, product teams, and business stakeholders.
 
 This phase built and demonstrated his experience in:
 
@@ -244,6 +244,15 @@ He has also participated in AI-focused training and internal AI acceleration wor
 Career Significance
 
 Ocean’s AI pivot is powerful because he already understands the messy enterprise and healthcare systems that AI tools need to connect with. He is not approaching AI only as a prompt user. He is approaching it as a systems engineer who can connect AI to APIs, databases, workflows, users, and business outcomes.
+
+Phase 7: Abacus Insights
+
+Company: Abacus Insights
+Role: Senior Sustaining and Forward Deployed Engineer
+Dates: November 2026 to present
+Industry: Healthcare data and AI platform for payers
+
+Ocean started this role in November 2026. Do not invent responsibilities, projects, or accomplishments at Abacus Insights.
 
 Professional Themes
 
@@ -455,7 +464,7 @@ Public Career Positioning Statement
 
 Ocean Coldiron is a healthcare integration engineer and AI-focused systems builder with 15+ years of experience across enterprise technology, healthcare SaaS, cloud infrastructure, integrations, platform reliability, and customer-facing technical work.
 
-His career began in healthcare technology at Cerner, expanded through entrepreneurship and systems administration, and matured into healthcare SaaS integration engineering at ModMed. Today, he is focused on applying AI, RAG, MCP, agents, and automation to real healthcare and enterprise workflows.
+His career began in healthcare technology at Cerner, expanded through entrepreneurship and systems administration, and matured into healthcare SaaS integration engineering at ModMed. He now works at Abacus Insights as a Senior Sustaining and Forward Deployed Engineer, and he is focused on applying AI, RAG, MCP, agents, and automation to real healthcare and enterprise workflows.
 
 Ocean is strongest in roles where technical execution, customer context, business impact, and complex systems all meet.
 
@@ -481,7 +490,7 @@ AI engineering work is giving him a future-facing platform direction
 
 Best Elevator Pitch
 
-Ocean Coldiron is a healthcare integration engineer and AI-focused systems builder with 15+ years of experience across enterprise software, healthcare technology, cloud infrastructure, and production systems. He currently works in healthcare SaaS integrations at ModMed, where he supports complex workflows involving HL7, APIs, SQL, Mirth Connect, platform reliability, and customer-facing troubleshooting.
+Ocean Coldiron is a healthcare integration engineer and AI-focused systems builder with 15+ years of experience across enterprise software, healthcare technology, cloud infrastructure, and production systems. He currently works at Abacus Insights as a Senior Sustaining and Forward Deployed Engineer. He previously worked in healthcare SaaS integrations at ModMed, supporting complex workflows involving HL7, APIs, SQL, Mirth Connect, platform reliability, and customer-facing troubleshooting.
 
 What makes Ocean valuable is that he understands both the messy reality of healthcare systems and the opportunity AI creates to improve them. He is building practical experience with RAG, MCP, agentic workflows, Databricks, Lakebase, and AI-assisted development, with a career focus on healthcare AI, forward-deployed engineering, and applied automation.
 
@@ -489,7 +498,7 @@ Best Founder / Startup Pitch
 
 Ocean Coldiron is the kind of builder who can sit with a customer, understand a messy workflow, debug the system, build the tool, and explain the business impact.
 
-He has 15+ years of technical experience across healthcare systems, integrations, infrastructure, production support, and entrepreneurship. At ModMed, he works with real healthcare integration problems involving HL7, APIs, SQL, Mirth Connect, customers, and production systems. He is now applying that background to AI engineering through RAG, MCP, agents, Databricks, and automation.
+He has 15+ years of technical experience across healthcare systems, integrations, infrastructure, production support, and entrepreneurship. At ModMed, he worked with real healthcare integration problems involving HL7, APIs, SQL, Mirth Connect, customers, and production systems. He is now applying that background at Abacus Insights and in AI engineering through RAG, MCP, agents, Databricks, and automation.
 
 For startups, Ocean brings a rare mix of enterprise healthcare experience, customer empathy, technical troubleshooting, business ownership, and willingness to build quickly.
 
@@ -720,4 +729,4 @@ Ocean’s long-term career direction is toward technical leadership in healthcar
 
 Compact Retrieval Summary
 
-Ocean Coldiron, also known as Brandon Coldiron, is a healthcare integration engineer, senior systems engineer, AI-focused platform builder, and entrepreneur with 15+ years of experience across healthcare technology, enterprise systems, integrations, infrastructure, production support, and customer-facing technical work. His career began at Cerner in healthcare technology, expanded through entrepreneurship and business ownership, continued through healthcare IT and database administration at Lakeshore Bone and Joint Institute, moved into telecom systems at Snap-On Credit, and matured into healthcare SaaS integrations at ModMed. At ModMed, he supports complex healthcare integration workflows involving HL7, APIs, SQL, Mirth Connect, platform reliability, production troubleshooting, root-cause analysis, and customer-facing technical communication. He is now moving aggressively into AI engineering through RAG, MCP, agentic workflows, Databricks, Lakebase, AI-assisted development, and AI-powered workflow automation. His strongest career positioning is healthcare AI, forward-deployed engineering, solutions engineering, integration architecture, platform reliability, and applied AI automation.
+Ocean Coldiron, also known as Brandon Coldiron, is a healthcare integration engineer, senior systems engineer, AI-focused platform builder, and entrepreneur with 15+ years of experience across healthcare technology, enterprise systems, integrations, infrastructure, production support, and customer-facing technical work. His career began at Cerner in healthcare technology, expanded through entrepreneurship and business ownership, continued through healthcare IT and database administration at Lakeshore Bone and Joint Institute, moved into telecom systems at Snap-On Credit, and matured into healthcare SaaS integrations at ModMed. At ModMed, he supported complex healthcare integration workflows involving HL7, APIs, SQL, Mirth Connect, platform reliability, production troubleshooting, root-cause analysis, and customer-facing technical communication. He now works at Abacus Insights as a Senior Sustaining and Forward Deployed Engineer, and he continues building in AI engineering through RAG, MCP, agentic workflows, Databricks, Lakebase, AI-assisted development, and AI-powered workflow automation. His strongest career positioning is healthcare AI, forward-deployed engineering, solutions engineering, integration architecture, platform reliability, and applied AI automation.

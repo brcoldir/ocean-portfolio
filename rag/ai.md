@@ -705,7 +705,7 @@ Ocean has practical AI experience with RAG systems, MCP servers, agentic workflo
 
 AI Chatbot Answer: Is Ocean an AI engineer?
 
-Ocean is an AI-focused healthcare integration engineer and applied AI builder. His current title is Forward Deployed AI Engineer 3 at ModMed (since June 2025; official HR title AI Engineer 3), and his current career direction and project work are focused on AI engineering, RAG, MCP, agentic workflows, Databricks, and healthcare AI automation.
+Ocean is an AI-focused healthcare integration engineer and applied AI builder. His current title is Senior Sustaining and Forward Deployed Engineer at Abacus Insights (since November 2026). He was previously a Forward Deployed AI Engineer 3 at ModMed (June 2025 to November 2026; official HR title AI Engineer 3), and his career direction and project work are focused on AI engineering, RAG, MCP, agentic workflows, Databricks, and healthcare AI automation.
 
 The most accurate positioning is that Ocean is transitioning into applied AI engineering from a strong healthcare integration and systems engineering foundation.
 
