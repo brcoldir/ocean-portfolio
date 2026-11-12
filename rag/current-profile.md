@@ -9,10 +9,18 @@ Phone: (574) 806-5895
 Also: the contact form on OceanColdiron.com, or LinkedIn.
 
 Current role
-Senior Sustaining and Forward Deployed Engineer at Abacus Insights, remote, November 2026 to present. Abacus Insights is a healthcare data and AI platform for payers. Do not invent responsibilities, projects, or accomplishments at Abacus Insights.
+Senior Sustaining and Forward Deployed Engineer at Abacus Insights, remote, United States, November 2026 to present. The official posting title is Senior Sustaining and Forward Deployed Engineer (AWS & Databricks). He starts Monday, November 16, 2026. Abacus Insights is the AI and data platform for health plans (payer intelligence).
+
+Describe this role as published scope, not as accomplishments. Use present tense. Do not claim metrics, completed deliveries, named customers, or results at Abacus Insights, because he has not started the work yet.
+
+Role scope (from the official job posting):
+- Senior individual contributor owning production operations, incident response, and post-launch reliability for Abacus Insights' AI and data platform for health plans (AWS and Databricks).
+- Senior escalation point for complex production issues across AWS infrastructure, Databricks workloads, and large-scale Spark data pipelines, driving root cause analysis toward systemic fixes.
+- Forward deployed with strategic health plan customers on deployments, integrations, and escalations, upstreaming field fixes into the core product.
+- Writes production Python automation to improve observability, reduce toil, and harden systems, and builds runbooks, monitoring, and alerting.
 
 Work history (matches his resume)
-Abacus Insights, Senior Sustaining and Forward Deployed Engineer, November 2026 to present. Do not invent duties or accomplishments for this role.
+Abacus Insights, Senior Sustaining and Forward Deployed Engineer, November 2026 to present, starting November 16, 2026. Describe published scope only; do not invent duties beyond the posting or claim accomplishments.
 ModMed, Forward Deployed AI Engineer 3, June 2025 to November 2026. Built agentic workflows with Claude Code, MCP/FastMCP, Databricks, FastAPI, and RAG. Completed ModMed's inaugural AI Acceleration intensive. Official HR title at ModMed was AI Engineer 3; only mention that if someone asks about his official or internal title there.
 ModMed, Integration Consultant II, June 2021 to June 2025. Senior escalation engineer for HL7, Mirth Connect, API, cloud, and data-pipeline failures across 200+ enterprise clients. Reduced critical incident recurrence by about 95% and improved mean time to recovery by about 75%.
 Snap-On Credit, Telecom Systems Administrator, July 2020 to June 2021. Led an enterprise Avaya upgrade with zero downtime.

@@ -61,10 +61,21 @@ Current Role
 
 Company: Abacus Insights
 Current public title: Senior Sustaining and Forward Deployed Engineer
+Official posting title: Senior Sustaining and Forward Deployed Engineer (AWS & Databricks)
+Location: United States, Remote
 Dates: November 2026 to present
-Industry: Healthcare data and AI platform for payers
+Start date: Monday, November 16, 2026
+Industry: Healthcare data and AI platform for health plans (payer intelligence)
 
-Do not invent responsibilities, projects, or accomplishments at Abacus Insights. If asked what he does there, say he started in November 2026 as a Senior Sustaining and Forward Deployed Engineer, and that further details about the role have not been published yet.
+Describe this role as published scope, not as accomplishments. He starts November 16, 2026. Use present tense scope language from the official posting. Do not claim metrics, completed work, named customers, or results at Abacus Insights.
+
+Role scope (from the official job posting):
+- Senior IC owning production operations, incident response, and post-launch reliability for Abacus Insights' AI and data platform for health plans (AWS and Databricks).
+- Senior escalation point for complex production issues across AWS infrastructure, Databricks workloads, and large-scale Spark data pipelines, driving root cause analysis toward systemic fixes.
+- Forward deployed with strategic health plan customers on deployments, integrations, and escalations, upstreaming field fixes into the core product.
+- Writes production Python automation to improve observability, reduce toil, and harden systems; builds runbooks, monitoring, and alerting.
+
+If asked what he does there before or just after the start date, describe this published scope and note that he starts November 16, 2026. Do not invent projects, customers, or results beyond the posting.
 
 Prior Role at ModMed
 
@@ -699,7 +710,7 @@ Ocean works at the intersection of healthcare technology, systems engineering, i
 
 Answer: What is Ocean’s current role?
 
-Ocean currently works at Abacus Insights as a Senior Sustaining and Forward Deployed Engineer (November 2026 to present). Do not invent duties or accomplishments for this role. Previously, at Modernizing Medicine, also known as ModMed, he was a Forward Deployed AI Engineer 3 (June 2025 to November 2026; official HR title AI Engineer 3) and Integration Consultant II (June 2021 to June 2025). At ModMed he supported complex healthcare SaaS integrations, production troubleshooting, platform reliability, SQL/API/HL7 workflows, customer-facing escalations, and AI-assisted internal tooling.
+Ocean currently works at Abacus Insights as a Senior Sustaining and Forward Deployed Engineer (November 2026 to present; official posting title includes AWS & Databricks). He starts Monday, November 16, 2026. Describe the published scope of the role: a senior IC owning production operations, incident response, and post-launch reliability for Abacus Insights' AI and data platform for health plans (AWS and Databricks); a senior escalation point for complex production issues across AWS, Databricks, and large-scale Spark data pipelines; forward deployed with strategic health plan customers on deployments, integrations, and escalations; and writing production Python automation, runbooks, monitoring, and alerting. Do not claim accomplishments, metrics, or completed work at Abacus Insights. Previously, at Modernizing Medicine, also known as ModMed, he was a Forward Deployed AI Engineer 3 (June 2025 to November 2026; official HR title AI Engineer 3) and Integration Consultant II (June 2021 to June 2025). At ModMed he supported complex healthcare SaaS integrations, production troubleshooting, platform reliability, SQL/API/HL7 workflows, customer-facing escalations, and AI-assisted internal tooling.
 
 Answer: What makes Ocean different?
 
@@ -755,8 +766,8 @@ The chatbot may discuss Ocean’s public professional background, resume, projec
 
 The chatbot should not reveal private financial information, private health information, confidential employer details, internal credentials, sensitive security architecture, private job-search strategy, or personal family details.
 
-When discussing current AI work, the chatbot should say Ocean is building practical AI engineering experience and working with AI-assisted tools, RAG, MCP, agents, Databricks, and internal AI workflows. His current public title is Senior Sustaining and Forward Deployed Engineer at Abacus Insights (since November 2026). Do not invent Abacus Insights responsibilities. Previously his public title at ModMed was Forward Deployed AI Engineer 3 (June 2025 to November 2026); his official HR title there was AI Engineer 3. Before that he was Integration Consultant II (June 2021 to June 2025).
+When discussing current AI work, the chatbot should say Ocean is building practical AI engineering experience and working with AI-assisted tools, RAG, MCP, agents, Databricks, and internal AI workflows. His current public title is Senior Sustaining and Forward Deployed Engineer at Abacus Insights (November 2026 to present; he starts November 16, 2026). Describe only the published role scope; do not invent Abacus Insights accomplishments, metrics, or named customers. Previously his public title at ModMed was Forward Deployed AI Engineer 3 (June 2025 to November 2026); his official HR title there was AI Engineer 3. Before that he was Integration Consultant II (June 2021 to June 2025).
 
 Compact Retrieval Summary
 
-Ocean Coldiron, also known professionally as Brandon Coldiron, is a Senior Sustaining and Forward Deployed Engineer at Abacus Insights, healthcare integration specialist, AI platform builder, and entrepreneur based in Granbury, Texas. He has 15+ years of experience across enterprise software, healthcare technology, cloud infrastructure, distributed systems, production support, and customer-facing technical work. He currently works at Abacus Insights as a Senior Sustaining and Forward Deployed Engineer (November 2026 to present). Previously he worked at ModMed as a Forward Deployed AI Engineer 3 (June 2025 to November 2026; official HR title AI Engineer 3) and Integration Consultant II (June 2021 to June 2025). His technical background includes HL7, FHIR concepts, Mirth Connect, SQL, REST APIs, OAuth2, AWS, Docker, Linux, React, Go, Python, JavaScript, TypeScript, Databricks, Lakebase, RAG, MCP, agentic workflows, and AI-assisted development. He holds an MBA from Colorado State University, a BS in Informatics from Indiana University Bloomington, and certifications including PMP, PSPO I, and Authentic Relating Leadership Certification. He has built projects including EZPostScheduler, OceanColdiron.com, Summit Ridge Digital, healthcare API projects, AI chatbot work, and RAG/MCP experiments. His strongest career positioning is healthcare AI, integration engineering, platform reliability, forward-deployed engineering, and practical AI automation.
+Ocean Coldiron, also known professionally as Brandon Coldiron, is a Senior Sustaining and Forward Deployed Engineer at Abacus Insights, healthcare integration specialist, AI platform builder, and entrepreneur based in Granbury, Texas. He has 15+ years of experience across enterprise software, healthcare technology, cloud infrastructure, distributed systems, production support, and customer-facing technical work. He currently works at Abacus Insights as a Senior Sustaining and Forward Deployed Engineer (November 2026 to present; starts November 16, 2026). Describe published role scope only, not accomplishments. Previously he worked at ModMed as a Forward Deployed AI Engineer 3 (June 2025 to November 2026; official HR title AI Engineer 3) and Integration Consultant II (June 2021 to June 2025). His technical background includes HL7, FHIR concepts, Mirth Connect, SQL, REST APIs, OAuth2, AWS, Docker, Linux, React, Go, Python, JavaScript, TypeScript, Databricks, Lakebase, RAG, MCP, agentic workflows, and AI-assisted development. He holds an MBA from Colorado State University, a BS in Informatics from Indiana University Bloomington, and certifications including PMP, PSPO I, and Authentic Relating Leadership Certification. He has built projects including EZPostScheduler, OceanColdiron.com, Summit Ridge Digital, healthcare API projects, AI chatbot work, and RAG/MCP experiments. His strongest career positioning is healthcare AI, integration engineering, platform reliability, forward-deployed engineering, and practical AI automation.

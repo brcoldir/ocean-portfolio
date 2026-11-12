@@ -84,7 +84,7 @@ dev: "Senior Sustaining and Forward Deployed Engineer at Abacus Insights with 15
   // --- SPLIT CONTENT: EXPERIENCE VS ADVENTURES ---
   experience: {
     dev: [
-      { year: "Nov 2026 - Present", role: "Senior Sustaining and Forward Deployed Engineer", company: "Abacus Insights", desc: "Healthcare data and AI platform for payers." },
+      { year: "Nov 2026 - Present", role: "Senior Sustaining and Forward Deployed Engineer", company: "Abacus Insights", desc: "Senior IC owning production operations, incident response, and post-launch reliability for the AI and data platform for health plans (AWS and Databricks). Forward deployed with strategic health plan customers on deployments, integrations, and escalations." },
       { year: "2025 - Present", role: "AI Engineering | Building in Public", company: "Personal Projects", desc: "Actively building with RAG, MCP, Databricks, Lakebase, Claude Code, and agentic workflows. Shipping personal AI projects in public, portfolio chatbot, MCP servers, healthcare automation concepts. Previously contributed to ModMed's AI acceleration initiative." },
       { year: "Jun 2025 - Nov 2026", role: "Forward Deployed AI Engineer 3", company: "ModMed", desc: "Completed ModMed's inaugural AI Acceleration intensive. Designed production agentic workflows using Claude Code, MCP, Databricks, FastAPI, and RAG. Led resolution of high-impact platform failures across 200+ enterprise clients, 95% reduction in critical incident recurrence, 75% improvement in MTTR." },
       { year: "Jun 2021 - Jun 2025", role: "Integration Consultant II", company: "ModMed", desc: "Senior escalation engineer for HL7, Mirth Connect, API, and data-pipeline failures across 200+ enterprise clients." },
