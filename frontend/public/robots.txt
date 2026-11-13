@@ -3,3 +3,4 @@ Allow: /
 Disallow: /api/
 
 Sitemap: https://oceancoldiron.com/sitemap.xml
+Sitemap: https://oceancoldiron.com/oceansoutdoors/sitemap.xml
