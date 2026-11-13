@@ -121,7 +121,8 @@ dev: "Senior Sustaining and Forward Deployed Engineer at Abacus Insights with 15
     ],
     human: [
       { title: "Ocean Outdoors", desc: "A YouTube community of 100k+ outdoor enthusiasts following my journey across America.", tags: ["Video Production", "Community"], link: "https://youtube.com/@oceansoutdoors" },
-      { title: "Project 50", desc: "The quest to summit the highest point in every US state. Currently at 48/50.", tags: ["Alpinism", "Logistics"], link: "#" },
+      { title: "Ocean Outdoors Stories", desc: "Photo stories from the road: the lower 48 state high points, national parks, wildlife, and full-time RV life.", tags: ["Blog", "Photography"], link: "https://oceancoldiron.com/oceansoutdoors/" },
+      { title: "Project 50", desc: "The quest to summit the highest point in every US state. Currently at 48/50.", tags: ["Alpinism", "Logistics"], link: "https://oceancoldiron.com/oceansoutdoors/high-points/" },
       { title: "The Mobile HQ", desc: "Custom retrofitted RV setup allowing for enterprise-grade remote work from off-grid locations.", tags: ["Solar", "Starlink", "Build"], link: "#" },
       { title: "Summit Ridge Digital", desc: "Web design, hosting, and digital services for small businesses. Because not every business needs a dev team, just a reliable partner.", tags: ["Web Design", "Hosting", "AWS", "Small Business"], link: "https://summitridgedigital.com" },
     ]
@@ -333,6 +334,9 @@ const App = () => {
             <a href={SITE_DATA.socials.facebook} target="_blank" rel="noreferrer" aria-label="Facebook"><Facebook size={22} /></a>
             <a href="#contact" aria-label="Contact"><Mail size={22} /></a>
           </div>
+          <p className="text-sm opacity-70">
+            Off the clock I climb state high points and live full time in an RV. <a href="/oceansoutdoors/" className="underline underline-offset-4">Read the Ocean Outdoors stories</a>.
+          </p>
         </div>
       </section>
 
@@ -799,6 +803,16 @@ const App = () => {
               }`}
           >
             Coldiron
+          </a>
+          {" · "}
+          <a
+            href="/oceansoutdoors/"
+            className={`underline-offset-4 hover:underline transition ${mode === 'dev'
+              ? 'text-blue-300 hover:text-blue-400'
+              : 'text-orange-600 hover:text-orange-700'
+              }`}
+          >
+            Ocean Outdoors stories
           </a>
         </p>
         <p className="mb-2"><a href={`mailto:${EMAIL}`} className="hover:underline">{EMAIL}</a> · <a href={PHONE_TEL} className="hover:underline">{PHONE_DISPLAY}</a></p>

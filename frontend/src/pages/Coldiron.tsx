@@ -170,6 +170,9 @@ const Coldiron = ({ mode }: Props) => {
                 <a className="underline" href="https://oceancoldiron.com">oceancoldiron.com</a>
               </li>
               <li>
+                <a className="underline" href="https://oceancoldiron.com/oceansoutdoors/">oceancoldiron.com/oceansoutdoors (Ocean Outdoors photo stories)</a>
+              </li>
+              <li>
                 <a className="underline" href="https://youtube.com/@oceansoutdoors">youtube.com/@oceansoutdoors</a>
               </li>
               <li>
