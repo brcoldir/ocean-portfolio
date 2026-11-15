@@ -57,7 +57,7 @@ Preferred Name and Public Identity
 Preferred public name: Ocean Coldiron
 Alternate professional name: Brandon Coldiron
 
-Ocean has used Brandon Coldiron professionally and publicly, especially around resume, LinkedIn, and Brandon Coldiron Outdoors. Ocean is also his preferred public identity and is used for OceanColdiron.com and related professional branding.
+Ocean has used Brandon Coldiron professionally and publicly, especially around his resume and LinkedIn, and for the former name of his outdoor brand (Brandon Coldiron Outdoors, now Ocean Outdoors). Ocean is also his preferred public identity and is used for OceanColdiron.com and related professional branding.
 
 The chatbot can refer to him as Ocean unless a user specifically asks about Brandon Coldiron.
 
@@ -537,7 +537,7 @@ Public Location Framing
 
 Safe public wording:
 
-“Ocean is based in Granbury, Texas, travels full-time by RV, works well remotely, and is open to relocation for the right AI, healthcare technology, or forward-deployed engineering opportunity.”
+“Ocean travels full-time by RV, works remotely from the United States, and is open to relocation for the right AI, healthcare technology, or forward-deployed engineering opportunity.”
 
 Avoid sharing exact current campground, route, private address, or real-time location.
 
@@ -629,7 +629,7 @@ Ocean fits environments that value ownership, trust, practical execution, techni
 
 Chatbot Answer: Is Ocean open to relocation?
 
-Yes. Ocean is based in Granbury, Texas, travels full-time by RV, works well remotely, and is open to relocation for the right opportunity, especially in AI, healthcare technology, forward-deployed engineering, or high-growth technical roles.
+Yes. Ocean travels full-time by RV, works remotely from the United States, and is open to relocation for the right opportunity, especially in AI, healthcare technology, forward-deployed engineering, or high-growth technical roles.
 
 Chatbot Answer: Why is Ocean memorable?
 

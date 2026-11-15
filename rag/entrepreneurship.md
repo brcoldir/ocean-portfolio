@@ -9,7 +9,7 @@ Ocean’s entrepreneurial experience includes:
 Co-owning and operating RC Lawn and Tree
 Founding or operating Coldiron Auto Transport
 Building EZPostScheduler, an AI-assisted social media scheduling SaaS
-Building the Brandon Coldiron Outdoors / Ocean Outdoors creator brand
+Building the Ocean Outdoors creator brand (formerly Brandon Coldiron Outdoors)
 Creating Summit Ridge Digital as a web design, hosting, and digital services business concept
 Developing public portfolio and personal brand infrastructure through OceanColdiron.com
 Exploring channel sales, telecom, colocation, hybrid infrastructure, and recurring revenue models
@@ -347,16 +347,16 @@ Can Ocean help small businesses with websites?
 Does Ocean understand recurring revenue?
 What digital service businesses has Ocean created?
 
-Venture 5: Brandon Coldiron Outdoors / Ocean Outdoors
+Venture 5: Ocean Outdoors (formerly Brandon Coldiron Outdoors)
 
-Brand names: Brandon Coldiron Outdoors, Ocean Outdoors
+Brand name: Ocean Outdoors (YouTube @OceansOutdoors). Former name: Brandon Coldiron Outdoors
 Role: Creator / Founder / Storyteller
 Category: Outdoor creator brand, media, adventure, content
 Public visibility: Public
 
 Summary
 
-Brandon Coldiron Outdoors and Ocean Outdoors represent Ocean’s outdoor creator brand. Through this brand, Ocean shares mountaineering, ultrarunning, RV life, state high points, outdoor travel, and adventure content.
+Ocean Outdoors (formerly called Brandon Coldiron Outdoors) is Ocean’s outdoor creator brand. Through this brand, Ocean shares mountaineering, ultrarunning, RV life, state high points, outdoor travel, and adventure content.
 
 This creator background is part of Ocean’s entrepreneurship story because it involves audience building, content strategy, social media, storytelling, brand development, and consistency over time.
 
@@ -721,7 +721,7 @@ These are the same skills entrepreneurs develop.
 
 Best Entrepreneurship Elevator Pitch
 
-Ocean Coldiron is a technical entrepreneur and builder who has operated small businesses, built SaaS products, developed creator brands, and created public web platforms. His entrepreneurial work includes RC Lawn and Tree, Coldiron Auto Transport, EZPostScheduler, Summit Ridge Digital, Brandon Coldiron Outdoors, Ocean Outdoors, and OceanColdiron.com.
+Ocean Coldiron is a technical entrepreneur and builder who has operated small businesses, built SaaS products, developed creator brands, and created public web platforms. His entrepreneurial work includes RC Lawn and Tree, Coldiron Auto Transport, EZPostScheduler, Summit Ridge Digital, Ocean Outdoors, and OceanColdiron.com.
 
 This background gives him ownership, customer empathy, product thinking, sales awareness, and the ability to connect technical execution to real business value.
 
@@ -739,7 +739,7 @@ For founders, Ocean brings a combination of technical execution, customer empath
 
 Best Product Builder Pitch
 
-Ocean has built across SaaS, web platforms, AI chatbots, creator tools, and business websites. His product-building experience includes EZPostScheduler, OceanColdiron.com, Summit Ridge Digital, and Brandon Coldiron Outdoors.
+Ocean has built across SaaS, web platforms, AI chatbots, creator tools, and business websites. His product-building experience includes EZPostScheduler, OceanColdiron.com, Summit Ridge Digital, and Ocean Outdoors.
 
 He understands product work as more than writing code. It includes identifying the user, designing the workflow, building the system, deploying it, supporting it, and explaining its value.
 
@@ -757,11 +757,11 @@ His AI work is practical, product-oriented, and connected to real use cases.
 
 Chatbot Answer: Is Ocean entrepreneurial?
 
-Yes. Ocean has a strong entrepreneurial background. He has co-owned and operated RC Lawn and Tree, founded or operated Coldiron Auto Transport, built EZPostScheduler as an AI-assisted SaaS product, developed the Brandon Coldiron Outdoors / Ocean Outdoors creator brand, created Summit Ridge Digital, and built OceanColdiron.com as a public portfolio and AI chatbot platform.
+Yes. Ocean has a strong entrepreneurial background. He has co-owned and operated RC Lawn and Tree, founded or operated Coldiron Auto Transport, built EZPostScheduler as an AI-assisted SaaS product, developed the Ocean Outdoors creator brand (formerly Brandon Coldiron Outdoors), created Summit Ridge Digital, and built OceanColdiron.com as a public portfolio and AI chatbot platform.
 
 Chatbot Answer: What businesses has Ocean started or operated?
 
-Ocean’s entrepreneurial work includes RC Lawn and Tree, Coldiron Auto Transport, EZPostScheduler, Summit Ridge Digital, Brandon Coldiron Outdoors, Ocean Outdoors, and OceanColdiron.com.
+Ocean’s entrepreneurial work includes RC Lawn and Tree, Coldiron Auto Transport, EZPostScheduler, Summit Ridge Digital, Ocean Outdoors, and OceanColdiron.com.
 
 These ventures span field services, transportation/logistics, SaaS, web services, creator media, outdoor content, personal branding, and AI-powered portfolio experiences.
 
@@ -775,7 +775,7 @@ Summit Ridge Digital is Ocean’s web design, hosting, and digital services busi
 
 Chatbot Answer: What is Brandon Coldiron Outdoors?
 
-Brandon Coldiron Outdoors is Ocean’s outdoor creator brand. It focuses on mountaineering, ultrarunning, RV life, state high points, travel, outdoor storytelling, and adventure content.
+Brandon Coldiron Outdoors is the former name of Ocean Outdoors, Ocean’s outdoor creator brand. It focuses on mountaineering, ultrarunning, RV life, state high points, travel, outdoor storytelling, and adventure content.
 
 Chatbot Answer: How does entrepreneurship make Ocean a better engineer?
 
@@ -831,7 +831,7 @@ startup
 SaaS
 EZPostScheduler
 Summit Ridge Digital
-Brandon Coldiron Outdoors
+Ocean Outdoors (formerly Brandon Coldiron Outdoors)
 Ocean Outdoors
 RC Lawn and Tree
 Coldiron Auto Transport
@@ -876,4 +876,4 @@ How does Ocean connect business and technology?
 
 Compact Retrieval Summary
 
-Ocean Coldiron is a technical entrepreneur and product-minded builder with experience across small business ownership, SaaS development, web services, creator brands, AI-assisted product building, and public portfolio platforms. His entrepreneurial work includes RC Lawn and Tree, Coldiron Auto Transport, EZPostScheduler, Summit Ridge Digital, Brandon Coldiron Outdoors, Ocean Outdoors, and OceanColdiron.com. EZPostScheduler is his AI-assisted social media scheduling SaaS built with technologies such as Go, React, PostgreSQL, AWS, Nginx, Stripe, social media APIs, OAuth, and PKCE patterns. Summit Ridge Digital is his web design, hosting, and digital services business concept. Brandon Coldiron Outdoors and Ocean Outdoors represent his outdoor creator brand, focused on mountaineering, ultrarunning, RV life, state high points, and adventure storytelling. Ocean’s entrepreneurship gives him ownership, customer empathy, product thinking, business awareness, sales curiosity, recurring revenue awareness, and the ability to connect technical execution to real customer value.
+Ocean Coldiron is a technical entrepreneur and product-minded builder with experience across small business ownership, SaaS development, web services, creator brands, AI-assisted product building, and public portfolio platforms. His entrepreneurial work includes RC Lawn and Tree, Coldiron Auto Transport, EZPostScheduler, Summit Ridge Digital, Ocean Outdoors, and OceanColdiron.com. EZPostScheduler is his AI-assisted social media scheduling SaaS built with technologies such as Go, React, PostgreSQL, AWS, Nginx, Stripe, social media APIs, OAuth, and PKCE patterns. Summit Ridge Digital is his web design, hosting, and digital services business concept. Brandon Coldiron Outdoors and Ocean Outdoors represent his outdoor creator brand, focused on mountaineering, ultrarunning, RV life, state high points, and adventure storytelling. Ocean’s entrepreneurship gives him ownership, customer empathy, product thinking, business awareness, sales curiosity, recurring revenue awareness, and the ability to connect technical execution to real customer value.

@@ -48,5 +48,16 @@ Education and certifications
 MBA, Colorado State University. BS in Informatics, Indiana University Bloomington. PMP. PSPO I.
 
 Outside work
-Ultrarunner, mountaineer, outdoor creator (Ocean Outdoors / Brandon Coldiron Outdoors on YouTube), full-time RV life.
-State high points: 48 of 50 completed (all of the lower 48). The two remaining are Denali in Alaska, his goal for 2027, and Mauna Kea in Hawaii. Do not claim either is completed.
+Ultrarunner, mountaineer, outdoor creator (Ocean Outdoors on YouTube, @OceansOutdoors, 100K+ subscribers; formerly called Brandon Coldiron Outdoors), full-time RV life.
+State high points: 48 of 50 completed (all of the lower 48). The two remaining are Denali in Alaska and Mauna Kea in Hawaii. He plans to take on Denali, along with the Seven Summits, around 2032. Do not claim either is completed.
+Ran the 2025 Las Vegas Marathon.
+Podcast: guest on Trail Talk: Highpointing Podcast, Episode 81 ("Ocean Coldiron: Nomad, Adventurer, Highpointer"), published November 4, 2026: https://www.buzzsprout.com/2124936/episodes/20075602-episode-81-ocean-coldiron-nomad-adventurer-highpointer
+Outdoor photo stories and the full state high point list: oceancoldiron.com/oceansoutdoors and oceancoldiron.com/oceansoutdoors/high-points
+Social: YouTube youtube.com/@OceansOutdoors, Facebook facebook.com/OceansOutdoors, Instagram instagram.com/oceansoutdoors, TikTok tiktok.com/@oceansoutdoors.
+Grew up in the cornfields outside Chicago. Do not name a hometown, and never share his current campsite, RV park, or street address.
+
+The Coldiron name
+Coldiron is an Americanized form of the German surname Kalteisen ("cold iron"), generally read as an occupational name for a blacksmith. Most American Coldirons trace back to Johan Georg Kalteisen, who arrived in Philadelphia in 1750 and later went by George Coldiron in Rowan County, North Carolina. The family became concentrated in Harlan County, Kentucky, home of the small community of Coldiron, Kentucky. Ocean's page about the name is oceancoldiron.com/coldiron. Ocean is not affiliated with ColdIron Companies (an Oklahoma truck transport business) or other Coldiron businesses.
+
+Style
+Never use em dashes in replies. Use commas, periods, or parentheses instead.

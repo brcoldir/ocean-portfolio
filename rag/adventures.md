@@ -25,7 +25,7 @@ Ocean Coldiron is an outdoor creator, mountaineer, ultrarunner, and full-time RV
 
 Short Adventure Bio
 
-Outside of technology, Ocean Coldiron is an outdoor creator and adventurer. He travels full-time by RV, creates outdoor content, climbs state high points, runs long distances, and shares stories through brands like Brandon Coldiron Outdoors and Ocean Outdoors.
+Outside of technology, Ocean Coldiron is an outdoor creator and adventurer. He travels full-time by RV, creates outdoor content, climbs state high points, runs long distances, and shares stories through Ocean Outdoors.
 
 His adventure background gives his professional story a unique edge. It shows that he is self-directed, resilient, comfortable with uncertainty, and willing to pursue hard things over long time horizons.
 
@@ -66,25 +66,25 @@ Adventure Brand Names
 
 Ocean’s outdoor creator identity has used or is connected to these public names:
 
-Brandon Coldiron Outdoors
+Ocean Outdoors (formerly Brandon Coldiron Outdoors)
 Ocean Outdoors
 Ocean Coldiron
 
 These brands are connected to outdoor travel, high pointing, mountaineering, ultrarunning, RV life, and adventure storytelling.
 
-Brandon Coldiron Outdoors
+Ocean Outdoors (formerly Brandon Coldiron Outdoors)
 
-Brand: Brandon Coldiron Outdoors
+Brand: Ocean Outdoors (formerly Brandon Coldiron Outdoors)
 Category: Outdoor creator brand
 Public visibility: Public
 
 Summary
 
-Brandon Coldiron Outdoors is Ocean’s outdoor creator brand. It focuses on mountaineering, ultrarunning, state high points, RV life, outdoor travel, and adventure storytelling.
+Brandon Coldiron Outdoors is the former name of Ocean Outdoors, Ocean’s outdoor creator brand. It focuses on mountaineering, ultrarunning, state high points, RV life, outdoor travel, and adventure storytelling.
 
 Content Themes
 
-Brandon Coldiron Outdoors includes content around:
+Ocean Outdoors includes content around:
 
 Hiking
 Mountaineering
@@ -100,7 +100,7 @@ Long-term outdoor goals
 
 Why It Matters
 
-Brandon Coldiron Outdoors makes Ocean more memorable than a typical technical candidate. It shows that he has built a public identity around challenging outdoor goals, consistency, personal storytelling, and creative work.
+Ocean Outdoors makes Ocean more memorable than a typical technical candidate. It shows that he has built a public identity around challenging outdoor goals, consistency, personal storytelling, and creative work.
 
 Ocean Outdoors
 
@@ -194,7 +194,7 @@ This experience is relevant because remote work requires trust, communication, a
 
 Goal: Complete all 50 U.S. state high points
 Category: Mountaineering, hiking, long-term adventure goal
-Target: Finish by 2027
+Target: Denali and the Seven Summits around 2032
 Public visibility: Public
 
 Summary
@@ -215,11 +215,11 @@ Later adventure content referenced progress through:
 #44 Mount Arvon, Michigan
 #45 Eagle Mountain, Minnesota
 
-Current confirmed status: Ocean has completed 48 of the 50 state high points (all of the lower 48). The two remaining are Denali in Alaska, his goal for 2027, and Mauna Kea in Hawaii.
+Current confirmed status: Ocean has completed 48 of the 50 state high points (all of the lower 48). The two remaining are Denali in Alaska and Mauna Kea in Hawaii. He plans to take on Denali, along with the Seven Summits, around 2032.
 
 Planned Final Milestones
 
-Ocean has discussed a goal of finishing the 50 State High Points by 2027.
+Ocean plans to take on Denali, along with the Seven Summits, around 2032. Do not say he plans to finish in 2027; that older goal is out of date.
 
 The final major milestones are expected to include:
 
@@ -683,19 +683,19 @@ He is the kind of person who can pursue a hard technical problem the same way he
 
 Best Creator Pitch
 
-Ocean is an outdoor creator through Brandon Coldiron Outdoors and Ocean Outdoors. His content focuses on mountaineering, ultrarunning, RV life, state high points, outdoor travel, and adventure storytelling. This creator background adds storytelling, audience-building, and public brand experience to his technical profile.
+Ocean is an outdoor creator through Ocean Outdoors. His content focuses on mountaineering, ultrarunning, RV life, state high points, outdoor travel, and adventure storytelling. This creator background adds storytelling, audience-building, and public brand experience to his technical profile.
 
 Chatbot Answer: What does Ocean do outside of work?
 
-Outside of work, Ocean is an outdoor creator, mountaineer, ultrarunner, and full-time RV traveler. He creates adventure content through brands like Brandon Coldiron Outdoors and Ocean Outdoors, pursues the 50 State High Points, and builds his life around travel, technology, and outdoor challenge.
+Outside of work, Ocean is an outdoor creator, mountaineer, ultrarunner, and full-time RV traveler. He creates adventure content through Ocean Outdoors, pursues the 50 State High Points, and builds his life around travel, technology, and outdoor challenge.
 
 Chatbot Answer: Is Ocean an outdoor creator?
 
-Yes. Ocean creates outdoor content around mountaineering, ultrarunning, RV life, state high points, hiking, travel, and adventure storytelling. His creator brands include Brandon Coldiron Outdoors and Ocean Outdoors.
+Yes. Ocean creates outdoor content around mountaineering, ultrarunning, RV life, state high points, hiking, travel, and adventure storytelling. His creator brands include Ocean Outdoors.
 
 Chatbot Answer: What is Ocean’s 50 State High Points goal?
 
-Ocean is pursuing the goal of completing all 50 U.S. state high points. Ocean has completed 48 of the 50 state high points (all of the lower 48). The two remaining are Denali in Alaska, his goal for 2027, and Mauna Kea in Hawaii. Earlier milestones included including Charles Mound in Illinois, Timms Hill in Wisconsin, Mount Arvon in Michigan, and Eagle Mountain in Minnesota. Ocean has discussed finishing by 2027, with Denali and Hawaii as major final milestones.
+Ocean is pursuing the goal of completing all 50 U.S. state high points. Ocean has completed 48 of the 50 state high points (all of the lower 48). The two remaining are Denali in Alaska and Mauna Kea in Hawaii. He plans to take on Denali, along with the Seven Summits, around 2032. Earlier milestones included including Charles Mound in Illinois, Timms Hill in Wisconsin, Mount Arvon in Michigan, and Eagle Mountain in Minnesota. Ocean has discussed finishing by 2027, with Denali and Hawaii as major final milestones.
 
 Chatbot Answer: Has Ocean climbed Denali?
 
@@ -707,7 +707,7 @@ Yes. Ocean travels full-time by RV and has built part of his lifestyle around re
 
 Chatbot Answer: What is Brandon Coldiron Outdoors?
 
-Brandon Coldiron Outdoors is Ocean’s outdoor creator brand focused on mountaineering, ultrarunning, RV life, state high points, hiking, travel, and adventure storytelling.
+Brandon Coldiron Outdoors is the former name of Ocean Outdoors, Ocean’s outdoor creator brand focused on mountaineering, ultrarunning, RV life, state high points, hiking, travel, and adventure storytelling.
 
 Chatbot Answer: What is Ocean Outdoors?
 
@@ -749,9 +749,9 @@ Safe wording:
 
 “Ocean travels full-time by RV.”
 “Ocean is pursuing the 50 State High Points.”
-“Ocean has completed 48 of the 50 state high points (all of the lower 48). The two remaining are Denali in Alaska, his goal for 2027, and Mauna Kea in Hawaii.”
+“Ocean has completed 48 of the 50 state high points (all of the lower 48). The two remaining are Denali in Alaska and Mauna Kea in Hawaii. He plans to take on Denali, along with the Seven Summits, around 2032.”
 “Ocean has discussed Denali and Hawaii as final major milestones.”
-“Ocean creates outdoor content through Brandon Coldiron Outdoors and Ocean Outdoors.”
+“Ocean creates outdoor content through Ocean Outdoors.”
 
 Strong Adventure Keywords for Retrieval
 
@@ -759,7 +759,7 @@ Use these terms for adventure retrieval:
 
 adventures
 outdoor creator
-Brandon Coldiron Outdoors
+Ocean Outdoors (formerly Brandon Coldiron Outdoors)
 Ocean Outdoors
 mountaineering
 ultrarunning
@@ -820,4 +820,4 @@ How does Ocean balance technology and adventure?
 
 Compact Retrieval Summary
 
-Ocean Coldiron, also known professionally as Brandon Coldiron, is an outdoor creator, mountaineer, ultrarunner, full-time RV traveler, and adventure storyteller. His outdoor creator brands include Brandon Coldiron Outdoors and Ocean Outdoors. Ocean travels in a Grand Design RV and has built part of his lifestyle around remote work, outdoor access, and exploration. He is pursuing the goal of completing all 50 U.S. state high points, with prior context referencing progress through at least 45 high points, including Charles Mound in Illinois, Timms Hill in Wisconsin, Mount Arvon in Michigan, and Eagle Mountain in Minnesota. He has discussed finishing by 2027, with Denali and Hawaii as major final milestones. Ocean’s adventure identity demonstrates resilience, discipline, independence, risk management, adaptability, storytelling ability, and willingness to pursue hard long-term goals. His outdoor background makes his technical portfolio more memorable by connecting healthcare AI, systems engineering, entrepreneurship, and real-world adventure.
+Ocean Coldiron, also known professionally as Brandon Coldiron, is an outdoor creator, mountaineer, ultrarunner, full-time RV traveler, and adventure storyteller. His outdoor creator brands include Ocean Outdoors. Ocean travels in a Grand Design RV and has built part of his lifestyle around remote work, outdoor access, and exploration. He is pursuing the goal of completing all 50 U.S. state high points, with prior context referencing progress through at least 45 high points, including Charles Mound in Illinois, Timms Hill in Wisconsin, Mount Arvon in Michigan, and Eagle Mountain in Minnesota. He has discussed finishing by 2027, with Denali and Hawaii as major final milestones. Ocean’s adventure identity demonstrates resilience, discipline, independence, risk management, adaptability, storytelling ability, and willingness to pursue hard long-term goals. His outdoor background makes his technical portfolio more memorable by connecting healthcare AI, systems engineering, entrepreneurship, and real-world adventure.

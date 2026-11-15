@@ -841,7 +841,7 @@ Primary purpose: Showcase outdoor adventures, creator work, mountaineering, ultr
 
 Summary
 
-Brandon Coldiron Outdoors is Ocean’s outdoor creator website and brand platform. It supports his identity as an outdoor creator, mountaineer, ultrarunner, RV traveler, and storyteller.
+Brandon Coldiron Outdoors (brandoncoldironoutdoors.com) is the older website of Ocean’s outdoor creator brand, now called Ocean Outdoors. The main outdoor content now lives at oceancoldiron.com/oceansoutdoors. It supports his identity as an outdoor creator, mountaineer, ultrarunner, RV traveler, and storyteller.
 
 What It Demonstrates
 
@@ -1387,7 +1387,7 @@ Ocean’s strongest SaaS project is EZPostScheduler, an AI-assisted social media
 
 Chatbot Answer: What has Ocean built?
 
-Ocean has built projects across AI, healthcare integrations, SaaS, automation, and web infrastructure. His projects include a RAG-powered portfolio chatbot, OceanColdiron.com, EZPostScheduler, an HL7 ADT import service, clinical API work, MCP/FastMCP experiments, Databricks/Lakebase AI workflow prototypes, healthcare SQL reporting, Mirth Connect workflows, Lua PDF/report automation, Summit Ridge Digital, and Brandon Coldiron Outdoors.
+Ocean has built projects across AI, healthcare integrations, SaaS, automation, and web infrastructure. His projects include a RAG-powered portfolio chatbot, OceanColdiron.com, EZPostScheduler, an HL7 ADT import service, clinical API work, MCP/FastMCP experiments, Databricks/Lakebase AI workflow prototypes, healthcare SQL reporting, Mirth Connect workflows, Lua PDF/report automation, Summit Ridge Digital, and Ocean Outdoors.
 
 Chatbot Answer: What AI projects has Ocean built?
 
@@ -1482,7 +1482,7 @@ Databricks
 Lakebase
 ElevenLabs
 Summit Ridge Digital
-Brandon Coldiron Outdoors
+Ocean Outdoors (formerly Brandon Coldiron Outdoors)
 web infrastructure
 DNS
 SSL
