@@ -3,7 +3,7 @@
 //   - route-specific <title>, description, canonical, robots, OG/Twitter tags
 //   - JSON-LD (WebSite + ProfilePage + Person) from scripts/schema.mjs
 //   - the page body rendered with React on the server (dist-ssr/entry-server.js)
-// Output: dist/index.html (/), dist/coldiron.html, dist/manageai.html, dist/404.html.
+// Output: dist/index.html (/), dist/coldiron.html, dist/manageai.html, dist/404.html, dist/sitemap.xml.
 // nginx maps those routes to these files (deploy/nginx/oceancoldiron.com.conf).
 import { readFileSync, writeFileSync, rmSync } from 'node:fs'
 import { graphFor } from './schema.mjs'
@@ -79,4 +79,20 @@ writeFileSync(new URL('404.html', dist), `<!doctype html>
 </html>
 `)
 console.log('wrote 404.html')
+
+// sitemap.xml: every indexable route from routeMeta.json, lastmod = build day
+// (Pacific), plus the headshot as an image entry for the profile pages.
+const urls = Object.values(meta)
+  .filter((m) => !m.robots.startsWith('noindex'))
+  .map((m) => `  <url>
+    <loc>${m.canonical}</loc>
+    <lastmod>${today}</lastmod>
+    <image:image><image:loc>https://oceancoldiron.com/ocean-coldiron.jpg</image:loc></image:image>
+  </url>`)
+writeFileSync(new URL('sitemap.xml', dist), `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+${urls.join('\n')}
+</urlset>
+`)
+console.log('wrote sitemap.xml with', urls.length, 'urls')
 rmSync(new URL('../dist-ssr/', import.meta.url), { recursive: true, force: true })
