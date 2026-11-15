@@ -40,7 +40,6 @@ export function graphFor(route, dateModified) {
     description:
       'Ocean Coldiron is an AI engineer at Abacus Insights, a state highpointer who has completed all 48 contiguous U.S. state high points, a full-time RV traveler, and the creator of the Ocean Outdoors YouTube channel.',
     worksFor: { '@type': 'Organization', name: 'Abacus Insights', url: 'https://www.abacusinsights.com' },
-    founder: { '@type': 'Organization', name: 'Summit Ridge Digital', url: 'https://summitridgedigital.com' },
     alumniOf: [
       { '@type': 'CollegeOrUniversity', name: 'Indiana University Bloomington' },
       { '@type': 'CollegeOrUniversity', name: 'Colorado State University' },
@@ -55,6 +54,15 @@ export function graphFor(route, dateModified) {
       'Databricks', 'AWS', 'Python', 'Go', 'Highpointing', 'Mountaineering', 'Ultrarunning', 'RV living',
     ],
     sameAs: SAME_AS,
+  }
+  // Summit Ridge Digital, founded by Ocean. schema.org puts `founder` on the
+  // Organization (Person has no founder-of property).
+  const org = {
+    '@type': 'Organization',
+    '@id': 'https://summitridgedigital.com/#organization',
+    name: 'Summit Ridge Digital',
+    url: 'https://summitridgedigital.com',
+    founder: { '@id': PERSON_ID },
   }
   const pageUrl = route === '/' ? SITE : SITE.replace(/\/$/, '') + route
   const page = {
@@ -72,5 +80,5 @@ export function graphFor(route, dateModified) {
       { '@type': 'Thing', name: 'Coldiron (surname)', sameAs: 'https://www.wikidata.org/wiki/Q37228481' },
     ]
   }
-  return { '@context': 'https://schema.org', '@graph': [website, page, person] }
+  return { '@context': 'https://schema.org', '@graph': [website, page, person, org] }
 }

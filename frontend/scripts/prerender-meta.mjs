@@ -13,7 +13,7 @@ const ssrEntry = new URL('../dist-ssr/entry-server.js', import.meta.url)
 const meta = JSON.parse(readFileSync(new URL('../src/routeMeta.json', import.meta.url)))
 const base = readFileSync(new URL('index.html', dist), 'utf8')
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;')
-const today = new Date().toISOString().slice(0, 10)
+const today = new Date().toLocaleDateString('en-CA', { timeZone: 'America/Los_Angeles' })
 const { render } = await import(ssrEntry.href)
 
 // Pages whose body is prerendered. /manageai is a private admin screen, so it
