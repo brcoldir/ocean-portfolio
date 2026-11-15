@@ -49,6 +49,11 @@ export function graphFor(route, dateModified) {
       height: 640,
       caption: 'Ocean Coldiron',
     },
+    homeLocation: {
+      '@type': 'Place',
+      name: 'Las Vegas, Nevada',
+      address: { '@type': 'PostalAddress', addressLocality: 'Las Vegas', addressRegion: 'NV', addressCountry: 'US' },
+    },
     jobTitle: 'Senior Sustaining and Forward Deployed Engineer',
     description:
       'Ocean Coldiron is an AI engineer at Abacus Insights, a state highpointer who has completed all 48 contiguous U.S. state high points, a full-time RV traveler, and the creator of the Ocean Outdoors YouTube channel.',

@@ -6,7 +6,7 @@ import PageLayout from './components/PageLayout'
 import headshot from './images/Headshot.jpg'
 const RESUME_URL = '/resume.pdf'
 // Flip to true once https://oceancoldiron.com/oceansoutdoors/media-kit/ returns 200.
-const MEDIA_KIT_LIVE = false
+const MEDIA_KIT_LIVE = true
 const EMAIL = 'brcoldir@gmail.com'
 const PHONE_TEL = 'tel:+15748065895'
 const PHONE_DISPLAY = '(574) 806-5895'
@@ -740,7 +740,7 @@ const App = () => {
             <div className={`text-xs font-bold uppercase tracking-widest mb-3 ${mode === 'dev' ? 'text-cyan-400 font-mono' : 'text-orange-600'}`}>Creator</div>
             <h2 className={`text-3xl md:text-4xl font-bold mb-5 ${mode === 'dev' ? 'font-sans' : 'font-serif'}`}>Ocean Outdoors (@oceansoutdoors)</h2>
             <p className={`text-lg leading-relaxed ${mode === 'dev' ? 'text-slate-300' : 'text-stone-700'}`}>
-              Outside of engineering, I share life on the road as Ocean Outdoors. In December 2018 I was shot 13 times and spent months in a wheelchair, then crutches and a walker. After the leg finally healed I bought an RV and started hiking. From July 2023 to July 2026 I stood on the highest point of all 48 contiguous U.S. states, from a solo midnight start on Mount Whitney to sunset on White Butte, North Dakota. Now it's full-time RV life, ultrarunning, Denali and Mauna Kea still ahead, and the Seven Summits planned for around 2032.
+              Outside of engineering, I'm a Las Vegas based creator sharing life on the road as Ocean Outdoors. In December 2018 I was shot 13 times and spent months in a wheelchair, then crutches and a walker. After the leg finally healed I bought an RV and started hiking. From July 2023 to July 2026 I stood on the highest point of all 48 contiguous U.S. states, from a solo midnight start on Mount Whitney to sunset on White Butte, North Dakota. Now it's full-time RV life, ultrarunning, Denali and Mauna Kea still ahead, and the Seven Summits planned for around 2032.
             </p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
