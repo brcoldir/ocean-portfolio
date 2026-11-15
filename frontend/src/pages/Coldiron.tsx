@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { ArrowLeft, Terminal, Tent, Youtube, Linkedin, Github, Instagram, Facebook, Music } from "lucide-react"
+import { ArrowLeft, Terminal, Tent, Youtube, Linkedin, Github, Instagram, Facebook, Music, AtSign, Mountain, Mic } from "lucide-react"
 import headshot from "../images/Headshot.jpg"
 import LATEST_STORIES from "../data/latestStories.json"
 
@@ -14,6 +14,11 @@ const PROFILES = [
   { label: "TikTok: @oceansoutdoors", href: "https://www.tiktok.com/@oceansoutdoors", icon: Music },
   { label: "LinkedIn: Ocean Coldiron", href: "https://www.linkedin.com/in/brandon-coldiron/", icon: Linkedin },
   { label: "GitHub: brcoldir", href: "https://github.com/brcoldir", icon: Github },
+  { label: "X: @oceansoutdoors", href: "https://x.com/oceansoutdoors", icon: AtSign },
+  { label: "Peakbagger: Ocean Coldiron", href: "https://www.peakbagger.com/climber/climber.aspx?cid=43222", icon: Mountain },
+  { label: "ListsOfJohn: brcoldir", href: "https://listsofjohn.com/m/brcoldir", icon: Mountain },
+  { label: "SummitPost: brcoldir", href: "https://www.summitpost.org/users/brcoldir/173680", icon: Mountain },
+  { label: "Trail Talk podcast, Episode 81", href: "https://www.youtube.com/watch?v=oJLlpVJLn_k", icon: Mic },
 ]
 
 const Coldiron = ({ mode }: Props) => {

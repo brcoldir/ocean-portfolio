@@ -15,6 +15,11 @@ export const SAME_AS = [
   'https://www.buzzsprout.com/2124936/episodes/20075602-episode-81-ocean-coldiron-nomad-adventurer-highpointer',
   'https://collabstr.com/brandoncoldironoutdoors',
   'https://oceancoldiron.com/oceansoutdoors/',
+  'https://x.com/oceansoutdoors',
+  'https://www.peakbagger.com/climber/climber.aspx?cid=43222',
+  'https://listsofjohn.com/m/brcoldir',
+  'https://www.summitpost.org/users/brcoldir/173680',
+  'https://www.youtube.com/watch?v=oJLlpVJLn_k',
 ]
 
 export function graphFor(route, dateModified) {

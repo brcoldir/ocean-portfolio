@@ -5,6 +5,8 @@ import ManageAI from './pages/ManageAI'
 import PageLayout from './components/PageLayout'
 import headshot from './images/Headshot.jpg'
 const RESUME_URL = '/resume.pdf'
+// Flip to true once https://oceancoldiron.com/oceansoutdoors/media-kit/ returns 200.
+const MEDIA_KIT_LIVE = false
 const EMAIL = 'brcoldir@gmail.com'
 const PHONE_TEL = 'tel:+15748065895'
 const PHONE_DISPLAY = '(574) 806-5895'
@@ -35,7 +37,11 @@ import {
   Facebook,
   Music,
   Camera,
-  Phone
+  Phone,
+  Mic,
+  AtSign,
+  Newspaper,
+  ExternalLink
 } from 'lucide-react';
 
 
@@ -175,6 +181,21 @@ const HIRE_FOR = [
   { role: "AI Solutions Architect", why: "Designing MCP/RAG/agent architectures that fit enterprise constraints, with an MBA and PMP for the business side." },
   { role: "Applied AI Engineer", why: "Shipping LLM features to production: retrieval, tool use, guardrails, evals, and the backend plumbing around them." },
   { role: "Healthcare AI Engineer", why: "HL7, FHIR, Mirth, and EHR data at the scale of 5M+ patients. I already speak the domain." },
+];
+
+// --- DATA: CREATOR / OCEAN OUTDOORS (verified profiles only; no unverified counts) ---
+// YouTube count read from the public channel page on Nov 15, 2026. Do not add
+// follower numbers for other platforms unless they are re-verified.
+const CREATOR_LINKS = [
+  { name: "YouTube", handle: "@OceansOutdoors", note: "Ocean Outdoors channel · 100K subscribers", href: "https://www.youtube.com/@OceansOutdoors", icon: Youtube },
+  { name: "Instagram", handle: "@oceansoutdoors", note: "Photos and reels from the road", href: "https://www.instagram.com/oceansoutdoors/", icon: Instagram },
+  { name: "TikTok", handle: "@oceansoutdoors", note: "Short trail and RV clips", href: "https://www.tiktok.com/@oceansoutdoors", icon: Music },
+  { name: "Facebook", handle: "Ocean Outdoors", note: "Page for the full trip stories", href: "https://www.facebook.com/OceansOutdoors", icon: Facebook },
+  { name: "X", handle: "@oceansoutdoors", note: "Ocean Outdoors on X", href: "https://x.com/oceansoutdoors", icon: AtSign },
+  { name: "Trail Talk podcast", handle: "Episode 81", note: "Ocean Coldiron: Nomad, Adventurer, Highpointer", href: "https://www.youtube.com/watch?v=oJLlpVJLn_k", icon: Mic },
+  { name: "Peakbagger", handle: "Ocean Coldiron", note: "Logged ascents of the state high points", href: "https://www.peakbagger.com/climber/climber.aspx?cid=43222", icon: Mountain },
+  { name: "ListsOfJohn", handle: "brcoldir", note: "Peak list and climbing stats", href: "https://listsofjohn.com/m/brcoldir", icon: Map },
+  { name: "SummitPost", handle: "brcoldir", note: "Climber profile and trip reports", href: "https://www.summitpost.org/users/brcoldir/173680", icon: Mountain },
 ];
 
 // --- DATA: DIFFERENTIATORS ---
@@ -334,10 +355,11 @@ const App = () => {
             <a href={SITE_DATA.socials.tiktok} target="_blank" rel="noreferrer" aria-label="TikTok"><Music size={22} /></a>
             <a href={SITE_DATA.socials.instagram} target="_blank" rel="noreferrer" aria-label="Instagram"><Instagram size={22} /></a>
             <a href={SITE_DATA.socials.facebook} target="_blank" rel="noreferrer" aria-label="Facebook"><Facebook size={22} /></a>
+            <a href="https://x.com/oceansoutdoors" target="_blank" rel="noreferrer" aria-label="X"><AtSign size={22} /></a>
             <a href="#contact" aria-label="Contact"><Mail size={22} /></a>
           </div>
           <p className="text-sm opacity-70">
-            Off the clock I climb state high points and live full time in an RV. <a href="/oceansoutdoors/" className="underline underline-offset-4">Read the Ocean Outdoors stories</a> or learn <a href="/coldiron" className="underline underline-offset-4">about the Coldiron name</a>.
+            Off the clock I climb state high points and live full time in an RV. <a href="/oceansoutdoors/" className="underline underline-offset-4">Read the Ocean Outdoors stories</a>, see <a href="#creator" className="underline underline-offset-4">where I post as a creator</a>, or learn <a href="/coldiron" className="underline underline-offset-4">about the Coldiron name</a>.
           </p>
         </div>
       </section>
@@ -708,6 +730,47 @@ const App = () => {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Creator / Ocean Outdoors */}
+      <section id="creator" className={`py-24 px-6 ${mode === 'dev' ? 'bg-[#0a0f1e]' : 'bg-[#f4f1ea]'}`}>
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12 max-w-3xl mx-auto">
+            <div className={`text-xs font-bold uppercase tracking-widest mb-3 ${mode === 'dev' ? 'text-cyan-400 font-mono' : 'text-orange-600'}`}>Creator</div>
+            <h2 className={`text-3xl md:text-4xl font-bold mb-5 ${mode === 'dev' ? 'font-sans' : 'font-serif'}`}>Ocean Outdoors (@oceansoutdoors)</h2>
+            <p className={`text-lg leading-relaxed ${mode === 'dev' ? 'text-slate-300' : 'text-stone-700'}`}>
+              Outside of engineering, I share life on the road as Ocean Outdoors. In December 2018 I was shot 13 times and spent months in a wheelchair, then crutches and a walker. After the leg finally healed I bought an RV and started hiking. From July 2023 to July 2026 I stood on the highest point of all 48 contiguous U.S. states, from a solo midnight start on Mount Whitney to sunset on White Butte, North Dakota. Now it's full-time RV life, ultrarunning, Denali and Mauna Kea still ahead, and the Seven Summits planned for around 2032.
+            </p>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {CREATOR_LINKS.map((c) => (
+              <a
+                key={c.href}
+                href={c.href}
+                target="_blank"
+                rel="noopener me"
+                className={`group flex items-start gap-4 p-5 rounded-2xl border transition-all hover:-translate-y-1 ${mode === 'dev' ? 'bg-slate-950 border-slate-800 hover:border-blue-500/50' : 'bg-white border-stone-200 shadow-sm hover:border-orange-300 hover:shadow-md'}`}
+              >
+                <div className={`p-2.5 rounded-xl ${mode === 'dev' ? 'bg-blue-500/10 text-blue-400' : 'bg-orange-500/10 text-orange-600'}`}>
+                  <c.icon size={22} />
+                </div>
+                <div className="min-w-0">
+                  <div className="font-bold flex items-center gap-1.5">{c.name} <ExternalLink size={13} className="opacity-40" /></div>
+                  <div className={`text-sm ${mode === 'dev' ? 'text-blue-300' : 'text-orange-700'}`}>{c.handle}</div>
+                  <div className={`text-sm mt-1 ${mode === 'dev' ? 'text-slate-400' : 'text-stone-600'}`}>{c.note}</div>
+                </div>
+              </a>
+            ))}
+          </div>
+          <div className="flex flex-col sm:flex-row justify-center gap-3 mt-10">
+            <a href="/oceansoutdoors/" className={`inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-bold ${mode === 'dev' ? 'bg-blue-600 hover:bg-blue-500 text-white' : 'bg-orange-600 hover:bg-orange-500 text-white'}`}><Camera size={18} />Read the Ocean Outdoors blog</a>
+            <a href="/oceansoutdoors/high-points/" className={`inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-bold border ${mode === 'dev' ? 'border-slate-600 text-slate-200 hover:border-blue-400' : 'border-stone-400 text-stone-700 hover:border-orange-500'}`}><Mountain size={18} />All 48 high point stories</a>
+            {MEDIA_KIT_LIVE && (
+              <a href="/oceansoutdoors/media-kit/" className={`inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-bold border ${mode === 'dev' ? 'border-slate-600 text-slate-200 hover:border-blue-400' : 'border-stone-400 text-stone-700 hover:border-orange-500'}`}><Newspaper size={18} />Media kit</a>
+            )}
+          </div>
+          <p className="text-center text-sm opacity-60 mt-6">Press, podcast, and collab requests: <a href="mailto:ocean@summitridgedigital.com" className="underline underline-offset-4">ocean@summitridgedigital.com</a></p>
         </div>
       </section>
 
