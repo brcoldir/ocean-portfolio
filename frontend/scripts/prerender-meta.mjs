@@ -1,18 +1,29 @@
-// Writes per-route HTML shells (dist/coldiron.html, dist/manageai.html) with
-// the right title/description/canonical/robots baked in, plus a static
-// dist/404.html. nginx serves these so crawlers see route-specific meta
-// before any JavaScript runs.
-import { readFileSync, writeFileSync } from 'node:fs'
+// Post-build prerender. For each public route this writes static HTML that
+// crawlers (and anyone without JavaScript) can read:
+//   - route-specific <title>, description, canonical, robots, OG/Twitter tags
+//   - JSON-LD (WebSite + ProfilePage + Person) from scripts/schema.mjs
+//   - the page body rendered with React on the server (dist-ssr/entry-server.js)
+// Output: dist/index.html (/), dist/coldiron.html, dist/manageai.html, dist/404.html.
+// nginx maps those routes to these files (deploy/nginx/oceancoldiron.com.conf).
+import { readFileSync, writeFileSync, rmSync } from 'node:fs'
+import { graphFor } from './schema.mjs'
 
 const dist = new URL('../dist/', import.meta.url)
+const ssrEntry = new URL('../dist-ssr/entry-server.js', import.meta.url)
 const meta = JSON.parse(readFileSync(new URL('../src/routeMeta.json', import.meta.url)))
 const base = readFileSync(new URL('index.html', dist), 'utf8')
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;')
+const today = new Date().toISOString().slice(0, 10)
+const { render } = await import(ssrEntry.href)
 
-function render(m) {
+// Pages whose body is prerendered. /manageai is a private admin screen, so it
+// only gets its meta (noindex) and keeps an empty shell.
+const PRERENDER_BODY = new Set(['/', '/coldiron'])
+
+function page(route, m) {
   let h = base
   const sub = (re, val) => {
-    if (!re.test(h)) throw new Error('pattern not found: ' + re)
+    if (!re.test(h)) throw new Error(route + ': pattern not found: ' + re)
     h = h.replace(re, val)
   }
   sub(/<title>[^<]*<\/title>/, `<title>${esc(m.title)}</title>`)
@@ -23,13 +34,25 @@ function render(m) {
   sub(/(<meta property="og:title" content=")[^"]*(")/, `$1${esc(m.title)}$2`)
   sub(/(<meta property="og:description" content=")[^"]*(")/, `$1${esc(m.description)}$2`)
   sub(/(<meta name="twitter:title" content=")[^"]*(")/, `$1${esc(m.title)}$2`)
+  sub(/(<meta name="twitter:description" content=")[^"]*(")/, `$1${esc(m.description)}$2`)
+
+  const ld = m.robots.startsWith('noindex') ? '' :
+    `<script type="application/ld+json">\n${JSON.stringify(graphFor(route, today), null, 2).replace(/</g, '\\u003c')}\n  </script>`
+  sub(/<!--JSONLD-->/, ld)
+
+  if (PRERENDER_BODY.has(route)) {
+    const body = render(route)
+    if (body.length < 2000) throw new Error(route + ': prerendered body looks empty')
+    sub(/<div id="root"><\/div>/, `<div id="root">${body}</div>`)
+  }
+  if (/\u2014/.test(h)) throw new Error(route + ': em dash found in output')
   return h
 }
 
 for (const [route, m] of Object.entries(meta)) {
-  if (route === '/') continue
-  writeFileSync(new URL(route.slice(1) + '.html', dist), render(m))
-  console.log('prerendered', route)
+  const file = route === '/' ? 'index.html' : route.slice(1) + '.html'
+  writeFileSync(new URL(file, dist), page(route, m))
+  console.log('prerendered', route, '->', file)
 }
 
 writeFileSync(new URL('404.html', dist), `<!doctype html>
@@ -48,6 +71,7 @@ writeFileSync(new URL('404.html', dist), `<!doctype html>
   <p>The link may be old or mistyped.</p>
   <ul>
     <li><a href="/">Ocean Coldiron, home and resume</a></li>
+    <li><a href="/coldiron">About the Coldiron name</a></li>
     <li><a href="/oceansoutdoors/">Ocean Outdoors photo stories</a></li>
     <li><a href="/oceansoutdoors/high-points/">State high points</a></li>
   </ul>
@@ -55,3 +79,4 @@ writeFileSync(new URL('404.html', dist), `<!doctype html>
 </html>
 `)
 console.log('wrote 404.html')
+rmSync(new URL('../dist-ssr/', import.meta.url), { recursive: true, force: true })

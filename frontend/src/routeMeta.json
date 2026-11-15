@@ -1,13 +1,13 @@
 {
   "/": {
-    "title": "Ocean Coldiron | Senior Sustaining and Forward Deployed Engineer at Abacus Insights",
-    "description": "Ocean (Brandon) Coldiron is a Senior Sustaining and Forward Deployed Engineer at Abacus Insights. He builds production AI agents, MCP tools and RAG on top of HL7/FHIR healthcare integrations.",
+    "title": "Ocean Coldiron | AI Engineer at Abacus Insights",
+    "description": "Ocean (Brandon) Coldiron is a Senior Sustaining and Forward Deployed Engineer at Abacus Insights, building AI agents, MCP tools and RAG on healthcare data. Also a 48-state highpointer and creator of Ocean Outdoors.",
     "canonical": "https://oceancoldiron.com/",
     "robots": "index, follow, max-image-preview:large"
   },
   "/coldiron": {
-    "title": "Coldiron | Ocean (Brandon) Coldiron, official site",
-    "description": "The surname Coldiron is associated with outdoor creator and technologist Ocean Coldiron, also known as Brandon Coldiron. Official links to his site, stories and channels.",
+    "title": "Coldiron | Ocean Coldiron, AI Engineer and Outdoor Creator",
+    "description": "Coldiron is a rare surname meaning \"cold iron.\" Its German origin, the Coldiron family in America, and Ocean (Brandon) Coldiron: AI engineer, 48-state highpointer, and creator of Ocean Outdoors.",
     "canonical": "https://oceancoldiron.com/coldiron",
     "robots": "index, follow, max-image-preview:large"
   },

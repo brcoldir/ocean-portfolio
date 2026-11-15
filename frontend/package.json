@@ -5,10 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build && vite build --ssr src/entry-server.tsx --outDir dist-ssr",
     "lint": "eslint .",
     "preview": "vite preview",
-    "postbuild": "node scripts/prerender-meta.mjs"
+    "postbuild": "node scripts/prerender-meta.mjs",
+    "prebuild": "node scripts/fetch-stories.mjs"
   },
   "dependencies": {
     "lucide-react": "^0.556.0",

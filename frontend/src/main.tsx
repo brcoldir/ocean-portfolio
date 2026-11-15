@@ -7,6 +7,8 @@ import RouteMeta from './components/RouteMeta.tsx'
 
 import { BrowserRouter } from 'react-router-dom'
 
+// #root may already contain build-time prerendered HTML for crawlers;
+// createRoot replaces it with the live app.
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>

@@ -28,6 +28,8 @@ function truncateForSpeech(text: string): string {
 }
 
 function getOrCreateSessionId(): string {
+  // Build-time prerendering runs without a browser; the real id is created on the client.
+  if (typeof window === 'undefined') return '';
   let id = localStorage.getItem(SESSION_KEY);
   if (!id) {
     id = crypto.randomUUID();
@@ -87,7 +89,7 @@ export const ChatWidget: React.FC<Props> = ({ mode, variant = 'floating' }) => {
       if (text.trim()) {
         void sendMessage(text, true);
       } else if (voiceModeRef.current) {
-        // Silence / nothing heard — restart listening if still in voice mode
+        // Silence / nothing heard, restart listening if still in voice mode
         startRecording();
       }
     };
@@ -117,7 +119,7 @@ export const ChatWidget: React.FC<Props> = ({ mode, variant = 'floating' }) => {
         body: JSON.stringify({ text: truncateForSpeech(text) }),
       });
       if (!res.ok) {
-        // TTS failed — if in voice mode, restart mic anyway
+        // TTS failed, if in voice mode, restart mic anyway
         if (voiceModeRef.current) startRecording();
         return;
       }
@@ -139,7 +141,7 @@ export const ChatWidget: React.FC<Props> = ({ mode, variant = 'floating' }) => {
     }
   };
 
-  // fromVoice: true when called from the mic flow — keeps voice mode active
+  // fromVoice: true when called from the mic flow, keeps voice mode active
   const sendMessage = async (text: string, fromVoice = false) => {
     const trimmed = text.trim();
     if (!trimmed || loading) return;
@@ -159,7 +161,7 @@ export const ChatWidget: React.FC<Props> = ({ mode, variant = 'floating' }) => {
       if (res.ok && (speakerOn || voiceModeRef.current)) {
         void speakText(reply);
       } else if (voiceModeRef.current) {
-        // TTS not configured but still in voice mode — restart mic
+        // TTS not configured but still in voice mode, restart mic
         startRecording();
       }
     } catch {
@@ -259,7 +261,7 @@ export const ChatWidget: React.FC<Props> = ({ mode, variant = 'floating' }) => {
           <div className="flex items-center gap-2">
             <button onClick={startRecording}
               className={`p-2 rounded-lg transition-colors flex-shrink-0 ${iconColor}`}
-              title="Tap to speak — AI will talk back and keep listening">
+              title="Tap to speak. The AI will talk back and keep listening.">
               <Mic size={15} />
             </button>
             <div className="flex-1 relative">

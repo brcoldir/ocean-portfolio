@@ -44,12 +44,12 @@ const SITE_DATA = {
   name: "Ocean Coldiron",
   fullName: "Brandon Coldiron",
   role: "Senior Sustaining and Forward Deployed Engineer @ Abacus Insights",
-  location: "Remote (RV) | Base: TX",
+  location: "Remote (full-time RV)",
   tagline: "Modernizing business operations with AI, Go, and 15+ years of systems expertise.",
 
   about: {
 dev: "Senior Sustaining and Forward Deployed Engineer at Abacus Insights with 15+ years of experience building enterprise software, cloud infrastructure, healthcare integrations, and agentic AI systems. I specialize in Go services, AWS, HL7/FHIR interoperability across 200+ client integrations, and production AI engineering, MCP, RAG, multi-agent workflows, and LLMOps. My focus is turning operational chaos into calm, maintainable systems that run without constant intervention.",
-    human: "I design my life around growth, discomfort, and perspective. I live and work full-time from my RV, deliberately placing myself in unfamiliar places and cultures, often as the outsider in the room, because that is where real learning happens. I am pursuing the highest point in every U.S. state and training for Denali in 2028, not as a bucket list, but as a practice in discipline, resilience, and long-term thinking. Every challenge I choose is a system I’m trying to understand. Every place I go makes me better at building the next one.",
+    human: "I design my life around growth, discomfort, and perspective. I live and work full-time from my RV, deliberately placing myself in unfamiliar places and cultures, often as the outsider in the room, because that is where real learning happens. I have stood on the highest point of all 48 contiguous U.S. states, and Denali and the Seven Summits are next, around 2032. Not as a bucket list, but as a practice in discipline, resilience, and long-term thinking. Every challenge I choose is a system I’m trying to understand. Every place I go makes me better at building the next one.",
   },
 
   // --- SPLIT STATS: The Metrics that Matter for Each Side ---
@@ -64,7 +64,7 @@ dev: "Senior Sustaining and Forward Deployed Engineer at Abacus Insights with 15
       { value: "100k+", label: "YouTube Subs" },
       { value: "48/50", label: "State High Points" },
       { value: "Full-Time", label: "RV Living" },
-      { value: "2027", label: "Denali Goal" },
+      { value: "~2032", label: "Denali + Seven Summits" },
     ]
   },
 
@@ -100,8 +100,8 @@ dev: "Senior Sustaining and Forward Deployed Engineer at Abacus Insights with 15
         company: "North America",
         desc: "Left conventional stability behind to live and work full-time on the road. I chose constant change, unfamiliar environments, and new communities as my classroom, because comfort is the enemy of growth."
       },
-      { year: "2027", role: "Denali Summit Attempt", company: "Alaska Range", desc: "Primary expedition objective: reach the summit of Denali after completing all U.S. state high points." },
-      { year: "2023 - Present", role: "High Points Project", company: "North America", desc: "Transitioned to full-time RV life to pursue the highest point in every U.S. state while building software remotely." },
+      { year: "~2032", role: "Denali and the Seven Summits", company: "Alaska Range and beyond", desc: "Next big objective: Denali, one of the two remaining state high points along with Mauna Kea, as part of a Seven Summits push planned for around 2032." },
+      { year: "2023 - Present", role: "High Points Project", company: "North America", desc: "Transitioned to full-time RV life to pursue the highest point in every U.S. state while building software remotely. All 48 contiguous state high points are done; Denali and Mauna Kea remain." },
       { year: "2023 - Present", role: "Ocean Outdoors", company: "Media Platform", desc: "Built a 100k+ subscriber community focused on outdoor endurance, exploration, and lifestyle design." },
       { year: "2015 - 2019", role: "Owner / CEO", company: "RC Lawn and Tree", desc: "Bootstrapped a service business from zero. Learned the hard lessons of P&L, staffing, and customer satisfaction." },
     ]
@@ -122,7 +122,7 @@ dev: "Senior Sustaining and Forward Deployed Engineer at Abacus Insights with 15
     human: [
       { title: "Ocean Outdoors", desc: "A YouTube community of 100k+ outdoor enthusiasts following my journey across America.", tags: ["Video Production", "Community"], link: "https://youtube.com/@oceansoutdoors" },
       { title: "Ocean Outdoors Stories", desc: "Photo stories from the road: the lower 48 state high points, national parks, wildlife, and full-time RV life.", tags: ["Blog", "Photography"], link: "https://oceancoldiron.com/oceansoutdoors/" },
-      { title: "Project 50", desc: "The quest to summit the highest point in every US state. Currently at 48/50.", tags: ["Alpinism", "Logistics"], link: "https://oceancoldiron.com/oceansoutdoors/high-points/" },
+      { title: "Project 50", desc: "The quest to summit the highest point in every US state. 48/50 done: all of the lower 48. Denali and Mauna Kea remain.", tags: ["Alpinism", "Logistics"], link: "https://oceancoldiron.com/oceansoutdoors/high-points/" },
       { title: "The Mobile HQ", desc: "Custom retrofitted RV setup allowing for enterprise-grade remote work from off-grid locations.", tags: ["Solar", "Starlink", "Build"], link: "#" },
       { title: "Summit Ridge Digital", desc: "Web design, hosting, and digital services for small businesses. Because not every business needs a dev team, just a reliable partner.", tags: ["Web Design", "Hosting", "AWS", "Small Business"], link: "https://summitridgedigital.com" },
     ]
@@ -205,12 +205,12 @@ const DIFFERENTIATORS: Record<'dev' | 'human', { icon: React.ElementType; title:
     {
       icon: Youtube,
       title: "Outdoor Creator",
-      body: "100k+ YouTube subscribers. Adventure storytelling through Brandon Coldiron Outdoors and Ocean Outdoors. Building an audience around real, hard things.",
+      body: "100k+ YouTube subscribers. Adventure storytelling through Ocean Outdoors on YouTube, Facebook, Instagram, and TikTok. Building an audience around real, hard things.",
     },
     {
       icon: Mountain,
       title: "48/50 State High Points",
-      body: "One deliberate goal, pursued over years. Denali 2027. Discipline isn't a trait, it's a practice.",
+      body: "One deliberate goal, pursued over years. All of the lower 48 done, Denali and Mauna Kea to go, with Denali and the Seven Summits planned for around 2032. Discipline isn't a trait, it's a practice.",
     },
     {
       icon: Code,
@@ -296,14 +296,16 @@ const App = () => {
               </div>
             </div>
           </div>
-          <p className={`text-xs md:text-sm uppercase tracking-[0.2em] font-bold ${mode === 'dev' ? 'text-cyan-400 font-mono' : 'text-orange-600'}`}>
-            Ocean Coldiron · Senior Sustaining and Forward Deployed Engineer @ Abacus Insights · Remote
-          </p>
-          <h1 className={`text-4xl sm:text-5xl md:text-7xl font-black tracking-tight leading-[1.05] ${mode === 'dev' ? '' : 'font-serif text-stone-800'}`}>
-            AI Engineer shipping{' '}
-            <span className={`text-transparent bg-clip-text ${mode === 'dev' ? 'bg-gradient-to-r from-blue-400 to-cyan-400' : 'bg-gradient-to-r from-orange-500 to-amber-500'}`}>agents</span>
-            {' '}into regulated healthcare.
+          <h1 className={`text-5xl sm:text-6xl md:text-8xl font-black tracking-tight leading-none ${mode === 'dev' ? '' : 'font-serif text-stone-800'}`}>
+            Ocean{' '}
+            <span className={`text-transparent bg-clip-text ${mode === 'dev' ? 'bg-gradient-to-r from-blue-400 to-cyan-400' : 'bg-gradient-to-r from-orange-500 to-amber-500'}`}>Coldiron</span>
           </h1>
+          <p className={`text-xs md:text-sm uppercase tracking-[0.2em] font-bold ${mode === 'dev' ? 'text-cyan-400 font-mono' : 'text-orange-600'}`}>
+            Senior Sustaining and Forward Deployed Engineer @ Abacus Insights · Remote
+          </p>
+          <p className={`text-3xl sm:text-4xl md:text-5xl font-black tracking-tight leading-[1.1] ${mode === 'dev' ? '' : 'font-serif text-stone-800'}`}>
+            AI Engineer shipping agents into regulated healthcare.
+          </p>
           <p className={`text-lg md:text-xl max-w-2xl mx-auto leading-relaxed ${mode === 'dev' ? 'text-slate-300' : 'text-stone-600'}`}>
             I build MCP tools, RAG systems, and agentic workflows, and I plug them into the messy production systems they have to survive in: HL7, Mirth, SQL, and EHR data at real scale.
           </p>
@@ -335,7 +337,7 @@ const App = () => {
             <a href="#contact" aria-label="Contact"><Mail size={22} /></a>
           </div>
           <p className="text-sm opacity-70">
-            Off the clock I climb state high points and live full time in an RV. <a href="/oceansoutdoors/" className="underline underline-offset-4">Read the Ocean Outdoors stories</a>.
+            Off the clock I climb state high points and live full time in an RV. <a href="/oceansoutdoors/" className="underline underline-offset-4">Read the Ocean Outdoors stories</a> or learn <a href="/coldiron" className="underline underline-offset-4">about the Coldiron name</a>.
           </p>
         </div>
       </section>
@@ -509,11 +511,11 @@ const App = () => {
                       <div className="p-2 bg-indigo-100 text-indigo-700 rounded-lg"><Mountain size={24} /></div>
                       <div>
                         <div className="font-bold text-stone-800">Mountaineer</div>
-                        <div className="text-xs text-stone-500">Goal: Denali 2027</div>
+                        <div className="text-xs text-stone-500">Next: Denali + Seven Summits, ~2032</div>
                       </div>
                     </div>
                     <p className="text-sm text-stone-600 leading-snug">
-                      "Attempting to summit the high point of every US state. Living full-time on the road to make it happen."
+                      "48 of 50 state high points done, all of the lower 48. Living full-time on the road to make it happen."
                     </p>
                   </div>
                 </div>
@@ -555,7 +557,7 @@ const App = () => {
                     </p>
                   </div>
 
-                  {mode === 'human' && (item.role === 'High Points Project' || item.role === 'Denali Summit Attempt') && (
+                  {mode === 'human' && (item.role === 'High Points Project' || item.role === 'Denali and the Seven Summits') && (
                     <div className="w-[72px] h-[72px] rounded-xl overflow-hidden flex-shrink-0 mt-1">
                       {item.role === 'High Points Project' ? (
                         <img
@@ -564,7 +566,7 @@ const App = () => {
                           className="w-full h-full object-cover"
                         />
                       ) : (
-                        <div className="w-full h-full bg-amber-100 flex items-center justify-center" role="img" aria-label="Denali (no summit photo yet)">
+                        <div className="w-full h-full bg-amber-100 flex items-center justify-center" role="img" aria-label="Denali, still ahead">
                           <Mountain size={24} className="text-amber-600" />
                         </div>
                       )}
@@ -794,7 +796,7 @@ const App = () => {
       {/* Footer */}
       <footer className={`py-12 text-center text-sm opacity-50 ${mode === 'dev' ? 'bg-[#0a0f1e] text-slate-500' : 'bg-stone-200 text-stone-600'}`}>
         <p className="mb-2">
-          © {new Date().getFullYear()} Ocean (Brandon Coldiron) ·{" "}
+          © {new Date().getFullYear()} Ocean Coldiron (Brandon Coldiron) ·{" "}
           <a
             href="/coldiron"
             className={`underline-offset-4 hover:underline transition ${mode === 'dev'
@@ -802,7 +804,7 @@ const App = () => {
               : 'text-orange-600 hover:text-orange-700'
               }`}
           >
-            Coldiron
+            About the Coldiron name
           </a>
           {" · "}
           <a
@@ -831,6 +833,7 @@ const App = () => {
       </Routes>
       <Routes>
         <Route path="/coldiron" element={<ChatWidget mode={mode} />} />
+        <Route path="*" element={null} />
       </Routes>
     </>
   );
